@@ -1,0 +1,35 @@
+@import "tailwindcss";
+
+@theme {
+    /* Color palette */
+    --color-primary: #000000;
+    --color-primary-muted: rgba(0, 0, 0, .7);
+    --color-secondary: #ffffff;
+    --color-card: #E6E6E6;
+    --color-state: rgba(0, 0, 0, .05);
+
+    /* Typography */
+    --font-display: "Raleway", sans-serif;
+    --font-body: "Inter", sans-serif;
+
+    --text-hero: clamp(3rem, 8vw, 6rem);
+    --text-h1: clamp(2.5rem, 6vw, 4rem);
+    --text-h2: clamp(2rem, 4vw, 3rem);
+    --text-h3: clamp(1.5rem, 3vw, 2.25rem);
+    --text-h4: clamp(1.25rem, 2vw, 1.75rem);
+    --text-h5: clamp(1.125rem, 1.5vw, 1.5rem);
+
+    --text-body-sm: clamp(0.875rem, 1vw, 1rem);
+    --text-body: clamp(1rem, 1.5vw, 1.125rem);
+    --text-body-lg: clamp(1.125rem, 2vw, 1.375rem);
+
+    /* Spacing */
+    --spacing-2xs: 0.125rem;
+    --spacing-xs: 0.25rem;
+    --spacing-sm: 0.5rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 1.5rem;
+    --spacing-xl: 2rem;
+    --spacing-2xl: 3rem;
+    --spacing-3xl: 4rem;
+}
