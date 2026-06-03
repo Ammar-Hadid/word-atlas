@@ -1,0 +1,1 @@
+- [ ] Close suggestion wrapper on outside click.
