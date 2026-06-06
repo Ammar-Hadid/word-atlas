@@ -1,11 +1,15 @@
+import { Outlet, useLocation } from "react-router-dom";
+
 import Header from "./Header.jsx"
 
-const Layout = ({ children }) => {
+const Layout = () => {
+    const location = useLocation();
+    const hasReturn = location.pathname !== "/"
     return (
         <>
-            <Header />
-            <main className="px-3xl">
-                {children}
+            <Header hasReturn={hasReturn} />
+            <main className="px-md sm:px-3xl">
+                <Outlet />
             </main>
         </>
     )
