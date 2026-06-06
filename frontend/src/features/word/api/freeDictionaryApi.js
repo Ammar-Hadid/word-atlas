@@ -1,4 +1,4 @@
-const fetchWordData = async (word) => {
+export const fetchWordData = async (word) => {
     const response = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${encodeURIComponent(word)}`);
 
     if (response.status === 404) {
