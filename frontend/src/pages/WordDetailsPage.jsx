@@ -12,7 +12,7 @@ const WordDetailsPage = ({ setHasReturn }) => {
                 partsOfSpeech={wordDetails.partsOfSpeech}
             />
 
-            <MeaningsSection meanings={wordDetails.meanings} />
+            <MeaningsSection meaningsByPartOfSpeech={wordDetails.meaningsByPartOfSpeech} />
             <OriginSection origin={wordDetails.origin} />
         </div>
     );
