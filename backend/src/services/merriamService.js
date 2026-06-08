@@ -1,7 +1,7 @@
 const BASE_URL = "https://www.dictionaryapi.com/api/v3/references/learners/json"
 
 const fetchWord = async (term) => {
-    const key = process.env.MERRIAM_WEBSTER_LEARNING
+    const key = process.env.MERRIAM_WEBSTER_LEARNERS
 
     if (!key) {
         throw new Error("Merriam-Webster API key is missing.");

@@ -12,4 +12,4 @@ app.listen(PORT, () => {
 })
 
 app.use(express.json());
-app.use('/api/word:word', wordRouter);
+app.use('/api/words', wordRouter);
