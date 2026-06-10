@@ -11,8 +11,8 @@ const PillList = ({ items, limit = items?.length ?? 0 }) => {
 
     return (
         <div className="flex flex-wrap items-center gap-sm">
-            {visibleItems.map((item) => (
-                <Pill key={item}>{item}</Pill>
+            {visibleItems.map((item, index) => (
+                <Pill key={index}>{item}</Pill>
             ))}
 
             {hiddenItemsCount > 0 && (

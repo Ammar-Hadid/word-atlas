@@ -7,6 +7,7 @@
     --color-secondary: #ffffff;
     --color-card: #E6E6E6;
     --color-state: rgba(0, 0, 0, .05);
+    --color-danger: #DC2626;
 
     /* Typography */
     --font-display: "Raleway", sans-serif;
@@ -27,6 +28,7 @@
     --spacing-2xs: 0.125rem;
     --spacing-xs: 0.25rem;
     --spacing-sm: 0.5rem;
+    --spacing-base: 0.75rem;
     --spacing-md: 1rem;
     --spacing-lg: 1.5rem;
     --spacing-xl: 2rem;

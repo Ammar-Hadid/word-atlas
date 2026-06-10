@@ -9,6 +9,7 @@ const cleanText = (text = "") => {
         .replaceAll("{/phrase}", "")
         .replace(/\{\/?[^}]+\}/g, "")
         .replace(/\s+/g, " ")
+        .replace(/\[=[^\]]+\]/g, "")
         .trim();
 };
 
@@ -182,6 +183,7 @@ const normalizeLearnersResponse = (wordArr) => {
     }
 
     const normalizedWordArrs = wordArr.map((entry) => {
+
         const entryId = entry?.meta?.id ?? null;
         const pronunciation = entry?.hwi?.prs?.[0] ?? entry?.hwi?.altprs?.[0];
 

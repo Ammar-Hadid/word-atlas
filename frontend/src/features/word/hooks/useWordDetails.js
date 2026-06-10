@@ -1,12 +1,12 @@
 import { useState, useEffect } from "react";
 
-import { normalizeWord } from "../utils/normalizeWord.js";
-import { fetchWordData } from "../api/freeDictionaryApi.js";
+import { fetchWordData } from "../api/fetchWordData.js";
 
 export const useWordDetails = (wordId) => {
     const [word, setWord] = useState(null);
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState(null);
+    const [suggestedWords, setSuggestedWords] = useState([]);
 
 
     useEffect(() => {
@@ -20,15 +20,15 @@ export const useWordDetails = (wordId) => {
 
                 const wordData = await fetchWordData(wordId);
 
-                const normalizedWord = normalizeWord(wordData);
-
-                setWord(normalizedWord);
+                setWord(wordData.word);
             }
 
             catch (error) {
                 setWord(null);
                 setError(error.message || 'Something went wrong.');
                 console.error(error);
+
+                setSuggestedWords(error.suggestions ?? []);
             }
 
             finally {
@@ -43,7 +43,8 @@ export const useWordDetails = (wordId) => {
     return {
         word,
         isLoading,
-        error
+        error,
+        suggestedWords
     }
 
 }
