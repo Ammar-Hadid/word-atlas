@@ -15,7 +15,7 @@ const SearchField = () => {
     const navigate = useNavigate();
 
     const handleSearch = (searchTerm = query) => {
-        const trimmedQuery = query.trim();
+        const trimmedQuery = searchTerm.trim();
 
         if (trimmedQuery) {
             navigate(`/${encodeURIComponent(trimmedQuery)}`);
