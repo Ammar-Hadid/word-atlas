@@ -36,7 +36,7 @@ const CompactEntryCard = ({ entry }) => {
                         (<button onClick={() => setIsExpanded(prev => !prev)} className="border-0 bg-transparent cursor-pointer">
                             <ChevronRight
                                 strokeWidth={1}
-                                className={`${chevronStateStyles} w-2xl h-2xl opacity-0 text-primary group-hover/card:opacity-100 transition duration-300 ease-in-out`} />
+                                className={`${chevronStateStyles} w-2xl h-2xl opacity-70 lg:opacity-0 text-primary group-hover/card:opacity-100 transition duration-300 ease-in-out`} />
                         </button>)}
                 </div>
 

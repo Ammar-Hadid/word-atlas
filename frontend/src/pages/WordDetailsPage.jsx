@@ -4,6 +4,7 @@ import { useWordDetails } from "../features/word/hooks/useWordDetails.js";
 
 import EntryCard from "../features/word/components/EntryCard.jsx";
 import CompactEntryCard from "../features/word/components/CompactEntryCard.jsx";
+import getDefinitionPreview from "../features/word/utils/getDefinitionPreview.js";
 
 import EntryCardSkeleton from "../features/word/components/EntryCardSkeleton.jsx";
 
@@ -28,11 +29,11 @@ const WordDetailsPage = () => {
         return <NotFoundPage query={wordId} suggestedWords={suggestedWords} />
     }
 
-    const hasHeadWord = word
+    const relatedEntries = word
         ?.slice(1)
-        ?.some(entry => {
-            return Boolean(entry?.word)
-        });
+        ?.filter(entry => getDefinitionPreview(entry).length > 0) ?? [];
+
+    const hasRelatedEntries = relatedEntries.length > 0;
 
     return (
         <div className="font-body flex flex-col gap-3xl">
@@ -40,15 +41,11 @@ const WordDetailsPage = () => {
             <EntryCard entry={word?.[0]} />
 
             <div className="flex flex-col gap-md" >
-                {hasHeadWord && <h2 className="text-h4 font-medium">Related definitions</h2>}
+                {hasRelatedEntries && <h2 className="text-h4 font-medium">Related definitions</h2>}
                 <div>
-                    {word && (
-                        word
-                            .slice(1)
-                            .map(entry => {
-                                return <CompactEntryCard key={entry?.id} entry={entry} />
-                            })
-                    )}
+                    {relatedEntries.map(entry => {
+                        return <CompactEntryCard key={entry?.id} entry={entry} />
+                    })}
                 </div>
             </div >
         </div >
@@ -56,4 +53,3 @@ const WordDetailsPage = () => {
 };
 
 export default WordDetailsPage;
-

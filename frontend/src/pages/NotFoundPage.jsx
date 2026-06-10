@@ -8,8 +8,8 @@ const NotFoundPage = ({ query, suggestedWords = [] }) => {
     const hasSuggestions = suggestedWords?.length > 0
 
     return (
-        <div className='font-body flex justify-center items-center gap-2xl h-[70dvh]'>
-            <img src={NotFoundImg} className='w-100 h-100' />
+        <div className='font-body flex flex-col lg:flex-row justify-center items-center gap-2xl h-[70dvh] my-3xl'>
+            <img src={NotFoundImg} className='w-80 h-80 lg:w-100 lg:h-100' />
 
 
             <div className='flex flex-col gap-xl'>

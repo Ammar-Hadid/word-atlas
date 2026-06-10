@@ -8,9 +8,9 @@ const SearchPage = ({ setHasReturn }) => {
 
     return (
         <div className="flex justify-between items-start gap-3xl">
-            <div className="flex flex-col gap-xl pt-40">
+            <div className="flex flex-col gap-xl lg:pt-40 pt-20">
                 <div>
-                    <h1 className="font-display text-h1">Look up <span className="underline italic">any</span> word</h1>
+                    <h1 className="font-display text-h1 sm:leading-tight">Look up <span className="underline italic">any</span> word</h1>
                     <p className="text-primary-muted text-body-lg font-display">Search any word to explore its definition, pronunciation, and more.</p>
                 </div>
 
@@ -20,7 +20,7 @@ const SearchPage = ({ setHasReturn }) => {
             <img
                 src={SearchPageImage}
                 aria-hidden="true"
-                className="flex-1 max-w-[40%] h-auto"
+                className="hidden lg:block flex-1 max-w-[40%] h-auto"
             />
         </div>
     )
