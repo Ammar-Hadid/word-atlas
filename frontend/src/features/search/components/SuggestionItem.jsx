@@ -1,4 +1,4 @@
-const SuggestionItem = ({ query, suggestion }) => {
+const SuggestionItem = ({ query, suggestion, handleSearch }) => {
     const cleanQuery = query.trim().toLowerCase();
     const cleanSuggestion = suggestion.trim().toLowerCase();
 
@@ -14,7 +14,7 @@ const SuggestionItem = ({ query, suggestion }) => {
     const remainingText = suggestion.slice(cleanQuery.length);
 
     return (
-        <p className={suggestionItemClassList}>
+        <p onClick={() => handleSearch(suggestion)} className={suggestionItemClassList}>
             <span className="text-primary/50">{typedText}</span>
             <span className="text-primary">{remainingText}</span>
         </p>

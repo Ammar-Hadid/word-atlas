@@ -1,21 +1,47 @@
-import WordSummary from "../features/word/components/WordSummary.jsx";
-import MeaningsSection from "../features/word/components/MeaningsSection.jsx";
-import OriginSection from "../features/word/components/OriginSection.jsx";
+import { useParams } from "react-router-dom";
 
-const WordDetailsPage = ({ setHasReturn }) => {
+import { useWordDetails } from "../features/word/hooks/useWordDetails.js";
+
+import EntryCard from "../features/word/components/EntryCard.jsx";
+import CompactEntryCard from "../features/word/components/CompactEntryCard.jsx";
+
+import EntryCardSkeleton from "../features/word/components/EntryCardSkeleton.jsx";
+
+const WordDetailsPage = () => {
+    const { wordId } = useParams();
+    const { word, isLoading, error } = useWordDetails(wordId);
+
+    if (isLoading) {
+        return (
+            <div className="font-body flex flex-col gap-3xl">
+                <EntryCardSkeleton />
+                <EntryCardSkeleton />
+                <EntryCardSkeleton />
+            </div>
+        )
+    }
+
+
     return (
-        <div className="font-body">
-            <WordSummary
-                word={wordDetails.word}
-                phonetic={wordDetails.phonetic}
-                audio={wordDetails.audio}
-                partsOfSpeech={wordDetails.partsOfSpeech}
-            />
+        <div className="font-body flex flex-col gap-3xl">
 
-            <MeaningsSection meaningsByPartOfSpeech={wordDetails.meaningsByPartOfSpeech} />
-            <OriginSection origin={wordDetails.origin} />
-        </div>
+            <EntryCard entry={word?.[0]} />
+
+            <div className="flex flex-col gap-md" >
+                {word?.length > 1 && <h2 className="text-h4 font-medium">Related definitions</h2>}
+                <div>
+                    {word && (
+                        word
+                            .slice(1)
+                            .map(entry => {
+                                return <CompactEntryCard key={entry?.id} entry={entry} />
+                            })
+                    )}
+                </div>
+            </div >
+        </div >
     );
 };
 
 export default WordDetailsPage;
+

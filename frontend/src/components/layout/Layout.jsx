@@ -8,7 +8,7 @@ const Layout = () => {
     return (
         <>
             <Header hasReturn={hasReturn} />
-            <main className="px-md sm:px-3xl">
+            <main className="p-xl sm:px-3xl">
                 <Outlet />
             </main>
         </>

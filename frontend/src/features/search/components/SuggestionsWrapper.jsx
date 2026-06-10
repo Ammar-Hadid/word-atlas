@@ -1,6 +1,6 @@
 import SuggestionItem from "./SuggestionItem.jsx";
 
-const SuggestionsWrapper = ({ query, suggestions, isLoading, error }) => {
+const SuggestionsWrapper = ({ query, suggestions, isLoading, error, handleSearch }) => {
     const hasQuery = query.trim().length > 0;
     const hasSuggestions = suggestions.length > 0;
 
@@ -40,6 +40,7 @@ const SuggestionsWrapper = ({ query, suggestions, isLoading, error }) => {
                         key={suggestion}
                         query={query}
                         suggestion={suggestion}
+                        handleSearch={handleSearch}
                     />
                 ))}
         </div>

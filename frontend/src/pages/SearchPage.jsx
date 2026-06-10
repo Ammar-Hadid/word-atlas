@@ -1,7 +1,11 @@
+import { useNavigate } from "react-router-dom";
+
 import SearchField from "../features/search/components/SearchField.jsx";
 import SearchPageImage from "../assets/images/search-page-img.png";
 
+
 const SearchPage = ({ setHasReturn }) => {
+
     return (
         <div className="flex justify-between items-start gap-3xl">
             <div className="flex flex-col gap-xl pt-40">

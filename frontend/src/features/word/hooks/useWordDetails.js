@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 
-import { normalizeWord } from "../utils/normalizeWord.js";
-import { fetchWordData } from "../api/freeDictionaryApi.js";
+import { fetchWordData } from "../api/fetchWordData.js";
 
 export const useWordDetails = (wordId) => {
     const [word, setWord] = useState(null);
@@ -20,9 +19,7 @@ export const useWordDetails = (wordId) => {
 
                 const wordData = await fetchWordData(wordId);
 
-                const normalizedWord = normalizeWord(wordData);
-
-                setWord(normalizedWord);
+                setWord(wordData.word);
             }
 
             catch (error) {
