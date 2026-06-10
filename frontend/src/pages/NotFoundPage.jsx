@@ -4,6 +4,9 @@ import Pill from '../components/ui/Pill';
 import { Link } from 'react-router-dom';
 
 const NotFoundPage = ({ query, suggestedWords = [] }) => {
+
+    const hasSuggestions = suggestedWords?.length > 0
+
     return (
         <div className='font-body flex justify-center items-center gap-2xl h-[70dvh]'>
             <img src={NotFoundImg} className='w-100 h-100' />
@@ -15,20 +18,18 @@ const NotFoundPage = ({ query, suggestedWords = [] }) => {
                     <p className='text-body-lg'>We couldn't find a dictionary entry for this word.</p>
                 </div>
 
-                {suggestedWords?.length && (
+                {hasSuggestions && (
                     <div className='flex flex-col gap-md'>
                         <p className='text-body'>Did you mean:</p>
                         <div className='flex gap-md'>
-                            {suggestedWords?.length && (
-                                suggestedWords
-                                    .slice(0, 4)
-                                    .map((suggestion, index) => {
-                                        return (
-                                            <Link key={index} to={`/${encodeURIComponent(suggestion)}`}>
-                                                <Pill className='transition-colors duration-200 ease-in-out hover:bg-primary hover:text-secondary'>{suggestion}</Pill>
-                                            </Link>)
-                                    })
-                            )}
+                            {suggestedWords
+                                .slice(0, 4)
+                                .map((suggestion, index) => {
+                                    return (
+                                        <Link key={index} to={`/${encodeURIComponent(suggestion)}`}>
+                                            <Pill className='transition-colors duration-200 ease-in-out hover:bg-primary hover:text-secondary'>{suggestion}</Pill>
+                                        </Link>)
+                                })}
                         </div>
                     </div>
                 )}
