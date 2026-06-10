@@ -28,6 +28,11 @@ const WordDetailsPage = () => {
         return <NotFoundPage query={wordId} suggestedWords={suggestedWords} />
     }
 
+    const hasHeadWord = word
+        ?.slice(1)
+        ?.some(entry => {
+            return Boolean(entry?.word)
+        });
 
     return (
         <div className="font-body flex flex-col gap-3xl">
@@ -35,7 +40,7 @@ const WordDetailsPage = () => {
             <EntryCard entry={word?.[0]} />
 
             <div className="flex flex-col gap-md" >
-                {word?.length > 1 && <h2 className="text-h4 font-medium">Related definitions</h2>}
+                {hasHeadWord && <h2 className="text-h4 font-medium">Related definitions</h2>}
                 <div>
                     {word && (
                         word
