@@ -8,7 +8,7 @@ const PhraseSection = ({ phrases }) => {
     if (!phrases?.length) return null;
 
     const chevornStateStyles = isExpanded ? 'rotate-90' : 'rotate-0';
-    const phrasesWrapperStateStyles = isExpanded ? 'max-h-250 opacity-100 translate-y-0' : 'max-h-0 opacity-0 -translate-y-10'
+    const phrasesWrapperStateStyles = isExpanded ? 'max-h-1000 opacity-100 translate-y-0' : 'max-h-0 opacity-0 -translate-y-10'
 
     return (
         <div className="flex flex-col gap-md items-start">
@@ -20,7 +20,7 @@ const PhraseSection = ({ phrases }) => {
             <div className={`${phrasesWrapperStateStyles} flex flex-col gap-md pl-md pb-lg items-start overflow-hidden transition-[max-height,opacity,translate] duration-300 ease-in-out`}>
                 {phrases.map(phrase => {
                     return (
-                        <p key={phrase?.id} className="flex gap-sm items-center justify-start text-body-sm p-lg border border-primary/25 rounded-sm">
+                        <p key={phrase?.id} className="flex flex-col lg:flex-row gap-0 lg:gap-sm items-start lg:items-center justify-start text-body-sm p-lg border border-primary/25 rounded-sm">
                             <span className="font-bold">{phrase?.phrase}{phrase.definition && ':'}</span>
                             {phrase?.definition}
                         </p>)
