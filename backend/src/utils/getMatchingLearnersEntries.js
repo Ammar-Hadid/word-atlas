@@ -1,5 +1,4 @@
 const cleanHeadword = (word = "") => {
-
     return word.replaceAll("*", "").toLowerCase();
 
 };

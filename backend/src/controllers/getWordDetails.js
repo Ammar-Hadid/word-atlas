@@ -1,6 +1,7 @@
 import fetchWord from "../services/merriamService.js";
 import normalizeLearnersResponse from "../utils/normalizeLearnersResponse.js";
 import { getMatchingEntries } from "../utils/getMatchingLearnersEntries.js";
+import getValidSuggestions from "../utils/getValidSuggestions.js";
 
 export const getWordDetails = async (req, res) => {
     const term = req.query.term?.trim();
@@ -15,9 +16,10 @@ export const getWordDetails = async (req, res) => {
         const matchingEntries = getMatchingEntries(word, term);
 
         if (!matchingEntries.length) {
+            const suggestions = await getValidSuggestions(word)
             return res.status(404).json({
                 error: 'Word not found.',
-                suggestions: Array.isArray(word) ? word.filter(suggestion => typeof suggestion === "string") : []
+                suggestions,
             })
         }
 

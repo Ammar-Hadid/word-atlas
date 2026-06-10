@@ -7,9 +7,12 @@ import CompactEntryCard from "../features/word/components/CompactEntryCard.jsx";
 
 import EntryCardSkeleton from "../features/word/components/EntryCardSkeleton.jsx";
 
+import NotFoundPage from "./NotFoundPage.jsx";
+
+
 const WordDetailsPage = () => {
     const { wordId } = useParams();
-    const { word, isLoading, error } = useWordDetails(wordId);
+    const { word, isLoading, error, suggestedWords } = useWordDetails(wordId);
 
     if (isLoading) {
         return (
@@ -19,6 +22,10 @@ const WordDetailsPage = () => {
                 <EntryCardSkeleton />
             </div>
         )
+    }
+
+    if (error) {
+        return <NotFoundPage query={wordId} suggestedWords={suggestedWords} />
     }
 
 

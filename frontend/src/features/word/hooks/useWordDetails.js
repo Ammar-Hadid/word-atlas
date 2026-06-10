@@ -6,6 +6,7 @@ export const useWordDetails = (wordId) => {
     const [word, setWord] = useState(null);
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState(null);
+    const [suggestedWords, setSuggestedWords] = useState([]);
 
 
     useEffect(() => {
@@ -26,6 +27,8 @@ export const useWordDetails = (wordId) => {
                 setWord(null);
                 setError(error.message || 'Something went wrong.');
                 console.error(error);
+
+                setSuggestedWords(error.suggestions ?? []);
             }
 
             finally {
@@ -40,7 +43,8 @@ export const useWordDetails = (wordId) => {
     return {
         word,
         isLoading,
-        error
+        error,
+        suggestedWords
     }
 
 }
