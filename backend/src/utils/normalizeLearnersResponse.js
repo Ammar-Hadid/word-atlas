@@ -2,14 +2,9 @@ import buildMerriamAudioUrl from "./buildMerriamAudioUrl.js";
 
 const cleanText = (text = "") => {
     return text
-        .replaceAll("{bc}", "")
-        .replaceAll("{it}", "")
-        .replaceAll("{/it}", "")
-        .replaceAll("{phrase}", "")
-        .replaceAll("{/phrase}", "")
         .replace(/\{\/?[^}]+\}/g, "")
-        .replace(/\s+/g, " ")
         .replace(/\[=[^\]]+\]/g, "")
+        .replace(/\s+/g, " ")
         .trim();
 };
 
