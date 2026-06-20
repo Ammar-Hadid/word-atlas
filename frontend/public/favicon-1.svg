@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 406 210">
+  <style>
+    .logo {
+      fill: #000000;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .logo {
+        fill: #ffffff;
+      }
+    }
+  </style>
+
+  <path
+    class="logo"
+    d="M74 52 L124 171 L135 171 L159 114 L184 171 L195 171 L245 54 L232 52 L189 156 L167 105 L187 53 L176 53 L159 93 L143 53 L131 53 L152 104 L129 155 L87 53 Z"
+  />
+
+  <path
+    class="logo"
+    fill-rule="evenodd"
+    d="M297 52 L249 171 L265 171 L279 136 L327 136 L342 171 L359 171 L310 52 Z M303 72 L323 124 L282 123 Z"
+  />
+</svg>
