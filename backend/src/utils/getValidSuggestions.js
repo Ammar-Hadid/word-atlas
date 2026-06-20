@@ -21,9 +21,9 @@ const getValidSuggestions = async (suggestions) => {
                 return suggestion
             }
 
-            catch (error) {
-                console.error('Failed to load suggestion')
-                return null
+            catch {
+                console.error('Failed to load suggestion');
+                return null;
             }
         })
     )

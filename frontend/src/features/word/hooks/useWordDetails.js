@@ -26,7 +26,6 @@ export const useWordDetails = (wordId) => {
             catch (error) {
                 setWord(null);
                 setError(error.message || 'Something went wrong.');
-                console.error(error);
 
                 setSuggestedWords(error.suggestions ?? []);
             }

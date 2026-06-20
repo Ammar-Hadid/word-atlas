@@ -6,7 +6,7 @@ import PhraseSection from "./PhrasesSection.jsx";
 
 const EntryCard = ({ entry }) => {
     if (!entry?.senses?.length) return null;
-    const { word, audio, phonetic, partOfSpeech, isOffensive, forms, labels, senses, phrases } = entry;
+    const { word, audio, phonetic, partOfSpeech, isOffensive, forms, phrases } = entry;
 
     return (
         <div className="flex flex-col gap-lg font-body">

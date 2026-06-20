@@ -12,7 +12,7 @@ const CompactEntryCard = ({ entry }) => {
     const [isExpanded, setIsExpanded] = useState(false);
 
     if (!entry.senses.length) return null;
-    const { word, audio, phonetic, partOfSpeech, isOffensive, forms, labels, senses, phrases } = entry;
+    const { word, audio, phonetic, partOfSpeech, isOffensive, forms, senses, phrases } = entry;
 
     const chevronStateStyles = isExpanded ? 'rotate-90' : 'rotate-0';
     const wordDataWrapperStateStyles = isExpanded ? 'max-h-1000 opacity-100' : 'opacity-0 max-h-0'
