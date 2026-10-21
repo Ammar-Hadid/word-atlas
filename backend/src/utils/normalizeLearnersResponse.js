@@ -1,12 +1,7 @@
 import buildMerriamAudioUrl from "./buildMerriamAudioUrl.js";
+import cleanMarkup from "./cleanMarkup.js";
 
-const cleanText = (text = "") => {
-    return text
-        .replace(/\{\/?[^}]+\}/g, "")
-        .replace(/\[=[^\]]+\]/g, "")
-        .replace(/\s+/g, " ")
-        .trim();
-};
+const cleanText = cleanMarkup;
 
 const cleanHeadword = (word = "") => {
     return cleanText(word).replaceAll("*", "");
@@ -187,6 +182,8 @@ const normalizeLearnersResponse = (wordArr) => {
         return {
             id: entryId,
             word: cleanHeadword(entry?.hwi?.hw ?? ""),
+            // Merriam-Webster marks syllable breaks with "*" (ser*en*dip*i*ty).
+            syllables: cleanText(entry?.hwi?.hw ?? "").split("*").filter(Boolean),
             homograph: entry?.hom ?? null,
 
             audio: normalizedPronunciation.audio,

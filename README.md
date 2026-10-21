@@ -1,20 +1,31 @@
 # Word Atlas
-Word Atlas is a full stack dictionary application built for quickly searching and understanding English words while consuming entertainment.
-
-The app helps users search for a word, view clear definitions, see examples, hear pronunciation audio, and get useful word forms and phrases.
+**Every word, beautifully mapped.** Word Atlas is a full-stack dictionary with an editorial interface: definitions, pronunciation, origins, quotations and an interactive map of the meaning around every word.
 
 ## Features
-- Search for English words
-- Live word suggestions using Datamuse
-- Word detail page using Merriam-Webster Learner's Dictionary
-- Definitions and example sentences
-- Pronunciation audio when available
-- Word forms such as plural or past tense forms
-- Phrases connected to the searched word
-- Offensive word label when Merriam-Webster marks a word as offensive
-- Loading skeleton while word data is loading
-- Not found page for unknown words
-- Validated suggestions on the not found page
+
+### Explore
+- **Command palette** (`⌘K` / `Ctrl K`, or `/`) with live suggestions, recent and saved words, and quick actions
+- **Hero search** with keyboard-navigable suggestions
+- **Word of the Day** and curated collections on the home page
+
+### Every entry
+- Full sense list with grammar and usage labels, usage notes and example sentences (the headword is highlighted)
+- Part-of-speech tabs for words like *run* (verb / noun)
+- Syllable breaks, IPA and pronunciation audio, with a speech-synthesis fallback for words that have no recording
+- **Origin**: etymology and first known use (Merriam-Webster Collegiate)
+- **In the wild**: quotations from published writing
+- **At a glance**: a commonness rating based on corpus frequency
+- Thesaurus (synonyms and antonyms), inflections, a filterable phrase list, and rhymes
+- **The atlas**: an interactive semantic map. Closest, related and associated words orbit the headword; hover to trace a path, click to travel, and toggle each ring
+
+### Personal library
+- Save words (`S`), browse your history, filter and sort, and export to CSV
+- Stored locally on the device
+
+### Polish
+- Light, dark and system themes, with no flash on load
+- Responsive from 320px up, with reduced-motion support, skip links and ARIA comboboxes
+- Keyboard shortcuts: `P` to listen, `S` to save, `⌘K` to search
 
 ## Tech Stack
 
@@ -22,16 +33,19 @@ The app helps users search for a word, view clear definitions, see examples, hea
 - React
 - Vite
 - React Router
-- Tailwind CSS
+- Tailwind CSS v4
+- Motion (animation)
+- Lucide icons
 
 ### Backend
 - Node.js
 - Express
-- Merriam-Webster Learner's Dictionary API
+- In-memory TTL cache for dictionary responses
 
 ### External APIs
-- Datamuse API
-- Merriam-Webster Learner's Dictionary API
+- Merriam-Webster Learner's Dictionary (definitions, audio, forms, phrases)
+- Merriam-Webster Collegiate Dictionary (etymology, first known use, quotations)
+- Datamuse (suggestions, thesaurus, related words, frequency, rhymes)
 
 ## Project Structure
 ```
@@ -99,7 +113,8 @@ Create a `.env` file inside the backend folder.
 ```
 PORT=4000
 CLIENT_URL=http://localhost:5173
-MERRIAM_WEBSTER_LEARNERS=your_api_key_here
+MERRIAM_WEBSTER_LEARNERS=your_learners_key
+MERRIAM_WEBSTER_DICTIONARY=your_collegiate_key
 ```
 
 ### Frontend
@@ -150,19 +165,9 @@ It also:
 This makes the frontend easier to work with and prevents confusing results for the user.
 
 ## Known Limitations
-- Not every word has pronunciation audio
-- Some Datamuse suggestions may still not exist in Merriam-Webster
-- The app currently only has a light theme
-- The word detail page does not yet include images
-- There are no fallback dictionary APIs yet
-
-## Future Improvements
-- Add dark mode
-- Add fallback dictionary APIs
-- Add images to help explain words visually
-- Add local text to speech for words without audio
-- Add synonyms and antonyms
-- Add more detailed filtering for suggestions
+- Not every word has a studio recording. These fall back to the browser's speech engine
+- Datamuse associations are statistical, so the outer ring of the map can be loose
+- The library is stored per device (no accounts yet)
 
 ## Author
 Built by Ammar Hadid.

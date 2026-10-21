@@ -1,48 +1,25 @@
-import NotFoundImg from '../assets/images/not_found.png';
-import Pill from '../components/ui/Pill';
+import { Link } from "react-router-dom";
 
-import { Link } from 'react-router-dom';
+import { useDocumentTitle } from "../lib/useDocumentTitle.js";
 
-const NotFoundPage = ({ query, suggestedWords = [] }) => {
-
-    const hasSuggestions = suggestedWords?.length > 0
+const NotFoundPage = () => {
+    useDocumentTitle("Page not found");
 
     return (
-        <div className='font-body flex flex-col lg:flex-row justify-center items-center gap-2xl h-[70dvh] my-3xl'>
-            <img src={NotFoundImg} className='w-80 h-80 lg:w-100 lg:h-100' />
-
-
-            <div className='flex flex-col gap-xl'>
-                <div>
-                    <h1 className='text-h1'>No results for "{query}"</h1>
-                    <p className='text-body-lg'>We couldn't find a dictionary entry for this word.</p>
-                </div>
-
-                {hasSuggestions && (
-                    <div className='flex flex-col gap-md'>
-                        <p className='text-body'>Did you mean:</p>
-                        <div className='flex gap-md'>
-                            {suggestedWords
-                                .slice(0, 4)
-                                .map((suggestion, index) => {
-                                    return (
-                                        <Link key={index} to={`/${encodeURIComponent(suggestion)}`}>
-                                            <Pill className='transition-colors duration-200 ease-in-out hover:bg-primary hover:text-secondary'>{suggestion}</Pill>
-                                        </Link>)
-                                })}
-                        </div>
-                    </div>
-                )}
-
-                <div className='flex flex-col gap-md text-body'>
-                    <p>Check the spelling or try another search.</p>
-                    <Link to="/" className='underline'>Back to search</Link>
-                </div>
-
-
+        <section className="relative overflow-hidden">
+            <div className="atlas-grid pointer-events-none absolute inset-0" aria-hidden="true" />
+            <div className="container-page relative flex min-h-[60vh] flex-col items-start justify-center gap-lg py-3xl">
+                <span className="eyebrow">Error 404</span>
+                <h1 className="display text-h1 leading-none">
+                    This page is <em className="italic text-accent">off the map.</em>
+                </h1>
+                <p className="max-w-[28rem] text-body-lg text-muted">The address may be mistyped, or the page has moved.</p>
+                <Link to="/" className="rounded-full bg-ink px-lg py-sm text-body-sm text-paper transition-colors hover:bg-accent hover:text-accent-ink">
+                    Return to the atlas
+                </Link>
             </div>
-        </div>
-    )
-}
+        </section>
+    );
+};
 
-export default NotFoundPage
+export default NotFoundPage;
