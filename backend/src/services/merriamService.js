@@ -1,21 +1,43 @@
-const BASE_URL = "https://www.dictionaryapi.com/api/v3/references/learners/json"
+import createCache from "../utils/createCache.js";
 
-const fetchWord = async (term) => {
-    const key = process.env.MERRIAM_WEBSTER_LEARNERS
+const BASE_URL = "https://www.dictionaryapi.com/api/v3/references";
+
+const DICTIONARIES = {
+    learners: "MERRIAM_WEBSTER_LEARNERS",
+    collegiate: "MERRIAM_WEBSTER_DICTIONARY",
+};
+
+const cache = createCache();
+
+const fetchFromDictionary = async (dictionary, term) => {
+    const key = process.env[DICTIONARIES[dictionary]];
 
     if (!key) {
-        throw new Error("Merriam-Webster API key is missing.");
+        throw new Error(`Merriam-Webster ${dictionary} API key is missing.`);
     }
 
-    const url = `${BASE_URL}/${encodeURIComponent(term)}?key=${key}`
+    const cacheKey = `${dictionary}:${term.toLowerCase()}`;
+    const cached = cache.get(cacheKey);
 
-    const response = await fetch(url)
+    if (cached) return cached;
+
+    const url = `${BASE_URL}/${dictionary}/json/${encodeURIComponent(term)}?key=${key}`;
+
+    const response = await fetch(url);
 
     if (!response.ok) {
         throw new Error('Something went wrong.');
     }
 
-    return await response.json();
-}
+    const data = await response.json();
+
+    cache.set(cacheKey, data);
+
+    return data;
+};
+
+const fetchWord = (term) => fetchFromDictionary("learners", term);
+
+export const fetchCollegiateWord = (term) => fetchFromDictionary("collegiate", term);
 
 export default fetchWord;

@@ -1,7 +1,22 @@
-import fetchWord from "../services/merriamService.js";
+import fetchWord, { fetchCollegiateWord } from "../services/merriamService.js";
 import normalizeLearnersResponse from "../utils/normalizeLearnersResponse.js";
+import normalizeCollegiateResponse from "../utils/normalizeCollegiateResponse.js";
 import { getMatchingEntries } from "../utils/getMatchingLearnersEntries.js";
 import getValidSuggestions from "../utils/getValidSuggestions.js";
+
+// The Collegiate Dictionary is an enhancement, so a failure there should
+// never block the main Learner's response.
+const fetchOrigins = async (term) => {
+    try {
+        const entries = await fetchCollegiateWord(term);
+        return normalizeCollegiateResponse(entries, term);
+    }
+
+    catch (error) {
+        console.error(error.message);
+        return { origins: [], quotes: [] };
+    }
+};
 
 export const getWordDetails = async (req, res) => {
     const term = req.query.term?.trim();
@@ -11,7 +26,10 @@ export const getWordDetails = async (req, res) => {
     }
 
     try {
-        const word = await fetchWord(term);
+        const [word, { origins, quotes }] = await Promise.all([
+            fetchWord(term),
+            fetchOrigins(term),
+        ]);
 
         const matchingEntries = getMatchingEntries(word, term);
 
@@ -23,9 +41,20 @@ export const getWordDetails = async (req, res) => {
             })
         }
 
-        const normalizedWord = normalizeLearnersResponse(matchingEntries);
+        const normalizedWord = normalizeLearnersResponse(matchingEntries).map((entry) => {
+            const origin = origins.find((item) => item.partOfSpeech === entry.partOfSpeech)
+                ?? (entry.word.toLowerCase() === term.toLowerCase() ? origins[0] : null);
 
-        return res.status(200).json({ word: normalizedWord });
+            return {
+                ...entry,
+                etymology: origin?.etymology ?? null,
+                firstKnownUse: origin?.firstKnownUse ?? null,
+            };
+        });
+
+        res.set('Cache-Control', 'public, max-age=3600');
+
+        return res.status(200).json({ word: normalizedWord, quotes });
     }
 
     catch (error) {
