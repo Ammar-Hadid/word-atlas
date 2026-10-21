@@ -1,45 +1,39 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import { fetchSuggestions } from "../api/datamuseApi.js";
 
-export const useSuggestions = (query) => {
-    const [suggestions, setSuggestions] = useState([]);
-    const [isLoading, setIsLoading] = useState(false);
-    const [error, setError] = useState(null);
+export const useSuggestions = (query, { delay = 180 } = {}) => {
+    const [state, setState] = useState({ query: "", suggestions: [], error: null });
 
     const cleanedQuery = query.trim();
 
     useEffect(() => {
+        if (!cleanedQuery) return;
 
-        if (!cleanedQuery) {
-            return
-        }
+        const controller = new AbortController();
 
         const timerId = setTimeout(async () => {
             try {
-                setIsLoading(true);
-                setError(null);
-
-                const results = await fetchSuggestions(cleanedQuery);
-
-                setSuggestions(results);
+                const results = await fetchSuggestions(cleanedQuery, { signal: controller.signal });
+                setState({ query: cleanedQuery, suggestions: results, error: null });
             }
 
             catch (error) {
-                setSuggestions([]);
-                setError(error.message || 'Something went wrong.');
+                if (error.name === "AbortError") return;
+                setState({ query: cleanedQuery, suggestions: [], error: error.message || 'Something went wrong.' });
             }
+        }, delay);
 
-            finally {
-                setIsLoading(false);
-            }
-        }, 300);
+        return () => {
+            clearTimeout(timerId);
+            controller.abort();
+        };
+    }, [cleanedQuery, delay]);
 
-        return () => clearTimeout(timerId);
-    }, [cleanedQuery]);
+    const isFresh = cleanedQuery && state.query === cleanedQuery;
 
     return {
-        suggestions: cleanedQuery ? suggestions : [],
-        isLoading: cleanedQuery ? isLoading : false,
-        error: cleanedQuery ? error : null
-    }
+        suggestions: cleanedQuery ? state.suggestions : [],
+        isLoading: Boolean(cleanedQuery) && !isFresh,
+        error: isFresh ? state.error : null,
+    };
 }
