@@ -1,64 +1,31 @@
-import fetchWord, { fetchCollegiateWord } from "../services/merriamService.js";
-import normalizeLearnersResponse from "../utils/normalizeLearnersResponse.js";
-import normalizeCollegiateResponse from "../utils/normalizeCollegiateResponse.js";
-import { getMatchingEntries } from "../utils/getMatchingLearnersEntries.js";
-import getValidSuggestions from "../utils/getValidSuggestions.js";
+import { lookupTerm } from '../repositories/entries.js';
+import { validTerm } from '../import/normalizeKaikki.js';
+import { getEditorial } from '../services/editorialService.js';
+import { ensureEntryPronunciations } from '../services/pronunciationService.js';
 
-// The Collegiate Dictionary is an enhancement, so a failure there should
-// never block the main Learner's response.
-const fetchOrigins = async (term) => {
-    try {
-        const entries = await fetchCollegiateWord(term);
-        return normalizeCollegiateResponse(entries, term);
-    }
-
-    catch (error) {
-        console.error(error.message);
-        return { origins: [], quotes: [] };
-    }
-};
-
-export const getWordDetails = async (req, res) => {
-    const term = req.query.term?.trim();
-
-    if (!term) {
-        return res.status(400).json({ error: 'Term is required.' })
-    }
-
-    try {
-        const [word, { origins, quotes }] = await Promise.all([
-            fetchWord(term),
-            fetchOrigins(term),
-        ]);
-
-        const matchingEntries = getMatchingEntries(word, term);
-
-        if (!matchingEntries.length) {
-            const suggestions = await getValidSuggestions(word)
-            return res.status(404).json({
-                error: 'Word not found.',
-                suggestions,
-            })
+export function createWordDetailsController({ lookup=lookupTerm, pronunciations=ensureEntryPronunciations, editorialSource=getEditorial }={}) {
+    return async function getWordDetails(req,res) {
+        const term=req.query.term;
+        if(!validTerm(term)) return res.status(400).json({error:'Enter a term of 1–200 characters.'});
+        const local=await lookup(term);
+        if(local.word.length) {
+            for(const entry of local.word) {
+                try { entry.pronunciations=await pronunciations(entry); }
+                catch {
+                    // Audio metadata is optional. Its failure must not hide valid source meanings.
+                    entry.pronunciations=[];
+                    entry.audioAvailability='unavailable';
+                }
+            }
+            res.set('Cache-Control','no-cache');
+            return res.json(local);
         }
-
-        const normalizedWord = normalizeLearnersResponse(matchingEntries).map((entry) => {
-            const origin = origins.find((item) => item.partOfSpeech === entry.partOfSpeech)
-                ?? (entry.word.toLowerCase() === term.toLowerCase() ? origins[0] : null);
-
-            return {
-                ...entry,
-                etymology: origin?.etymology ?? null,
-                firstKnownUse: origin?.firstKnownUse ?? null,
-            };
-        });
-
-        res.set('Cache-Control', 'public, max-age=3600');
-
-        return res.status(200).json({ word: normalizedWord, quotes });
-    }
-
-    catch (error) {
-        console.error(error);
-        return res.status(500).json({ error: 'Server error.' })
-    }
+        if(req.query.localOnly==='1') return res.status(404).json({error:'Word not found in the local dictionary.',suggestions:local.suggestions});
+        const editorial=await editorialSource(term);
+        res.set('Cache-Control','no-store');
+        if(editorial.word.length) return res.json({...editorial,matchType:'editorial',releaseId:local.releaseId});
+        const unavailable=Object.values(editorial.availability).some(value=>!['available','not_found'].includes(typeof value==='string'?value:value?.status));
+        return res.status(404).json({error:'Word not found in the local dictionary.',suggestions:local.suggestions,providerAvailability:editorial.availability,editorialUnavailable:unavailable});
+    };
 }
+export const getWordDetails=createWordDetailsController();
