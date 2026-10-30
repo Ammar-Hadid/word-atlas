@@ -1,0 +1,30 @@
+{
+  "startedAt": "2026-10-30T00:02:23.623Z",
+  "releaseId": "kaikki-20261029-full",
+  "base": "http://127.0.0.1:4000",
+  "requests": 300,
+  "rps": 5,
+  "elapsedSeconds": 59.8,
+  "summary": {
+    "lookup": {
+      "count": 240,
+      "p50Ms": 14.4,
+      "p95Ms": 47.8,
+      "maximumMs": 61.8
+    },
+    "suggestions": {
+      "count": 30,
+      "p50Ms": 8.1,
+      "p95Ms": 91,
+      "maximumMs": 129.3
+    },
+    "cachedAudio": {
+      "count": 30,
+      "p50Ms": 3.5,
+      "p95Ms": 5.4,
+      "maximumMs": 12
+    }
+  },
+  "errors": [],
+  "scope": "VPS HTTP service time; local dictionary, local suggestions and retained audio only; no synthesis or editorial requests"
+}

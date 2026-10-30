@@ -1,0 +1,49 @@
+{
+  "startedAt": "2026-10-29T23:22:09Z",
+  "requests": [
+    {
+      "term": "cat",
+      "pronunciationId": "282c5d8223f51628f4120d09e47625e542e6c69662f1e74285aa29dbd9fd010c",
+      "ipa": "/\u02c8k\u00e6t/",
+      "elapsedMs": 2403.5,
+      "result": {
+        "status": "ready",
+        "assetKey": "3f140b06f29cf53a84ca0371de3f75142f82f72b840e0357fe39e7a3a29c5cb7",
+        "voice": "en-US-Chirp3-HD-Iapetus",
+        "url": "/audio/3f140b06f29cf53a84ca0371de3f75142f82f72b840e0357fe39e7a3a29c5cb7.mp3",
+        "duration": 1.062875,
+        "checksum": "250e407325428f9c571424a495da379d273630bebf93bc9261ee609e4de122ba"
+      }
+    },
+    {
+      "term": "rain cats and dogs",
+      "pronunciationId": "7137c71f327fa696568f5ae6687d0476028cf14368a6b4375ee75d1a67f4c7c3",
+      "ipa": null,
+      "elapsedMs": 1247.0,
+      "result": {
+        "status": "ready",
+        "assetKey": "9ce8b2a572a631387f50bccb1311ca0c61bc5ccf5d6f83d609722f4894280db2",
+        "voice": "en-US-Chirp3-HD-Iapetus",
+        "url": "/audio/9ce8b2a572a631387f50bccb1311ca0c61bc5ccf5d6f83d609722f4894280db2.mp3",
+        "duration": 1.416,
+        "checksum": "9cff9d625238a21664ba8962d513e2d8df238016ee83759a5dd47ee639d5259d"
+      }
+    }
+  ],
+  "before": {
+    "provider": "google-chirp3-hd",
+    "period_start": "2026-10-01T00:00:00.000Z",
+    "period_end": "2026-11-01T00:00:00.000Z",
+    "character_limit": 100000,
+    "verified_until": "2026-10-31T23:59:00.000Z",
+    "reserved_characters": 0
+  },
+  "after": {
+    "provider": "google-chirp3-hd",
+    "period_start": "2026-10-01T00:00:00.000Z",
+    "period_end": "2026-11-01T00:00:00.000Z",
+    "character_limit": 100000,
+    "verified_until": "2026-10-31T23:59:00.000Z",
+    "reserved_characters": 434
+  }
+}

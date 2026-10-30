@@ -1,0 +1,69 @@
+{
+  "startedAt": "2026-10-29T23:49:14.104Z",
+  "checks": [
+    {
+      "name": "Concurrent offline saves in separate tabs retain both durable operations",
+      "ok": true,
+      "detail": [
+        {
+          "id": "6b300388-301b-46c8-a814-be5d3d4404ed",
+          "word": "cat"
+        },
+        {
+          "id": "cb70e5d0-c75c-4fe6-9dd3-b53b4e3714c0",
+          "word": "dog"
+        }
+      ]
+    },
+    {
+      "name": "Closing both tabs and reopening delivers both saves once",
+      "ok": true,
+      "detail": [
+        {
+          "id": "6b300388-301b-46c8-a814-be5d3d4404ed",
+          "word": "cat"
+        },
+        {
+          "id": "cb70e5d0-c75c-4fe6-9dd3-b53b4e3714c0",
+          "word": "dog"
+        }
+      ]
+    },
+    {
+      "name": "Recovered library shows both words",
+      "ok": true
+    },
+    {
+      "name": "Acknowledged operation keys clear while original recovery keys remain",
+      "ok": true,
+      "detail": {
+        "operations": [],
+        "originals": [
+          "[]",
+          "[]",
+          "[]"
+        ]
+      }
+    },
+    {
+      "name": "Delayed owner pagination does not appear after logout",
+      "ok": true
+    },
+    {
+      "name": "Logout clears pagination controls and owner totals",
+      "ok": true
+    },
+    {
+      "name": "No uncaught browser exceptions or external provider requests",
+      "ok": true,
+      "detail": {
+        "errors": [],
+        "providerRequests": 0
+      }
+    }
+  ],
+  "errors": [],
+  "providerRequests": 0,
+  "passed": true,
+  "finishedAt": "2026-10-29T23:49:16.798Z"
+}

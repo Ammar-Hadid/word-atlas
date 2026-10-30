@@ -1,0 +1,13 @@
+{
+  "archive": "20261030T000407Z.tar.enc",
+  "bytes": 680058912,
+  "backupSeconds": 316.79,
+  "restoreSeconds": 138.48,
+  "offsiteVerifiedAt": "2026-10-30T00:10:06.173093Z",
+  "backupSchedule": "30 2 * * * UTC",
+  "retainedCompletedArchives": 2,
+  "temporaryIdentityRemoved": true,
+  "providerUsageRows": 2,
+  "reservedCharacters": 434,
+  "unrelatedSchedulesPreserved": true
+}

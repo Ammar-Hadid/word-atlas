@@ -1,0 +1,68 @@
+{
+  "verifiedAt": "2026-10-30T00:13:38.147Z",
+  "database": "word_atlas_restore_full",
+  "activeRelease": "kaikki-20261029-full",
+  "entryCount": 1499153,
+  "savedCount": 1,
+  "historyCount": 1,
+  "usage": {
+    "rows": 2,
+    "characters": 434
+  },
+  "fixture": [
+    {
+      "username": "browser-backup-test-be27fbadbd",
+      "active": false,
+      "saves": [
+        {
+          "term_key": "lead",
+          "entry_id": "205898f96f3cf0380d76c314403bb73d6a1200832d51d9eebbef12138c9dd8d8",
+          "saved_at": "2026-10-29T23:26:00.741+00:00"
+        }
+      ],
+      "history": [
+        {
+          "term_key": "lead",
+          "entry_id": null,
+          "first_visited_at": "2026-10-29T23:26:00.443+00:00",
+          "last_visited_at": "2026-10-29T23:26:20.134+00:00",
+          "visit_count": 2
+        }
+      ]
+    }
+  ],
+  "audioFiles": [
+    {
+      "assetKey": "3f140b06f29cf53a84ca0371de3f75142f82f72b840e0357fe39e7a3a29c5cb7",
+      "checksum": "250e407325428f9c571424a495da379d273630bebf93bc9261ee609e4de122ba",
+      "bytes": 13869
+    },
+    {
+      "assetKey": "58d3b4f6ac48e560d16a56f67d7b24f9c2ef9aa17558c13b6d54b077c626754f",
+      "checksum": "3ab8af30a506078384a076d83a162a1b263ccff26b511a5e19cdd5ab9ce4ccdb",
+      "bytes": 22221
+    },
+    {
+      "assetKey": "71450a2b7ec3728978224c0b2b7812689d1a13f387f406993f1ed79e9c95125c",
+      "checksum": "dfff74d23ccdbdc3b18efd1594940d3db4043815f48a5982b9e93fab1ba1b668",
+      "bytes": 13581
+    },
+    {
+      "assetKey": "9ce8b2a572a631387f50bccb1311ca0c61bc5ccf5d6f83d609722f4894280db2",
+      "checksum": "9cff9d625238a21664ba8962d513e2d8df238016ee83759a5dd47ee639d5259d",
+      "bytes": 17901
+    },
+    {
+      "assetKey": "cb9618a73be7e211a4f748456e9883f85b6099a156e8a593c0275b61b2fe289a",
+      "checksum": "59a49fbd77d02a76b50fb196319bcad6ac41bddd7a52b2161061adeba5091d61",
+      "bytes": 16173
+    },
+    {
+      "assetKey": "f92d6cf44ba34b46a0abc588a95707254f02ef09d4dcb23c7005dcb4cd314301",
+      "checksum": "371e96aad5eeae592a2afcb6256c900b9b42c9355d85e0aad97493c29e20801f",
+      "bytes": 20781
+    }
+  ],
+  "providerCalls": 0,
+  "matched": true
+}

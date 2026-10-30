@@ -1,0 +1,90 @@
+{
+  "origin": "https://word-atlas.ammarhadid.com",
+  "checks": [
+    {
+      "viewport": 1440,
+      "tab": "noun 1",
+      "entryId": "205898f96f3cf0380d76c314403bb73d6a1200832d51d9eebbef12138c9dd8d8",
+      "expectedVisibleCount": 6,
+      "actualVisibleCount": 6,
+      "ok": true
+    },
+    {
+      "viewport": 1440,
+      "tab": "verb 2",
+      "entryId": "5629c10774bc42dbf6354fc4606d318f2d9c100bb969f2ad23aa8a80195efdab",
+      "expectedVisibleCount": 6,
+      "actualVisibleCount": 6,
+      "ok": true
+    },
+    {
+      "viewport": 1440,
+      "tab": "noun 1",
+      "entryId": "205898f96f3cf0380d76c314403bb73d6a1200832d51d9eebbef12138c9dd8d8",
+      "expectedVisibleCount": 6,
+      "actualVisibleCount": 6,
+      "ok": true
+    },
+    {
+      "viewport": 1440,
+      "tab": "adjective",
+      "entryId": "5c25ecb00634ecd601b481b6fa70cac313f4fb38d5e1fe1b2ae40385e9f580a9",
+      "expectedVisibleCount": 2,
+      "actualVisibleCount": 2,
+      "ok": true
+    },
+    {
+      "viewport": 1440,
+      "tab": "verb 2",
+      "entryId": "5629c10774bc42dbf6354fc4606d318f2d9c100bb969f2ad23aa8a80195efdab",
+      "expectedVisibleCount": 6,
+      "actualVisibleCount": 6,
+      "ok": true
+    },
+    {
+      "viewport": 390,
+      "tab": "noun 1",
+      "entryId": "205898f96f3cf0380d76c314403bb73d6a1200832d51d9eebbef12138c9dd8d8",
+      "expectedVisibleCount": 6,
+      "actualVisibleCount": 6,
+      "ok": true
+    },
+    {
+      "viewport": 390,
+      "tab": "verb 2",
+      "entryId": "5629c10774bc42dbf6354fc4606d318f2d9c100bb969f2ad23aa8a80195efdab",
+      "expectedVisibleCount": 6,
+      "actualVisibleCount": 6,
+      "ok": true
+    },
+    {
+      "viewport": 390,
+      "tab": "noun 1",
+      "entryId": "205898f96f3cf0380d76c314403bb73d6a1200832d51d9eebbef12138c9dd8d8",
+      "expectedVisibleCount": 6,
+      "actualVisibleCount": 6,
+      "ok": true
+    },
+    {
+      "viewport": 390,
+      "tab": "adjective",
+      "entryId": "5c25ecb00634ecd601b481b6fa70cac313f4fb38d5e1fe1b2ae40385e9f580a9",
+      "expectedVisibleCount": 2,
+      "actualVisibleCount": 2,
+      "ok": true
+    },
+    {
+      "viewport": 390,
+      "tab": "verb 2",
+      "entryId": "5629c10774bc42dbf6354fc4606d318f2d9c100bb969f2ad23aa8a80195efdab",
+      "expectedVisibleCount": 6,
+      "actualVisibleCount": 6,
+      "ok": true
+    }
+  ],
+  "errors": [],
+  "sourceRelease": "kaikki-20261029-sample",
+  "startedAt": "2026-10-29T23:35:19.008Z",
+  "passed": true,
+  "finishedAt": "2026-10-29T23:35:27.578Z"
+}

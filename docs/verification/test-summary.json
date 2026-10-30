@@ -1,0 +1,30 @@
+{
+  "backend": {
+    "command": "node --env-file=.env.test --test",
+    "passed": 71,
+    "failed": 0,
+    "skipped": 0,
+    "durationMs": 23646.57775,
+    "database": "isolated VPS PostgreSQL test database"
+  },
+  "frontend": {
+    "command": "node --test test/*.test.js",
+    "passed": 13,
+    "failed": 0,
+    "lint": "passed",
+    "productionBuild": "passed"
+  },
+  "backendLint": "passed",
+  "dependencyAudits": {
+    "backendProduction": 0,
+    "frontendAll": 0
+  },
+  "providerCallsFromTests": 0,
+  "browserEvidence": [
+    "frontend-verification.md",
+    "verification/production-browser-results.json",
+    "verification/homograph-production-results.json",
+    "verification/offline-tabs-production-results.json"
+  ],
+  "notes": "Actual final runs; mocked paid synthesis and editorial adapters. Live smoke recordings are reported separately."
+}

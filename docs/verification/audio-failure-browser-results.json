@@ -1,0 +1,25 @@
+{
+  "checks": [
+    {
+      "name": "Preloaded Iapetus clip plays with network offline in mobile viewport",
+      "sample": {
+        "pronunciationId": "ae6c8d13a6eb706b6311dafba21362d9cee8e1fbf367b2afd9e1a4dd29b72ff3",
+        "assetKey": "71450a2b7ec3728978224c0b2b7812689d1a13f387f406993f1ed79e9c95125c",
+        "clickToPlayingMs": 2,
+        "readyStateAtClick": 4
+      }
+    },
+    {
+      "name": "Pending preparation has explicit Preparing state",
+      "posts": 1
+    },
+    {
+      "name": "Navigation cancels pending audio; home preview does not prepare",
+      "getsAtLeave": 2,
+      "getsAfter": 2,
+      "posts": 1
+    }
+  ],
+  "errors": [],
+  "passed": true
+}

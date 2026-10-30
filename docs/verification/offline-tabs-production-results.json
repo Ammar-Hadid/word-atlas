@@ -1,0 +1,71 @@
+{
+  "origin": "https://word-atlas.ammarhadid.com",
+  "api": "isolated mock; no remote personal data",
+  "startedAt": "2026-10-29T23:52:19.357Z",
+  "checks": [
+    {
+      "name": "Concurrent offline saves in separate tabs retain both durable operations",
+      "ok": true,
+      "detail": [
+        {
+          "id": "2b488abe-b07d-47cb-83fe-0ad48b68f89a",
+          "word": "cat"
+        },
+        {
+          "id": "19fce67c-d83d-4c21-a545-21a59e370019",
+          "word": "dog"
+        }
+      ]
+    },
+    {
+      "name": "Closing both tabs and reopening delivers both saves once",
+      "ok": true,
+      "detail": [
+        {
+          "id": "19fce67c-d83d-4c21-a545-21a59e370019",
+          "word": "dog"
+        },
+        {
+          "id": "2b488abe-b07d-47cb-83fe-0ad48b68f89a",
+          "word": "cat"
+        }
+      ]
+    },
+    {
+      "name": "Recovered library shows both words",
+      "ok": true
+    },
+    {
+      "name": "Acknowledged operation keys clear while original recovery keys remain",
+      "ok": true,
+      "detail": {
+        "operations": [],
+        "originals": [
+          "[]",
+          "[]",
+          "[]"
+        ]
+      }
+    },
+    {
+      "name": "Delayed owner pagination does not appear after logout",
+      "ok": true
+    },
+    {
+      "name": "Logout clears pagination controls and owner totals",
+      "ok": true
+    },
+    {
+      "name": "No uncaught browser exceptions or external provider requests",
+      "ok": true,
+      "detail": {
+        "errors": [],
+        "providerRequests": 0
+      }
+    }
+  ],
+  "errors": [],
+  "providerRequests": 0,
+  "passed": true,
+  "finishedAt": "2026-10-29T23:52:21.913Z"
+}
