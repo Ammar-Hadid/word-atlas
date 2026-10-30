@@ -32,7 +32,7 @@ export const useSuggestions = (query, { delay = 180 } = {}) => {
     const isFresh = cleanedQuery && state.query === cleanedQuery;
 
     return {
-        suggestions: cleanedQuery ? state.suggestions : [],
+        suggestions: isFresh ? state.suggestions : [],
         isLoading: Boolean(cleanedQuery) && !isFresh,
         error: isFresh ? state.error : null,
     };

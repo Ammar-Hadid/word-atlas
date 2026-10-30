@@ -1,7 +1,5 @@
 import { Link } from "react-router-dom";
-import { ArrowUpRight } from "lucide-react";
-
-import AudioButton from "./AudioButton.jsx";
+import { ArrowUpRight, Volume2 } from "lucide-react";
 
 import { useWordDetails } from "../hooks/useWordDetails.js";
 import { getFirstDefinition, splitEntries, getHighlightTerms } from "../utils/entries.js";
@@ -11,7 +9,7 @@ import { wordPath } from "../../../lib/platform.js";
 const formatDate = (date) => date.toLocaleDateString(undefined, { weekday: "short", month: "short", day: "numeric" });
 
 const WordOfTheDay = ({ word, date }) => {
-    const { entries, isLoading } = useWordDetails(word);
+    const { entries, isLoading } = useWordDetails(word, { localOnly: true });
 
     const entry = entries ? splitEntries(entries, word).primary[0] : null;
     const definition = getFirstDefinition(entry);
@@ -33,7 +31,7 @@ const WordOfTheDay = ({ word, date }) => {
                         {isLoading ? <span className="h-4 w-48 animate-pulse rounded bg-ink/10" /> : (
                             <>
                                 {entry?.partOfSpeech && <span className="display text-body-lg italic text-ink/80">{entry.partOfSpeech}</span>}
-                                {entry?.phonetic && <span>/{entry.phonetic}/</span>}
+                                {entry?.phonetic && <span>/{entry.phonetic.replace(/^[/[]|[/\]]$/g, '')}/</span>}
                             </>
                         )}
                     </div>
@@ -60,7 +58,7 @@ const WordOfTheDay = ({ word, date }) => {
 
             <div className="relative flex items-center justify-between gap-md">
                 {entry ? (
-                    <AudioButton word={word} audio={entry.audio} />
+                    <Link to={wordPath(word)} aria-label={`Open ${word} to hear its pronunciation`} className="group flex h-11 items-center gap-sm rounded-full bg-ink pl-base pr-md text-body-sm font-medium text-paper transition-all duration-300 hover:bg-accent hover:text-accent-ink"><span className="grid h-6 w-6 place-items-center"><Volume2 className="h-4 w-4" strokeWidth={2} /></span>Listen</Link>
                 ) : <span />}
 
                 <Link

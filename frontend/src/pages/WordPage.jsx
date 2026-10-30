@@ -1,8 +1,10 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { motion } from "motion/react";
 
 import WordHero from "../features/word/components/WordHero.jsx";
+import SourceNote from "../features/word/components/SourceNote.jsx";
+import EditorialEntries from "../features/word/components/EditorialEntries.jsx";
 import SenseList from "../features/word/components/SenseList.jsx";
 import FormsList from "../features/word/components/FormsList.jsx";
 import PhraseList from "../features/word/components/PhraseList.jsx";
@@ -46,28 +48,27 @@ const Section = ({ index, eyebrow, title, children }) => (
 const WordEntry = ({ term, entries, quotes, insights, insightsLoading }) => {
     const { primary, related } = splitEntries(entries, term);
     const [activeIndex, setActiveIndex] = useState(0);
-    const { recordVisit } = useLibrary();
 
     const entry = primary[activeIndex] ?? primary[0];
     const terms = getHighlightTerms(entry);
 
     useDocumentTitle(entry?.word);
 
-    useEffect(() => {
-        if (!primary[0]) return;
-        recordVisit({
-            word: primary[0].word,
-            partOfSpeech: primary[0].partOfSpeech,
-            definition: getFirstDefinition(primary[0]),
-        });
-        // Record once per word, not on every library change.
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [term]);
-
     if (!entry) return <WordNotFound query={term} />;
 
     const sections = [
-        { key: "meaning", title: "Meaning", eyebrow: `${entry.partOfSpeech ?? "entry"}`, show: true, render: () => <SenseList key={entry.id} entry={entry} terms={terms} /> },
+        { key: "meaning", title: "Meaning", eyebrow: `${entry.partOfSpeech ?? "entry"}`, show: true, render: () => (
+            <>
+                <SourceNote source={entry.source} />
+                {entry.requestedForm && <p className="text-body-sm text-muted">“{entry.requestedForm.form}” is a {entry.requestedForm.labels?.join(", ") || "form"} of <Link className="underline underline-offset-4 hover:text-ink" to={wordPath(entry.word)}>{entry.word}</Link>.</p>}
+                {entry.formResolution && entry.formResolution.status !== "resolved" && <div className="flex flex-wrap items-center gap-xs text-body-sm text-muted">
+                    <span>{entry.formResolution.status === "ambiguous" ? "Possible base entries:" : "A base entry could not be selected safely."}</span>
+                    {(entry.formResolution.candidates ?? []).map((candidate, index) => <WordChip key={candidate.id ?? index} word={typeof candidate === "string" ? candidate : candidate.word} />)}
+                </div>}
+                <SenseList key={`senses-${entry.id}`} entry={entry} terms={terms} />
+                {entry.source?.id === "wiktionary-en" && <EditorialEntries key={`editorial-${entry.id}`} entry={entry} />}
+            </>
+        ) },
         { key: "forms", title: "Forms", eyebrow: "Inflections", show: entry.forms?.length > 0, render: () => <FormsList forms={entry.forms} /> },
         { key: "phrases", title: "Phrases & idioms", eyebrow: `${entry.phrases?.length ?? 0} found`, show: entry.phrases?.length > 0, render: () => <PhraseList key={entry.id} phrases={entry.phrases} terms={terms} /> },
         { key: "quotes", title: "In the wild", eyebrow: "Published usage", show: quotes.length > 0, render: () => <QuoteList quotes={quotes} terms={terms} /> },
@@ -149,6 +150,15 @@ const WordPage = () => {
     const { term = "" } = useParams();
     const { entries, quotes, error, suggestedWords, isLoading } = useWordDetails(term);
     const { insights, isLoading: insightsLoading } = useWordInsights(term);
+    const { recordVisit } = useLibrary();
+    const lastVisit = useRef(null);
+    useEffect(() => {
+        if (!term) return;
+        if (lastVisit.current?.term !== term) lastVisit.current = { term, operationId: crypto.randomUUID(), visitedAt: Date.now() };
+        // The same submitted navigation has one key, including StrictMode's
+        // effect replay. Misses are history too; autocomplete never comes here.
+        void recordVisit({ word: term, ...lastVisit.current });
+    }, [term, recordVisit]);
 
     // On success the entry sets its own title.
     useDocumentTitle(isLoading ? term : "Not found", isLoading || Boolean(error));
@@ -156,7 +166,7 @@ const WordPage = () => {
     if (isLoading) return <WordPageSkeleton />;
 
     if (error) {
-        return <WordNotFound query={term} suggestedWords={suggestedWords} isNetworkError={error.status === 0} />;
+        return <WordNotFound query={term} suggestedWords={suggestedWords} isNetworkError={error.status === 0 || error.status >= 500} editorialUnavailable={error.editorialUnavailable} />;
     }
 
     return (

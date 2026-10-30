@@ -7,10 +7,10 @@ import HeroSearch from "../../search/components/HeroSearch.jsx";
 
 import { fetchSuggestions } from "../../search/api/datamuseApi.js";
 
-const WordNotFound = ({ query, suggestedWords = [], isNetworkError = false }) => {
+const WordNotFound = ({ query, suggestedWords = [], isNetworkError = false, editorialUnavailable = false }) => {
     const [spellings, setSpellings] = useState({ query: null, words: [] });
 
-    // Merriam-Webster's suggestions are validated server-side; Datamuse's
+    // Dictionary suggestions are candidates, never an asserted match; local
     // spelling suggestions fill in when there are none.
     useEffect(() => {
         if (suggestedWords.length || isNetworkError) return;
@@ -46,7 +46,9 @@ const WordNotFound = ({ query, suggestedWords = [], isNetworkError = false }) =>
                 <p className="max-w-[36rem] text-body-lg text-muted">
                     {isNetworkError
                         ? "Check your connection, then try again."
-                        : "It may be misspelled, very new, or a proper noun. Try one of these nearby words, or search again."}
+                        : editorialUnavailable
+                            ? "This term is not in the local dictionary, and the additional dictionary is unavailable right now. Try again later, or explore a nearby word."
+                            : "It may be misspelled, very new, or a proper noun. Try one of these nearby words, or search again."}
                 </p>
 
                 {isNetworkError && (

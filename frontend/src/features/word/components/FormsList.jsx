@@ -1,5 +1,3 @@
-import AudioButton from "./AudioButton.jsx";
-
 const FormsList = ({ forms }) => {
     const items = forms?.filter(form => form.form) ?? [];
 
@@ -15,7 +13,6 @@ const FormsList = ({ forms }) => {
                             {[form.label, form.phonetic && `/${form.phonetic}/`].filter(Boolean).join(" · ") || "inflection"}
                         </span>
                     </div>
-                    {form.audio && <AudioButton word={form.form} audio={form.audio} size="sm" />}
                 </li>
             ))}
         </ul>

@@ -9,9 +9,12 @@ export const getFirstDefinition = (entry) =>
 // Entries whose headword is the searched word become tabs; the rest
 // (e.g. "ran" when searching "run") are listed as related entries.
 export const splitEntries = (entries = [], term = "") => {
-    const usable = entries.filter(hasSenses);
-    const exact = usable.filter(entry => entry.word.toLowerCase() === term.toLowerCase());
-    const primary = exact.length ? exact : usable.slice(0, 1);
+    const defined = entries.filter(hasSenses);
+    const usable = defined.length ? defined : entries.filter(entry => entry?.word);
+    const caseExact = usable.filter(entry => entry.word === term);
+    const exact = caseExact.length ? caseExact : usable.filter(entry => entry.word.toLowerCase() === term.toLowerCase());
+    const formMatches = usable.filter(entry => entry.requestedForm);
+    const primary = exact.length ? exact : formMatches.length ? formMatches : usable.slice(0, 1);
 
     return {
         primary,

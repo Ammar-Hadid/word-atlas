@@ -55,7 +55,7 @@ const WordHero = ({ entries, activeIndex, onSelect, insights }) => {
 
                     <div className="flex flex-wrap items-center gap-x-lg gap-y-sm font-mono text-body-sm text-muted">
                         {syllables && <span>{syllables}</span>}
-                        {entry.phonetic && <span className="text-ink">/{entry.phonetic}/</span>}
+                        {entry.phonetic && <span className="text-ink">/{entry.phonetic.replace(/^[/[]|[/\]]$/g, '')}/</span>}
                         {insights.syllableCount && (
                             <span>{insights.syllableCount} {insights.syllableCount === 1 ? "syllable" : "syllables"}</span>
                         )}
@@ -64,10 +64,10 @@ const WordHero = ({ entries, activeIndex, onSelect, insights }) => {
 
                 <div className="flex flex-col gap-lg sm:flex-row sm:items-center sm:justify-between">
                     <div className="flex flex-wrap items-center gap-md">
-                        <AudioButton key={entry.id} word={entry.word} audio={entry.audio} shortcutKey="p" />
+                        <AudioButton key={entry.id} word={entry.word} pronunciations={entry.pronunciations} shortcutKey="p" />
 
                         {hasTabs ? (
-                            <div role="tablist" aria-label="Part of speech" className="flex rounded-full border border-line bg-surface p-xs">
+                            <div role="tablist" aria-label="Part of speech" className="flex max-w-full flex-wrap rounded-full border border-line bg-surface p-xs">
                                 {entries.map((item, index) => {
                                     const isActive = index === activeIndex;
 
@@ -87,7 +87,7 @@ const WordHero = ({ entries, activeIndex, onSelect, insights }) => {
                                                     className="absolute inset-0 rounded-full bg-ink"
                                                 />
                                             )}
-                                            <span className="relative">{item.partOfSpeech ?? "entry"}</span>
+                                            <span className="relative">{item.partOfSpeech ?? "entry"}{entries.filter(other => other.partOfSpeech === item.partOfSpeech).length > 1 ? ` ${item.homograph ?? index + 1}` : ""}</span>
                                         </button>
                                     );
                                 })}

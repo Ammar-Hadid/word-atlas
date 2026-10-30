@@ -18,20 +18,25 @@ const copyText = async (text) => {
 };
 
 const WordActions = ({ entry, definition }) => {
-    const { isSaved, toggleSaved } = useLibrary();
+    const { isSaved, checkSaved, membershipRevision, toggleSaved, user } = useLibrary();
     const notify = useToast();
 
     const saved = isSaved(entry.word);
 
-    const handleSave = () => {
-        const nowSaved = toggleSaved({
+    useEffect(() => { void checkSaved(entry.word); }, [checkSaved, entry.word, user, membershipRevision]);
+
+    const handleSave = async () => {
+        const result = await toggleSaved({
             word: entry.word,
+            entryId: entry.id,
             partOfSpeech: entry.partOfSpeech,
             phonetic: entry.phonetic,
             definition,
         });
 
-        notify(nowSaved ? `Saved “${entry.word}” to your library` : "Removed from your library");
+        notify(result.pending
+            ? (user ? "Change queued. Synchronization pending." : "Change queued. Sign in from Library to synchronize.")
+            : result.saved ? `Saved “${entry.word}” to your library` : "Removed from your library");
     };
 
     const handleCopy = async () => {

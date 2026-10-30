@@ -1,18 +1,7 @@
-const DATAMUSE_URL = "https://api.datamuse.com";
-
-const isSingleWord = (word) => /^[a-z][a-z'-]*$/i.test(word);
-
+// Suggestions use the persistent local corpus and never prepare audio or history.
 export const fetchSuggestions = async (query, { signal } = {}) => {
-    const response = await fetch(`${DATAMUSE_URL}/sug?s=${encodeURIComponent(query)}&max=20`, { signal });
-
-    if (!response.ok) {
-        throw new Error('Could not load suggestions');
-    }
-
+    const response = await fetch(`/api/suggestions?term=${encodeURIComponent(query)}`, { signal });
+    if (!response.ok) throw new Error("Could not load suggestions");
     const data = await response.json();
-
-    return data
-        .map(i => i.word)
-        .filter(isSingleWord)
-        .slice(0, 6);
+    return (data.suggestions ?? []).filter(word => typeof word === "string").slice(0, 6);
 };

@@ -4,6 +4,8 @@ import { AnimatePresence, motion } from "motion/react";
 import { ArrowUpRight, Download, Search, Trash2, X } from "lucide-react";
 
 import WordChip from "../components/ui/WordChip.jsx";
+import LibrarySync from "../components/library/LibrarySync.jsx";
+import { downloadLibrary } from "../lib/libraryApi.js";
 
 import { useLibrary, useToast } from "../context/contexts.js";
 import { FEATURED_WORDS } from "../data/words.js";
@@ -22,7 +24,8 @@ const UNITS = [
 ];
 
 const formatRelative = (timestamp, now) => {
-    const elapsed = timestamp - now;
+    if (!Number.isFinite(Number(timestamp)) || Number(timestamp) <= 0) return "Imported";
+    const elapsed = Number(timestamp) - now;
     const [unit, ms] = UNITS.find(([, size]) => Math.abs(elapsed) >= size) ?? ["minute", 1000 * 60];
     return relativeTime.format(Math.round(elapsed / ms), unit);
 };
@@ -32,7 +35,7 @@ const escapeCsv = (value = "") => `"${String(value ?? "").replaceAll('"', '""')}
 const downloadCsv = (items) => {
     const rows = [
         ["word", "part_of_speech", "phonetic", "definition", "saved_at"],
-        ...items.map(item => [item.word, item.partOfSpeech, item.phonetic, item.definition, new Date(item.savedAt).toISOString()]),
+        ...items.map(item => [item.word, item.partOfSpeech, item.phonetic, item.definition, Number.isFinite(Number(item.savedAt)) && Number(item.savedAt) > 0 ? new Date(Number(item.savedAt)).toISOString() : ""]),
     ];
     const csv = rows.map(row => row.map(escapeCsv).join(",")).join("\n");
     const url = URL.createObjectURL(new Blob([csv], { type: "text/csv;charset=utf-8" }));
@@ -53,7 +56,7 @@ const EmptyState = ({ tab }) => (
         </h2>
         <p className="max-w-[28rem] text-body text-muted">
             {tab === "saved"
-                ? "Press S on any entry, or tap the bookmark, to keep it here. Your library stays on this device."
+                ? "Press S on any entry, or tap the bookmark, to keep it here. Sign in to synchronize your library across devices."
                 : "Words you look up appear here, so you can retrace your steps."}
         </p>
         <div className="flex flex-wrap gap-xs">
@@ -63,7 +66,7 @@ const EmptyState = ({ tab }) => (
 );
 
 const LibraryPage = () => {
-    const { saved, history, removeSaved, clearHistory } = useLibrary();
+    const { saved, history, removeSaved, clearHistory, user, pages, loadMore } = useLibrary();
     const notify = useToast();
     const [tab, setTab] = useState("saved");
     const [filter, setFilter] = useState("");
@@ -94,14 +97,16 @@ const LibraryPage = () => {
                 <dl className="flex gap-xl">
                     <div>
                         <dt className="eyebrow">Saved</dt>
-                        <dd className="display text-h3 tabular-nums">{saved.length}</dd>
+                        <dd className="display text-h3 tabular-nums">{user ? pages.saved.total : saved.length}</dd>
                     </div>
                     <div>
                         <dt className="eyebrow">Explored</dt>
-                        <dd className="display text-h3 tabular-nums">{history.length}</dd>
+                        <dd className="display text-h3 tabular-nums">{user ? pages.history.total : history.length}</dd>
                     </div>
                 </dl>
             </header>
+
+            <LibrarySync />
 
             <div className="flex flex-col gap-md md:flex-row md:items-center md:justify-between">
                 <div role="tablist" aria-label="Library view" className="flex w-fit rounded-full border border-line bg-surface p-xs">
@@ -145,12 +150,15 @@ const LibraryPage = () => {
                         <option value="alpha">A → Z</option>
                     </select>
 
-                    {tab === "saved" && saved.length > 0 && (
+                    {(user || (tab === "saved" && saved.length > 0)) && (
                         <button
                             type="button"
-                            onClick={() => {
-                                downloadCsv(saved);
-                                notify("Library exported as CSV");
+                            onClick={async () => {
+                                try {
+                                    if (user) await downloadLibrary();
+                                    else downloadCsv(saved);
+                                    notify(user ? "Library and history exported" : "Library exported as CSV");
+                                } catch (error) { notify(error.message); }
                             }}
                             className="flex h-10 items-center gap-sm rounded-full bg-ink px-md text-body-sm text-paper transition-colors hover:bg-accent hover:text-accent-ink"
                         >
@@ -161,9 +169,9 @@ const LibraryPage = () => {
                     {tab === "history" && history.length > 0 && (
                         <button
                             type="button"
-                            onClick={() => {
-                                clearHistory();
-                                notify("History cleared");
+                            onClick={async () => {
+                                const synced = await clearHistory();
+                                notify(synced ? "History cleared" : "History cleared on this device. Synchronization pending.");
                             }}
                             className="flex h-10 items-center gap-sm rounded-full border border-line px-md text-body-sm text-muted transition-colors hover:border-ink hover:text-ink"
                         >
@@ -190,7 +198,7 @@ const LibraryPage = () => {
                                     <span className="display text-h4 leading-tight transition-colors group-hover:text-accent">{item.word}</span>
                                     <span className="flex items-baseline gap-sm text-body-sm text-muted">
                                         {item.partOfSpeech && <span className="display italic">{item.partOfSpeech}</span>}
-                                        {item.phonetic && <span className="font-mono text-[0.75rem]">/{item.phonetic}/</span>}
+                                        {item.phonetic && <span className="font-mono text-[0.75rem]">/{item.phonetic.replace(/^[/[]|[/\]]$/g, "")}/</span>}
                                     </span>
                                 </Link>
 
@@ -204,9 +212,9 @@ const LibraryPage = () => {
                                         <button
                                             type="button"
                                             aria-label={`Remove ${item.word}`}
-                                            onClick={() => {
-                                                removeSaved(item.word);
-                                                notify(`Removed “${item.word}”`);
+                                            onClick={async () => {
+                                                const synced = await removeSaved(item.word);
+                                                notify(synced ? `Removed “${item.word}”` : "Removed on this device. Synchronization pending.");
                                             }}
                                             className="grid h-8 w-8 place-items-center rounded-full text-faint transition-colors hover:bg-sunken hover:text-ink"
                                         >
@@ -224,6 +232,14 @@ const LibraryPage = () => {
                         <li className="py-xl text-body text-muted">Nothing matches &ldquo;{filter}&rdquo;.</li>
                     )}
                 </ul>
+            )}
+            {user && pages[tab].nextOffset !== null && pages[tab].nextOffset !== undefined && (
+                <div className="flex flex-col items-start gap-sm">
+                    <p className="text-body-sm text-muted">Showing {source.length} of {pages[tab].total}. Filtering and sorting apply to loaded words.</p>
+                    <button type="button" onClick={async () => {
+                        try { await loadMore(tab); } catch (error) { notify(error.message); }
+                    }} className="rounded-full border border-line-strong px-lg py-sm text-body-sm transition-colors hover:border-ink hover:bg-ink hover:text-paper">Load more</button>
+                </div>
             )}
         </div>
     );
