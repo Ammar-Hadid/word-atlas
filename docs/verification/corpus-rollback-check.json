@@ -1,0 +1,36 @@
+{
+  "verifiedAt": "2026-10-30T00:05:08.270Z",
+  "durationMs": 133,
+  "visibility": "full → sample → full inside one committed transaction; external readers see full throughout",
+  "active": "kaikki-20261029-full",
+  "rolledBackTo": "kaikki-20261029-sample",
+  "restoredTo": "kaikki-20261029-full",
+  "target": {
+    "id": "0951ee33ec78bcbd4bc86b60479c995b0b13f03e18e010a898f82196efb04b97",
+    "headword": "ultracrepidarian"
+  },
+  "stableReferenceRetained": true,
+  "personalAndAudioUnchanged": true,
+  "saved_count": 1,
+  "saved_digest": "e2762ecc30b5b4545264e1815e978258",
+  "history_count": 1,
+  "history_digest": "71c16c2f0c3305c0ac8b9b89d68689f6",
+  "ready_audio_count": 6,
+  "audio_digest": "6a8dffd6e966715ed6c24833225c1730",
+  "ledger_count": 2,
+  "ledger_characters": 434,
+  "ledger_digest": "d8a90edbf313d32ac3fafe7fe0eb624d",
+  "sourceDeduplication": {
+    "selectedRecords": 1499160,
+    "persistedEntries": 1499153,
+    "duplicateOccurrences": 7,
+    "knownVariantExample": [
+      {
+        "headword": "teratological",
+        "part_of_speech": "adjective",
+        "normalized_source_variants": 2
+      }
+    ],
+    "distinctDuplicateGroups": "not separately counted"
+  }
+}

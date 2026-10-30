@@ -1,5 +1,5 @@
-// Small in-memory TTL cache. Dictionary data rarely changes, and caching
-// keeps us well under the Merriam-Webster rate limits.
+// Bounded in-memory cache for disposable optional insights.
+// Proprietary editorial responses are not cached.
 const createCache = ({ ttl = 1000 * 60 * 60 * 6, max = 500 } = {}) => {
     const store = new Map();
 

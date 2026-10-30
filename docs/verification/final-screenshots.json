@@ -1,0 +1,38 @@
+{
+  "screenshots": [
+    "lead-desktop.png",
+    "library-desktop.png",
+    "lead-mobile.png",
+    "library-mobile.png",
+    "library-mobile-dark.png",
+    "login-mobile-dark.png"
+  ],
+  "errors": [],
+  "overflow": [
+    {
+      "page": "lead",
+      "mode": "desktop",
+      "overflow": false
+    },
+    {
+      "page": "library",
+      "mode": "desktop",
+      "overflow": false
+    },
+    {
+      "page": "lead",
+      "mode": "mobile",
+      "overflow": false
+    },
+    {
+      "page": "library",
+      "mode": "mobile",
+      "overflow": false
+    }
+  ],
+  "dark": {
+    "background": "rgb(14, 13, 11)",
+    "overflow": false
+  },
+  "passed": true
+}

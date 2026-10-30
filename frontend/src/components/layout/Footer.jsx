@@ -24,7 +24,7 @@ const Footer = () => {
                         <a href="https://github.com/Ammar-Hadid/word-atlas" target="_blank" rel="noreferrer" className="hover:text-ink">Source</a>
                     </nav>
                     <p className="eyebrow normal-case tracking-normal">
-                        Data from Merriam-Webster &amp; Datamuse · Crafted by{" "}
+                        Data from Wiktionary, Merriam-Webster &amp; Datamuse · Crafted by{" "}
                         <a href="https://ammarhadid.com" target="_blank" rel="noreferrer" className="text-ink underline decoration-line-strong underline-offset-4 hover:decoration-accent">
                             Ammar Hadid
                         </a>

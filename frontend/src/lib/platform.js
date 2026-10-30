@@ -10,4 +10,4 @@ export const isTypingTarget = (target) => {
     return tag === "INPUT" || tag === "TEXTAREA" || tag === "SELECT" || target.isContentEditable;
 };
 
-export const wordPath = (word) => `/word/${encodeURIComponent(word.trim().toLowerCase())}`;
+export const wordPath = (word) => `/word/${encodeURIComponent(word.trim())}`;

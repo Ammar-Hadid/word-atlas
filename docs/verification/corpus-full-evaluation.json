@@ -1,0 +1,1165 @@
+{
+  "releaseId": "kaikki-20261029-full",
+  "integrity": {
+    "checked_entries": 1499153,
+    "payload_id_mismatches": 0,
+    "entries_without_definitions": 1333,
+    "exact_lookup_key_mismatches": 0,
+    "orphan_forms": 0,
+    "non_english_entries": 0
+  },
+  "evaluatedAt": "2026-10-30T00:00:49.067Z",
+  "counts": {
+    "lines": 11121531,
+    "idioms": 8995,
+    "senses": 1795039,
+    "entries": 1499153,
+    "proverbs": 1576,
+    "rejected": 1,
+    "headwords": 1396110,
+    "expressions": 321917,
+    "form_aliases": 926718,
+    "sample_every": 1,
+    "phrasal_verbs": 5202,
+    "elapsed_seconds": 2649.2370124511717,
+    "english_records": 1499161,
+    "compressed_bytes": 3082185963,
+    "rejected_records": 1,
+    "selected_records": 1499160,
+    "form_only_entries": 687383,
+    "expression_entries": 328675,
+    "multiword_headwords": 321917,
+    "non_english_records": 9622370,
+    "reviewed_exclusions": 1,
+    "expression_headwords": 323226,
+    "unreviewed_rejections": 0,
+    "entries_with_definitions": 1497820
+  },
+  "sizes": {
+    "database_bytes": "5271623347",
+    "entries_bytes": "1271496704",
+    "source_entries_bytes": "3490357248",
+    "forms_bytes": "499916800"
+  },
+  "categories": {
+    "idiom": {
+      "found": 27,
+      "total": 32
+    },
+    "phrasal_verb": {
+      "found": 30,
+      "total": 32
+    },
+    "common": {
+      "found": 5,
+      "total": 5
+    },
+    "uncommon": {
+      "found": 5,
+      "total": 5
+    },
+    "technical": {
+      "found": 5,
+      "total": 5
+    },
+    "inflection": {
+      "found": 5,
+      "total": 5
+    },
+    "variant": {
+      "found": 5,
+      "total": 5
+    },
+    "punctuation": {
+      "found": 3,
+      "total": 3
+    },
+    "homograph": {
+      "found": 5,
+      "total": 5
+    },
+    "case": {
+      "found": 4,
+      "total": 4
+    },
+    "unresolved": {
+      "found": 0,
+      "total": 1
+    }
+  },
+  "lookupLatency": {
+    "p50Ms": 4.3,
+    "p95Ms": 210.7,
+    "measurement": "Sequential database-backed lookups, no provider calls; includes network to database if run remotely"
+  },
+  "results": [
+    {
+      "term": "break the ice",
+      "category": "idiom",
+      "found": true,
+      "matchType": "exact",
+      "entryCount": 1,
+      "examples": 1,
+      "formResolution": [],
+      "latencyMs": 21.9
+    },
+    {
+      "term": "spill the beans",
+      "category": "idiom",
+      "found": true,
+      "matchType": "exact",
+      "entryCount": 1,
+      "examples": 1,
+      "formResolution": [],
+      "latencyMs": 2.8
+    },
+    {
+      "term": "kick the bucket",
+      "category": "idiom",
+      "found": true,
+      "matchType": "exact",
+      "entryCount": 1,
+      "examples": 2,
+      "formResolution": [],
+      "latencyMs": 2.3
+    },
+    {
+      "term": "bite the bullet",
+      "category": "idiom",
+      "found": true,
+      "matchType": "exact",
+      "entryCount": 1,
+      "examples": 1,
+      "formResolution": [],
+      "latencyMs": 43.6
+    },
+    {
+      "term": "hit the sack",
+      "category": "idiom",
+      "found": true,
+      "matchType": "exact",
+      "entryCount": 1,
+      "examples": 0,
+      "formResolution": [],
+      "latencyMs": 3.1
+    },
+    {
+      "term": "under the weather",
+      "category": "idiom",
+      "found": true,
+      "matchType": "exact",
+      "entryCount": 1,
+      "examples": 0,
+      "formResolution": [],
+      "latencyMs": 6
+    },
+    {
+      "term": "once in a blue moon",
+      "category": "idiom",
+      "found": true,
+      "matchType": "exact",
+      "entryCount": 1,
+      "examples": 0,
+      "formResolution": [],
+      "latencyMs": 3.6
+    },
+    {
+      "term": "a piece of cake",
+      "category": "idiom",
+      "found": false,
+      "matchType": "not_found",
+      "entryCount": 0,
+      "examples": 0,
+      "formResolution": [],
+      "latencyMs": 220.7
+    },
+    {
+      "term": "the ball is in your court",
+      "category": "idiom",
+      "found": false,
+      "matchType": "not_found",
+      "entryCount": 0,
+      "examples": 0,
+      "formResolution": [],
+      "latencyMs": 269.1
+    },
+    {
+      "term": "burn the midnight oil",
+      "category": "idiom",
+      "found": true,
+      "matchType": "exact",
+      "entryCount": 1,
+      "examples": 3,
+      "formResolution": [],
+      "latencyMs": 3.1
+    },
+    {
+      "term": "cost an arm and a leg",
+      "category": "idiom",
+      "found": false,
+      "matchType": "not_found",
+      "entryCount": 0,
+      "examples": 0,
+      "formResolution": [],
+      "latencyMs": 208.9
+    },
+    {
+      "term": "let the cat out of the bag",
+      "category": "idiom",
+      "found": true,
+      "matchType": "exact",
+      "entryCount": 1,
+      "examples": 1,
+      "formResolution": [],
+      "latencyMs": 3.8
+    },
+    {
+      "term": "on the same page",
+      "category": "idiom",
+      "found": true,
+      "matchType": "exact",
+      "entryCount": 1,
+      "examples": 1,
+      "formResolution": [],
+      "latencyMs": 3.6
+    },
+    {
+      "term": "out of the blue",
+      "category": "idiom",
+      "found": true,
+      "matchType": "exact",
+      "entryCount": 1,
+      "examples": 2,
+      "formResolution": [],
+      "latencyMs": 2.4
+    },
+    {
+      "term": "pull the wool over someone's eyes",
+      "category": "idiom",
+      "found": true,
+      "matchType": "exact",
+      "entryCount": 1,
+      "examples": 0,
+      "formResolution": [],
+      "latencyMs": 2.5
+    },
+    {
+      "term": "beat around the bush",
+      "category": "idiom",
+      "found": true,
+      "matchType": "exact",
+      "entryCount": 1,
+      "examples": 1,
+      "formResolution": [],
+      "latencyMs": 4.9
+    },
+    {
+      "term": "by the skin of one's teeth",
+      "category": "idiom",
+      "found": true,
+      "matchType": "exact",
+      "entryCount": 1,
+      "examples": 1,
+      "formResolution": [],
+      "latencyMs": 69.1
+    },
+    {
+      "term": "the tip of the iceberg",
+      "category": "idiom",
+      "found": false,
+      "matchType": "not_found",
+      "entryCount": 0,
+      "examples": 0,
+      "formResolution": [],
+      "latencyMs": 210.7
+    },
+    {
+      "term": "a blessing in disguise",
+      "category": "idiom",
+      "found": false,
+      "matchType": "not_found",
+      "entryCount": 0,
+      "examples": 0,
+      "formResolution": [],
+      "latencyMs": 210.9
+    },
+    {
+      "term": "add insult to injury",
+      "category": "idiom",
+      "found": true,
+      "matchType": "exact",
+      "entryCount": 1,
+      "examples": 1,
+      "formResolution": [],
+      "latencyMs": 3
+    },
+    {
+      "term": "barking up the wrong tree",
+      "category": "idiom",
+      "found": true,
+      "matchType": "exact",
+      "entryCount": 1,
+      "examples": 1,
+      "formResolution": [
+        "resolved"
+      ],
+      "latencyMs": 5.9
+    },
+    {
+      "term": "cry over spilled milk",
+      "category": "idiom",
+      "found": true,
+      "matchType": "form",
+      "entryCount": 1,
+      "examples": 0,
+      "formResolution": [],
+      "latencyMs": 75.8
+    },
+    {
+      "term": "cut corners",
+      "category": "idiom",
+      "found": true,
+      "matchType": "exact",
+      "entryCount": 1,
+      "examples": 2,
+      "formResolution": [],
+      "latencyMs": 3.2
+    },
+    {
+      "term": "get cold feet",
+      "category": "idiom",
+      "found": true,
+      "matchType": "exact",
+      "entryCount": 1,
+      "examples": 1,
+      "formResolution": [],
+      "latencyMs": 2.7
+    },
+    {
+      "term": "go the extra mile",
+      "category": "idiom",
+      "found": true,
+      "matchType": "exact",
+      "entryCount": 1,
+      "examples": 0,
+      "formResolution": [],
+      "latencyMs": 3.2
+    },
+    {
+      "term": "jump on the bandwagon",
+      "category": "idiom",
+      "found": true,
+      "matchType": "exact",
+      "entryCount": 1,
+      "examples": 1,
+      "formResolution": [],
+      "latencyMs": 3.1
+    },
+    {
+      "term": "miss the boat",
+      "category": "idiom",
+      "found": true,
+      "matchType": "exact",
+      "entryCount": 1,
+      "examples": 2,
+      "formResolution": [],
+      "latencyMs": 3.3
+    },
+    {
+      "term": "on thin ice",
+      "category": "idiom",
+      "found": true,
+      "matchType": "exact",
+      "entryCount": 2,
+      "examples": 1,
+      "formResolution": [],
+      "latencyMs": 3.4
+    },
+    {
+      "term": "sit on the fence",
+      "category": "idiom",
+      "found": true,
+      "matchType": "exact",
+      "entryCount": 1,
+      "examples": 0,
+      "formResolution": [],
+      "latencyMs": 3.2
+    },
+    {
+      "term": "throw in the towel",
+      "category": "idiom",
+      "found": true,
+      "matchType": "exact",
+      "entryCount": 1,
+      "examples": 1,
+      "formResolution": [],
+      "latencyMs": 69
+    },
+    {
+      "term": "up in the air",
+      "category": "idiom",
+      "found": true,
+      "matchType": "exact",
+      "entryCount": 2,
+      "examples": 2,
+      "formResolution": [],
+      "latencyMs": 3.8
+    },
+    {
+      "term": "when pigs fly",
+      "category": "idiom",
+      "found": true,
+      "matchType": "exact",
+      "entryCount": 1,
+      "examples": 0,
+      "formResolution": [],
+      "latencyMs": 3
+    },
+    {
+      "term": "give up",
+      "category": "phrasal_verb",
+      "found": true,
+      "matchType": "exact",
+      "entryCount": 2,
+      "examples": 13,
+      "formResolution": [],
+      "latencyMs": 4.5
+    },
+    {
+      "term": "look up",
+      "category": "phrasal_verb",
+      "found": true,
+      "matchType": "exact",
+      "entryCount": 1,
+      "examples": 4,
+      "formResolution": [],
+      "latencyMs": 2.8
+    },
+    {
+      "term": "put off",
+      "category": "phrasal_verb",
+      "found": true,
+      "matchType": "exact",
+      "entryCount": 2,
+      "examples": 10,
+      "formResolution": [],
+      "latencyMs": 3.9
+    },
+    {
+      "term": "take off",
+      "category": "phrasal_verb",
+      "found": true,
+      "matchType": "exact",
+      "entryCount": 2,
+      "examples": 22,
+      "formResolution": [
+        "resolved"
+      ],
+      "latencyMs": 8.3
+    },
+    {
+      "term": "carry on",
+      "category": "phrasal_verb",
+      "found": true,
+      "matchType": "exact",
+      "entryCount": 3,
+      "examples": 15,
+      "formResolution": [
+        "resolved"
+      ],
+      "latencyMs": 11.2
+    },
+    {
+      "term": "break down",
+      "category": "phrasal_verb",
+      "found": true,
+      "matchType": "exact",
+      "entryCount": 2,
+      "examples": 18,
+      "formResolution": [
+        "resolved"
+      ],
+      "latencyMs": 71.4
+    },
+    {
+      "term": "bring up",
+      "category": "phrasal_verb",
+      "found": true,
+      "matchType": "exact",
+      "entryCount": 1,
+      "examples": 8,
+      "formResolution": [],
+      "latencyMs": 3.9
+    },
+    {
+      "term": "call off",
+      "category": "phrasal_verb",
+      "found": true,
+      "matchType": "exact",
+      "entryCount": 1,
+      "examples": 2,
+      "formResolution": [],
+      "latencyMs": 3.2
+    },
+    {
+      "term": "come across",
+      "category": "phrasal_verb",
+      "found": true,
+      "matchType": "exact",
+      "entryCount": 1,
+      "examples": 10,
+      "formResolution": [],
+      "latencyMs": 3.1
+    },
+    {
+      "term": "come up with",
+      "category": "phrasal_verb",
+      "found": true,
+      "matchType": "exact",
+      "entryCount": 1,
+      "examples": 3,
+      "formResolution": [],
+      "latencyMs": 3.1
+    },
+    {
+      "term": "cut down on",
+      "category": "phrasal_verb",
+      "found": false,
+      "matchType": "not_found",
+      "entryCount": 0,
+      "examples": 0,
+      "formResolution": [],
+      "latencyMs": 280.8
+    },
+    {
+      "term": "drop out",
+      "category": "phrasal_verb",
+      "found": true,
+      "matchType": "exact",
+      "entryCount": 1,
+      "examples": 5,
+      "formResolution": [],
+      "latencyMs": 5.6
+    },
+    {
+      "term": "figure out",
+      "category": "phrasal_verb",
+      "found": true,
+      "matchType": "exact",
+      "entryCount": 1,
+      "examples": 2,
+      "formResolution": [],
+      "latencyMs": 4.1
+    },
+    {
+      "term": "get along",
+      "category": "phrasal_verb",
+      "found": true,
+      "matchType": "exact",
+      "entryCount": 1,
+      "examples": 4,
+      "formResolution": [],
+      "latencyMs": 3.2
+    },
+    {
+      "term": "get away with",
+      "category": "phrasal_verb",
+      "found": true,
+      "matchType": "exact",
+      "entryCount": 1,
+      "examples": 5,
+      "formResolution": [],
+      "latencyMs": 2.4
+    },
+    {
+      "term": "give in",
+      "category": "phrasal_verb",
+      "found": true,
+      "matchType": "exact",
+      "entryCount": 1,
+      "examples": 5,
+      "formResolution": [],
+      "latencyMs": 2.9
+    },
+    {
+      "term": "go over",
+      "category": "phrasal_verb",
+      "found": true,
+      "matchType": "exact",
+      "entryCount": 1,
+      "examples": 7,
+      "formResolution": [],
+      "latencyMs": 3.9
+    },
+    {
+      "term": "hold on",
+      "category": "phrasal_verb",
+      "found": true,
+      "matchType": "exact",
+      "entryCount": 1,
+      "examples": 5,
+      "formResolution": [],
+      "latencyMs": 3.8
+    },
+    {
+      "term": "keep up with",
+      "category": "phrasal_verb",
+      "found": true,
+      "matchType": "exact",
+      "entryCount": 1,
+      "examples": 0,
+      "formResolution": [],
+      "latencyMs": 3.2
+    },
+    {
+      "term": "look after",
+      "category": "phrasal_verb",
+      "found": true,
+      "matchType": "exact",
+      "entryCount": 1,
+      "examples": 1,
+      "formResolution": [],
+      "latencyMs": 68.8
+    },
+    {
+      "term": "look forward to",
+      "category": "phrasal_verb",
+      "found": true,
+      "matchType": "exact",
+      "entryCount": 1,
+      "examples": 3,
+      "formResolution": [],
+      "latencyMs": 3.8
+    },
+    {
+      "term": "make up",
+      "category": "phrasal_verb",
+      "found": true,
+      "matchType": "exact",
+      "entryCount": 2,
+      "examples": 10,
+      "formResolution": [
+        "resolved"
+      ],
+      "latencyMs": 9.5
+    },
+    {
+      "term": "pick up",
+      "category": "phrasal_verb",
+      "found": true,
+      "matchType": "exact",
+      "entryCount": 2,
+      "examples": 25,
+      "formResolution": [
+        "resolved"
+      ],
+      "latencyMs": 9.7
+    },
+    {
+      "term": "put up with",
+      "category": "phrasal_verb",
+      "found": true,
+      "matchType": "exact",
+      "entryCount": 1,
+      "examples": 1,
+      "formResolution": [],
+      "latencyMs": 3.2
+    },
+    {
+      "term": "run into",
+      "category": "phrasal_verb",
+      "found": true,
+      "matchType": "exact",
+      "entryCount": 1,
+      "examples": 11,
+      "formResolution": [],
+      "latencyMs": 3.3
+    },
+    {
+      "term": "run out of",
+      "category": "phrasal_verb",
+      "found": false,
+      "matchType": "not_found",
+      "entryCount": 0,
+      "examples": 0,
+      "formResolution": [],
+      "latencyMs": 70.4
+    },
+    {
+      "term": "set up",
+      "category": "phrasal_verb",
+      "found": true,
+      "matchType": "exact",
+      "entryCount": 2,
+      "examples": 18,
+      "formResolution": [],
+      "latencyMs": 4.5
+    },
+    {
+      "term": "show up",
+      "category": "phrasal_verb",
+      "found": true,
+      "matchType": "exact",
+      "entryCount": 1,
+      "examples": 7,
+      "formResolution": [],
+      "latencyMs": 4.2
+    },
+    {
+      "term": "take after",
+      "category": "phrasal_verb",
+      "found": true,
+      "matchType": "exact",
+      "entryCount": 1,
+      "examples": 1,
+      "formResolution": [],
+      "latencyMs": 2.8
+    },
+    {
+      "term": "turn down",
+      "category": "phrasal_verb",
+      "found": true,
+      "matchType": "exact",
+      "entryCount": 1,
+      "examples": 4,
+      "formResolution": [],
+      "latencyMs": 2.9
+    },
+    {
+      "term": "work out",
+      "category": "phrasal_verb",
+      "found": true,
+      "matchType": "exact",
+      "entryCount": 1,
+      "examples": 23,
+      "formResolution": [],
+      "latencyMs": 3.4
+    },
+    {
+      "term": "back up",
+      "category": "phrasal_verb",
+      "found": true,
+      "matchType": "exact",
+      "entryCount": 1,
+      "examples": 9,
+      "formResolution": [],
+      "latencyMs": 4.6
+    },
+    {
+      "term": "atlas",
+      "category": "common",
+      "found": true,
+      "matchType": "exact",
+      "entryCount": 2,
+      "examples": 2,
+      "formResolution": [],
+      "latencyMs": 6.5
+    },
+    {
+      "term": "apple",
+      "category": "common",
+      "found": true,
+      "matchType": "exact",
+      "entryCount": 2,
+      "examples": 2,
+      "formResolution": [],
+      "latencyMs": 77.2
+    },
+    {
+      "term": "walk",
+      "category": "common",
+      "found": true,
+      "matchType": "exact",
+      "entryCount": 2,
+      "examples": 22,
+      "formResolution": [],
+      "latencyMs": 9.9
+    },
+    {
+      "term": "read",
+      "category": "common",
+      "found": true,
+      "matchType": "exact",
+      "entryCount": 3,
+      "examples": 22,
+      "formResolution": [
+        "ambiguous"
+      ],
+      "latencyMs": 11
+    },
+    {
+      "term": "lead",
+      "category": "common",
+      "found": true,
+      "matchType": "exact",
+      "entryCount": 6,
+      "examples": 40,
+      "formResolution": [
+        "ambiguous"
+      ],
+      "latencyMs": 93.8
+    },
+    {
+      "term": "sesquipedalian",
+      "category": "uncommon",
+      "found": true,
+      "matchType": "exact",
+      "entryCount": 2,
+      "examples": 2,
+      "formResolution": [],
+      "latencyMs": 4
+    },
+    {
+      "term": "defenestration",
+      "category": "uncommon",
+      "found": true,
+      "matchType": "exact",
+      "entryCount": 1,
+      "examples": 0,
+      "formResolution": [],
+      "latencyMs": 3.9
+    },
+    {
+      "term": "ultracrepidarian",
+      "category": "uncommon",
+      "found": true,
+      "matchType": "exact",
+      "entryCount": 2,
+      "examples": 0,
+      "formResolution": [],
+      "latencyMs": 4.6
+    },
+    {
+      "term": "petrichor",
+      "category": "uncommon",
+      "found": true,
+      "matchType": "exact",
+      "entryCount": 1,
+      "examples": 0,
+      "formResolution": [],
+      "latencyMs": 3
+    },
+    {
+      "term": "quincunx",
+      "category": "uncommon",
+      "found": true,
+      "matchType": "exact",
+      "entryCount": 1,
+      "examples": 0,
+      "formResolution": [],
+      "latencyMs": 2.8
+    },
+    {
+      "term": "zygomorphic",
+      "category": "technical",
+      "found": true,
+      "matchType": "exact",
+      "entryCount": 1,
+      "examples": 0,
+      "formResolution": [],
+      "latencyMs": 2.7
+    },
+    {
+      "term": "eigenvalue",
+      "category": "technical",
+      "found": true,
+      "matchType": "exact",
+      "entryCount": 1,
+      "examples": 0,
+      "formResolution": [],
+      "latencyMs": 59.6
+    },
+    {
+      "term": "polymerase",
+      "category": "technical",
+      "found": true,
+      "matchType": "exact",
+      "entryCount": 1,
+      "examples": 0,
+      "formResolution": [],
+      "latencyMs": 3.4
+    },
+    {
+      "term": "synecdoche",
+      "category": "technical",
+      "found": true,
+      "matchType": "exact",
+      "entryCount": 1,
+      "examples": 0,
+      "formResolution": [],
+      "latencyMs": 3.9
+    },
+    {
+      "term": "anastomosis",
+      "category": "technical",
+      "found": true,
+      "matchType": "exact",
+      "entryCount": 1,
+      "examples": 0,
+      "formResolution": [],
+      "latencyMs": 2.8
+    },
+    {
+      "term": "walked",
+      "category": "inflection",
+      "found": true,
+      "matchType": "exact",
+      "entryCount": 1,
+      "examples": 14,
+      "formResolution": [
+        "resolved"
+      ],
+      "latencyMs": 7.1
+    },
+    {
+      "term": "running",
+      "category": "inflection",
+      "found": true,
+      "matchType": "exact",
+      "entryCount": 5,
+      "examples": 13,
+      "formResolution": [
+        "ambiguous"
+      ],
+      "latencyMs": 20.2
+    },
+    {
+      "term": "mice",
+      "category": "inflection",
+      "found": true,
+      "matchType": "exact",
+      "entryCount": 2,
+      "examples": 4,
+      "formResolution": [
+        "resolved"
+      ],
+      "latencyMs": 63.3
+    },
+    {
+      "term": "better",
+      "category": "inflection",
+      "found": true,
+      "matchType": "exact",
+      "entryCount": 6,
+      "examples": 25,
+      "formResolution": [
+        "resolved",
+        "resolved"
+      ],
+      "latencyMs": 14.9
+    },
+    {
+      "term": "children",
+      "category": "inflection",
+      "found": true,
+      "matchType": "exact",
+      "entryCount": 1,
+      "examples": 0,
+      "formResolution": [
+        "ambiguous"
+      ],
+      "latencyMs": 2.9
+    },
+    {
+      "term": "colour",
+      "category": "variant",
+      "found": true,
+      "matchType": "exact",
+      "entryCount": 3,
+      "examples": 0,
+      "formResolution": [],
+      "latencyMs": 3.8
+    },
+    {
+      "term": "co-operate",
+      "category": "variant",
+      "found": true,
+      "matchType": "exact",
+      "entryCount": 1,
+      "examples": 0,
+      "formResolution": [
+        "resolved"
+      ],
+      "latencyMs": 4.5
+    },
+    {
+      "term": "judgement",
+      "category": "variant",
+      "found": true,
+      "matchType": "exact",
+      "entryCount": 1,
+      "examples": 2,
+      "formResolution": [
+        "resolved"
+      ],
+      "latencyMs": 5.1
+    },
+    {
+      "term": "theatre",
+      "category": "variant",
+      "found": true,
+      "matchType": "exact",
+      "entryCount": 1,
+      "examples": 0,
+      "formResolution": [],
+      "latencyMs": 2.3
+    },
+    {
+      "term": "organise",
+      "category": "variant",
+      "found": true,
+      "matchType": "exact",
+      "entryCount": 1,
+      "examples": 0,
+      "formResolution": [],
+      "latencyMs": 2.3
+    },
+    {
+      "term": "mother-in-law",
+      "category": "punctuation",
+      "found": true,
+      "matchType": "exact",
+      "entryCount": 1,
+      "examples": 0,
+      "formResolution": [],
+      "latencyMs": 61.9
+    },
+    {
+      "term": "rock ’n’ roll",
+      "category": "punctuation",
+      "found": true,
+      "matchType": "exact",
+      "entryCount": 1,
+      "examples": 2,
+      "formResolution": [
+        "resolved"
+      ],
+      "latencyMs": 7.9
+    },
+    {
+      "term": "jack-o’-lantern",
+      "category": "punctuation",
+      "found": true,
+      "matchType": "exact",
+      "entryCount": 1,
+      "examples": 0,
+      "formResolution": [],
+      "latencyMs": 5.5
+    },
+    {
+      "term": "lead",
+      "category": "homograph",
+      "found": true,
+      "matchType": "exact",
+      "entryCount": 6,
+      "examples": 40,
+      "formResolution": [
+        "ambiguous"
+      ],
+      "latencyMs": 17.2
+    },
+    {
+      "term": "bow",
+      "category": "homograph",
+      "found": true,
+      "matchType": "exact",
+      "entryCount": 11,
+      "examples": 11,
+      "formResolution": [
+        "resolved",
+        "ambiguous",
+        "resolved",
+        "resolved",
+        "resolved"
+      ],
+      "latencyMs": 90.7
+    },
+    {
+      "term": "wind",
+      "category": "homograph",
+      "found": true,
+      "matchType": "exact",
+      "entryCount": 4,
+      "examples": 21,
+      "formResolution": [],
+      "latencyMs": 8.7
+    },
+    {
+      "term": "tear",
+      "category": "homograph",
+      "found": true,
+      "matchType": "exact",
+      "entryCount": 4,
+      "examples": 19,
+      "formResolution": [],
+      "latencyMs": 70.9
+    },
+    {
+      "term": "bass",
+      "category": "homograph",
+      "found": true,
+      "matchType": "exact",
+      "entryCount": 5,
+      "examples": 6,
+      "formResolution": [],
+      "latencyMs": 7.8
+    },
+    {
+      "term": "US",
+      "category": "case",
+      "found": true,
+      "matchType": "exact",
+      "entryCount": 4,
+      "examples": 4,
+      "formResolution": [
+        "ambiguous",
+        "ambiguous",
+        "unresolved",
+        "resolved"
+      ],
+      "latencyMs": 12.1
+    },
+    {
+      "term": "us",
+      "category": "case",
+      "found": true,
+      "matchType": "exact",
+      "entryCount": 4,
+      "examples": 19,
+      "formResolution": [
+        "resolved"
+      ],
+      "latencyMs": 15.3
+    },
+    {
+      "term": "Polish",
+      "category": "case",
+      "found": true,
+      "matchType": "exact",
+      "entryCount": 2,
+      "examples": 0,
+      "formResolution": [],
+      "latencyMs": 63.5
+    },
+    {
+      "term": "polish",
+      "category": "case",
+      "found": true,
+      "matchType": "exact",
+      "entryCount": 2,
+      "examples": 6,
+      "formResolution": [],
+      "latencyMs": 4.3
+    },
+    {
+      "term": "qzxqzx-invalid",
+      "category": "unresolved",
+      "found": false,
+      "matchType": "not_found",
+      "entryCount": 0,
+      "examples": 0,
+      "formResolution": [],
+      "latencyMs": 210.8
+    }
+  ]
+}

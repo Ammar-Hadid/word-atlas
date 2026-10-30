@@ -10,7 +10,7 @@ const initialState = {
     suggestedWords: [],
 };
 
-export const useWordDetails = (wordId) => {
+export const useWordDetails = (wordId, { localOnly = false } = {}) => {
     const [state, setState] = useState(initialState);
 
     useEffect(() => {
@@ -18,7 +18,7 @@ export const useWordDetails = (wordId) => {
 
         let isCurrent = true;
 
-        fetchWordData(wordId)
+        fetchWordData(wordId, { localOnly })
             .then(data => {
                 if (!isCurrent) return;
                 setState({ ...initialState, wordId, entries: data.word, quotes: data.quotes ?? [] });
@@ -28,7 +28,7 @@ export const useWordDetails = (wordId) => {
                 setState({
                     ...initialState,
                     wordId,
-                    error: { message: error.message || 'Something went wrong.', status: error.status ?? null },
+                    error: { message: error.message || 'Something went wrong.', status: error.status ?? null, editorialUnavailable: error.editorialUnavailable ?? false },
                     suggestedWords: error.suggestions ?? [],
                 });
             });
@@ -36,7 +36,7 @@ export const useWordDetails = (wordId) => {
         return () => {
             isCurrent = false;
         };
-    }, [wordId]);
+    }, [wordId, localOnly]);
 
     const isLoading = Boolean(wordId) && state.wordId !== wordId;
 

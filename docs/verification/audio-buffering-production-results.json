@@ -1,0 +1,26 @@
+{
+  "origin": "https://word-atlas.ammarhadid.com",
+  "checks": [
+    {
+      "name": "Persisted but downloading recording visibly Loading and gesture enabled",
+      "ok": true,
+      "detail": {
+        "text": "Loading",
+        "busy": "true",
+        "enabled": true
+      }
+    },
+    {
+      "name": "Click before download completes queues playback and becomes Listen",
+      "ok": true,
+      "detail": {
+        "pronunciationId": "7db5e69c20fd1c7cb635976194dd8b2025eeaf8ca30778426d83902ddd83e237",
+        "assetKey": "71450a2b7ec3728978224c0b2b7812689d1a13f387f406993f1ed79e9c95125c",
+        "clickToPlayingMs": 146.90000000596046,
+        "readyStateAtClick": 0
+      }
+    }
+  ],
+  "errors": [],
+  "passed": true
+}

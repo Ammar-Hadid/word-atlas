@@ -59,12 +59,14 @@ const SenseList = ({ entry, terms }) => {
     const senses = entry.senses.flatMap(group =>
         group.senses.map((sense, index) => ({
             ...sense,
-            heading: index === 0 ? group.heading?.heading : null,
+            heading: sense.heading ?? (index === 0 ? group.heading?.heading : null),
         }))
     ).filter(sense => sense.definition || sense.examples.length);
 
     const visible = showAll ? senses : senses.slice(0, INITIAL_VISIBLE);
     const hiddenCount = senses.length - visible.length;
+
+    if (!senses.length) return <p className="text-body text-muted">This source lists the entry but has not supplied a definition. Follow the source link above for its latest details.</p>;
 
     return (
         <div className="flex flex-col">

@@ -1,0 +1,160 @@
+{
+  "date": "2026-10-30",
+  "source": "Read-only existing active VPS sample; no provider calls. Additional words selected in requested order to reach 20 present terms.",
+  "rows": [
+    {
+      "term": "cat",
+      "entries": 6,
+      "variants": 48,
+      "before": 6,
+      "after": 6
+    },
+    {
+      "term": "word",
+      "entries": 4,
+      "variants": 24,
+      "before": 0,
+      "after": 4
+    },
+    {
+      "term": "hello",
+      "entries": 3,
+      "variants": 33,
+      "before": 6,
+      "after": 6
+    },
+    {
+      "term": "world",
+      "entries": 2,
+      "variants": 10,
+      "before": 0,
+      "after": 2
+    },
+    {
+      "term": "book",
+      "entries": 3,
+      "variants": 12,
+      "before": 3,
+      "after": 3
+    },
+    {
+      "term": "read",
+      "entries": 3,
+      "variants": 10,
+      "before": 1,
+      "after": 3
+    },
+    {
+      "term": "lead",
+      "entries": 6,
+      "variants": 11,
+      "before": 5,
+      "after": 5
+    },
+    {
+      "term": "good",
+      "entries": 7,
+      "variants": 21,
+      "before": 7,
+      "after": 7
+    },
+    {
+      "term": "time",
+      "entries": 4,
+      "variants": 32,
+      "before": 12,
+      "after": 12
+    },
+    {
+      "term": "person",
+      "entries": 2,
+      "variants": 16,
+      "before": 0,
+      "after": 2
+    },
+    {
+      "term": "house",
+      "entries": 3,
+      "variants": 26,
+      "before": 4,
+      "after": 4
+    },
+    {
+      "term": "make",
+      "entries": 5,
+      "variants": 25,
+      "before": 15,
+      "after": 15
+    },
+    {
+      "term": "give",
+      "entries": 3,
+      "variants": 5,
+      "before": 4,
+      "after": 4
+    },
+    {
+      "term": "go",
+      "entries": 4,
+      "variants": 40,
+      "before": 4,
+      "after": 4
+    },
+    {
+      "term": "work",
+      "entries": 2,
+      "variants": 44,
+      "before": 4,
+      "after": 6
+    },
+    {
+      "term": "love",
+      "entries": 4,
+      "variants": 36,
+      "before": 8,
+      "after": 8
+    },
+    {
+      "term": "friend",
+      "entries": 2,
+      "variants": 8,
+      "before": 2,
+      "after": 2
+    },
+    {
+      "term": "day",
+      "entries": 2,
+      "variants": 6,
+      "before": 0,
+      "after": 0
+    },
+    {
+      "term": "night",
+      "entries": 3,
+      "variants": 42,
+      "before": 3,
+      "after": 3
+    },
+    {
+      "term": "fish",
+      "entries": 4,
+      "variants": 8,
+      "before": 4,
+      "after": 4
+    }
+  ],
+  "total": {
+    "terms": 20,
+    "beforeTerms": 16,
+    "afterTerms": 19,
+    "beforeVariants": 88,
+    "afterVariants": 100
+  },
+  "originalRequestedMissing": [
+    "dog",
+    "serendipity",
+    "walk",
+    "children",
+    "water"
+  ]
+}

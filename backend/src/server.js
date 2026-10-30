@@ -1,39 +1,74 @@
-import express from "express";
 import 'dotenv/config';
+import express from 'express';
+import { pathToFileURL } from 'node:url';
+import { resolve } from 'node:path';
+import { readFile,statfs } from 'node:fs/promises';
+import { query, pool } from './db/index.js';
+import { privateResponse, sessionMiddleware, csrfProtection, requireAuth, identifyUser, rateLimit } from './auth/session.js';
+import authRouter from './routes/authRoutes.js';
+import libraryRouter from './routes/libraryRoutes.js';
+import insightRouter from './routes/insightRoutes.js';
+import wordRouter from './routes/wordRoutes.js';
+import { createAudioRouter } from './routes/audioRoutes.js';
+import { getEntry } from './repositories/entries.js';
+import { rankedSuggestions } from './services/suggestionService.js';
+import { validTerm } from './import/normalizeKaikki.js';
+import { getEditorial } from './services/editorialService.js';
+import { limits, monthUsage } from './services/providerBudget.js';
 
-import cors from "cors";
-
-import wordRouter from "./routes/wordRoutes.js";
-
-const app = express();
-
-const PORT = process.env.PORT || 4000;
-
-const allowedOrigins = (
-    process.env.CLIENT_URL || 'https://word-atlas.ammarhadid.com,https://www.word-atlas.ammarhadid.com'
-)
-    .split(',')
-    .map(origin => origin.trim())
-    .filter(Boolean);
-
-app.use(cors({
-    origin(requestedOrigin, callback) {
-        if (!requestedOrigin || allowedOrigins.includes(requestedOrigin)) {
-            return callback(null, true);
-        }
-
-        return callback(new Error('Not allowed by CORS'), false);
-    }
-}))
-
-app.use(express.json());
-
-app.get('/api/health', (req, res) => {
-    res.json({ status: 'ok' });
-});
-
-app.use('/api/words', wordRouter);
-
-app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`);
-})
+export function createApp() {
+    const app=express();
+    app.disable('x-powered-by');
+    app.set('trust proxy',1); // Backend port is private; exactly one Caddy hop.
+    app.use((_req,res,next)=>{res.set({'X-Content-Type-Options':'nosniff','Referrer-Policy':'strict-origin-when-cross-origin'});next();});
+    app.get('/api/health',(_req,res)=>res.json({status:'ok'}));
+    app.get('/api/ready',async(_req,res)=>{
+        const {rows}=await query("SELECT active_release_id FROM sources WHERE id='wiktionary-en'");
+        res.status(rows[0]?.active_release_id?200:503).json({status:rows[0]?.active_release_id?'ready':'dictionary_pending',releaseId:rows[0]?.active_release_id||null});
+    });
+    app.use('/audio', (req,res,next)=>{
+        if(!/^\/[a-f0-9]{64}\.mp3$/.test(req.path)) return res.sendStatus(404);
+        next();
+    },express.static(resolve(process.env.AUDIO_DIR||'./data/audio'),{immutable:true,maxAge:'1y',fallthrough:false,dotfiles:'deny'}));
+    app.use('/api',express.json({limit:'512kb',inflate:false}));
+    app.use('/api/words',(req,res,next)=>{
+        if(req.get('Origin')===process.env.APP_ORIGIN){res.set('Access-Control-Allow-Origin',process.env.APP_ORIGIN);res.vary('Origin');}
+        next();
+    },wordRouter);
+    app.use('/api/insights',insightRouter);
+    app.get('/api/suggestions',async(req,res)=>{
+        if(!validTerm(req.query.term)) return res.status(400).json({error:'Invalid term.'});
+        res.set('Cache-Control','public,max-age=60').json({suggestions:await rankedSuggestions(req.query.term)});
+    });
+    app.get('/api/entries/:id/enrichment',async(req,res)=>{
+        const entry=await getEntry(req.params.id);
+        if(!entry) return res.status(404).json({error:'Entry not found.'});
+        res.set('Cache-Control','no-store').json(await getEditorial(entry.word));
+    });
+    app.use('/api',sessionMiddleware());
+    app.use('/api',privateResponse,csrfProtection);
+    app.use('/api/auth',authRouter);
+    app.use('/api/me',libraryRouter);
+    app.use('/api/pronunciations',createAudioRouter({identifyUser,limitVisitor:(req,maximum)=>rateLimit('audio-visitor',req.ip,maximum,3600)}));
+    app.get('/api/status',requireAuth,async(req,res)=>{
+        const [release,usage]=await Promise.all([
+            query("SELECT r.id,r.counts,r.completed_at FROM dictionary_releases r JOIN sources s ON s.active_release_id=r.id"),
+            monthUsage({query}),
+        ]);
+        const storage=await statfs(resolve(process.env.AUDIO_DIR||'./data/audio')).catch(()=>null);
+        const lastBackup=await readFile('/data/backups/latest-success','utf8').catch(()=>null);
+        res.json({release:release.rows[0],synthesisEnabled:process.env.AUDIO_SYNTHESIS_ENABLED==='true',audioCharacters:{...usage,limits:limits()},freeDiskBytes:storage?storage.bavail*storage.bsize:null,lastBackup:lastBackup?.trim()||null});
+    });
+    app.use('/api',(_req,res)=>res.status(404).json({error:'Endpoint not found.'}));
+    app.use((error,_req,res,_next)=>{
+        void _next;
+        const status=error.status>=400&&error.status<500?error.status:503;
+        if(status>=500) console.error('Request failed',{code:error.code||'internal',message:error.message});
+        res.status(status).json({error:status<500?error.message:'The dictionary service is temporarily unavailable. Please retry.'});
+    });
+    return app;
+}
+if(process.argv[1]&&import.meta.url===pathToFileURL(process.argv[1]).href) {
+    const server=createApp().listen(Number(process.env.PORT||4000),()=>console.log('Word Atlas listening'));
+    process.on('SIGTERM',()=>server.close(()=>pool.end().then(()=>process.exit(0))));
+}

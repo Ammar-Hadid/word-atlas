@@ -1,0 +1,972 @@
+{
+  "license": "CC0-1.0: original synthetic test data written for Word Atlas. Query strings are an evaluation list, not copied dictionary definitions.",
+  "schemaReference": "https://dictionaryapi.com/products/json",
+  "resolverCases": [
+    {
+      "term": "atlas",
+      "expectedFound": true,
+      "expectedWord": "atlas",
+      "learners": [
+        {
+          "meta": {
+            "id": "atlas",
+            "stems": [
+              "atlas"
+            ]
+          },
+          "hwi": {
+            "hw": "atlas"
+          },
+          "fl": "noun",
+          "def": [
+            {
+              "sseq": [
+                [
+                  [
+                    "sense",
+                    {
+                      "dt": [
+                        [
+                          "text",
+                          "Synthetic test meaning."
+                        ]
+                      ]
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        }
+      ],
+      "collegiate": []
+    },
+    {
+      "term": "sesquipedalian",
+      "expectedFound": true,
+      "expectedWord": "sesquipedalian",
+      "learners": [
+        "sesquipedalianism"
+      ],
+      "collegiate": [
+        {
+          "meta": {
+            "id": "sesquipedalian",
+            "stems": [
+              "sesquipedalian"
+            ]
+          },
+          "hwi": {
+            "hw": "sesquipedalian"
+          },
+          "fl": "noun",
+          "def": [
+            {
+              "sseq": [
+                [
+                  [
+                    "sense",
+                    {
+                      "dt": [
+                        [
+                          "text",
+                          "Synthetic test meaning."
+                        ]
+                      ]
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "term": "zygomorphic",
+      "expectedFound": true,
+      "expectedWord": "zygomorphic",
+      "learners": [],
+      "collegiate": [
+        {
+          "meta": {
+            "id": "zygomorphic",
+            "stems": [
+              "zygomorphic"
+            ]
+          },
+          "hwi": {
+            "hw": "zygomorphic"
+          },
+          "fl": "noun",
+          "def": [
+            {
+              "sseq": [
+                [
+                  [
+                    "sense",
+                    {
+                      "dt": [
+                        [
+                          "text",
+                          "Synthetic test meaning."
+                        ]
+                      ]
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "term": "walked",
+      "expectedFound": true,
+      "expectedWord": "walk",
+      "learners": [
+        {
+          "meta": {
+            "id": "walk",
+            "stems": [
+              "walk",
+              "walked"
+            ]
+          },
+          "hwi": {
+            "hw": "walk"
+          },
+          "fl": "verb",
+          "def": [
+            {
+              "sseq": [
+                [
+                  [
+                    "sense",
+                    {
+                      "dt": [
+                        [
+                          "text",
+                          "Synthetic test meaning."
+                        ]
+                      ]
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        }
+      ],
+      "collegiate": []
+    },
+    {
+      "term": "take off",
+      "expectedFound": true,
+      "expectedWord": "take off",
+      "learners": [
+        {
+          "meta": {
+            "id": "take",
+            "stems": [
+              "take",
+              "take off"
+            ]
+          },
+          "hwi": {
+            "hw": "take"
+          },
+          "fl": "verb",
+          "def": [
+            {
+              "sseq": [
+                [
+                  [
+                    "sense",
+                    {
+                      "dt": [
+                        [
+                          "text",
+                          "Synthetic test meaning."
+                        ]
+                      ]
+                    }
+                  ]
+                ]
+              ]
+            }
+          ],
+          "dros": [
+            {
+              "drp": "take off",
+              "def": [
+                {
+                  "sseq": [
+                    [
+                      [
+                        "sense",
+                        {
+                          "dt": [
+                            [
+                              "text",
+                              "A synthetic take-off meaning."
+                            ]
+                          ]
+                        }
+                      ]
+                    ]
+                  ]
+                }
+              ],
+              "gram": "phrasal verb"
+            }
+          ]
+        }
+      ],
+      "collegiate": []
+    },
+    {
+      "term": "lead",
+      "expectedFound": true,
+      "expectedWord": "lead",
+      "learners": [
+        {
+          "meta": {
+            "id": "lead",
+            "stems": [
+              "lead"
+            ]
+          },
+          "hwi": {
+            "hw": "lead"
+          },
+          "fl": "verb",
+          "def": [
+            {
+              "sseq": [
+                [
+                  [
+                    "sense",
+                    {
+                      "dt": [
+                        [
+                          "text",
+                          "Synthetic test meaning."
+                        ]
+                      ]
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        }
+      ],
+      "collegiate": [
+        {
+          "meta": {
+            "id": "lead",
+            "stems": [
+              "lead"
+            ]
+          },
+          "hwi": {
+            "hw": "lead"
+          },
+          "fl": "noun",
+          "def": [
+            {
+              "sseq": [
+                [
+                  [
+                    "sense",
+                    {
+                      "dt": [
+                        [
+                          "text",
+                          "Synthetic test meaning."
+                        ]
+                      ]
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "term": "qzxqzx-invalid",
+      "expectedFound": false,
+      "learners": [
+        "quiz"
+      ],
+      "collegiate": [
+        "quiz"
+      ]
+    }
+  ],
+  "completeEntry": {
+    "meta": {
+      "id": "pivot",
+      "stems": [
+        "pivot"
+      ]
+    },
+    "hwi": {
+      "hw": "piv*ot",
+      "prs": [
+        {
+          "ipa": "ˈpɪvət",
+          "sound": {
+            "audio": "test-pivot"
+          }
+        },
+        {
+          "ipa": "ˈpɪvɒt",
+          "l": "British"
+        }
+      ],
+      "altprs": [
+        {
+          "ipa": "pɪˈvɒt",
+          "l": "variant"
+        }
+      ]
+    },
+    "fl": "verb",
+    "def": [
+      {
+        "vd": "transitive verb",
+        "sseq": [
+          [
+            [
+              "sense",
+              {
+                "sn": "1",
+                "sls": [
+                  "technical"
+                ],
+                "dt": [
+                  [
+                    "text",
+                    "{bc}First synthetic clause."
+                  ],
+                  [
+                    "text",
+                    "Second synthetic clause."
+                  ],
+                  [
+                    "wsgram",
+                    "count"
+                  ],
+                  [
+                    "vis",
+                    [
+                      {
+                        "t": "A synthetic example. [=an explanation]",
+                        "aq": {
+                          "auth": "Test Author"
+                        }
+                      }
+                    ]
+                  ],
+                  [
+                    "vis",
+                    [
+                      {
+                        "t": "A second example."
+                      }
+                    ]
+                  ],
+                  [
+                    "uns",
+                    [
+                      [
+                        [
+                          "text",
+                          "An original usage note."
+                        ],
+                        [
+                          "vis",
+                          [
+                            {
+                              "t": "A note example."
+                            }
+                          ]
+                        ]
+                      ]
+                    ]
+                  ]
+                ],
+                "sdsense": {
+                  "sd": "also",
+                  "dt": [
+                    [
+                      "text",
+                      "A related but separate meaning."
+                    ]
+                  ]
+                }
+              }
+            ],
+            [
+              "bs",
+              {
+                "sense": {
+                  "dt": [
+                    [
+                      "text",
+                      "A binding introduction."
+                    ]
+                  ]
+                }
+              }
+            ],
+            [
+              "pseq",
+              [
+                [
+                  "sense",
+                  {
+                    "dt": [
+                      [
+                        "text",
+                        "A parenthesized meaning."
+                      ]
+                    ],
+                    "sn": "(1)"
+                  }
+                ],
+                [
+                  "sense",
+                  {
+                    "dt": [
+                      [
+                        "text",
+                        "Another parenthesized meaning."
+                      ]
+                    ],
+                    "sn": "(2)"
+                  }
+                ]
+              ]
+            ]
+          ]
+        ]
+      },
+      {
+        "vd": "intransitive verb",
+        "sseq": [
+          [
+            [
+              "sense",
+              {
+                "dt": [
+                  [
+                    "text",
+                    "The second definition block."
+                  ]
+                ]
+              }
+            ]
+          ]
+        ]
+      }
+    ],
+    "lbs": [
+      "chiefly technical"
+    ],
+    "sls": [
+      "rare"
+    ],
+    "ins": [
+      {
+        "if": "piv*oted",
+        "il": "past",
+        "prs": [
+          {
+            "ipa": "ˈpɪvətɪd"
+          }
+        ]
+      }
+    ],
+    "vrs": [
+      {
+        "va": "pivvot",
+        "vl": "rare variant"
+      }
+    ],
+    "ahws": [
+      {
+        "hw": "pivote"
+      }
+    ],
+    "uros": [
+      {
+        "ure": "pivoter",
+        "fl": "noun"
+      }
+    ],
+    "dros": [
+      {
+        "drp": "pivot around",
+        "def": [
+          {
+            "sseq": [
+              [
+                [
+                  "sense",
+                  {
+                    "dt": [
+                      [
+                        "text",
+                        "An original phrase meaning."
+                      ]
+                    ],
+                    "phrasev": {
+                      "phr": {
+                        "pva": "pivot around something",
+                        "pvl": "with object"
+                      }
+                    }
+                  }
+                ]
+              ]
+            ]
+          },
+          {
+            "sseq": [
+              [
+                [
+                  "sense",
+                  {
+                    "dt": [
+                      [
+                        "text",
+                        "Another phrase meaning."
+                      ]
+                    ]
+                  }
+                ]
+              ]
+            ]
+          }
+        ],
+        "gram": "phrasal verb"
+      }
+    ]
+  },
+  "coverageTerms": [
+    {
+      "term": "break the ice",
+      "category": "idiom"
+    },
+    {
+      "term": "spill the beans",
+      "category": "idiom"
+    },
+    {
+      "term": "kick the bucket",
+      "category": "idiom"
+    },
+    {
+      "term": "bite the bullet",
+      "category": "idiom"
+    },
+    {
+      "term": "hit the sack",
+      "category": "idiom"
+    },
+    {
+      "term": "under the weather",
+      "category": "idiom"
+    },
+    {
+      "term": "once in a blue moon",
+      "category": "idiom"
+    },
+    {
+      "term": "a piece of cake",
+      "category": "idiom"
+    },
+    {
+      "term": "the ball is in your court",
+      "category": "idiom"
+    },
+    {
+      "term": "burn the midnight oil",
+      "category": "idiom"
+    },
+    {
+      "term": "cost an arm and a leg",
+      "category": "idiom"
+    },
+    {
+      "term": "let the cat out of the bag",
+      "category": "idiom"
+    },
+    {
+      "term": "on the same page",
+      "category": "idiom"
+    },
+    {
+      "term": "out of the blue",
+      "category": "idiom"
+    },
+    {
+      "term": "pull the wool over someone's eyes",
+      "category": "idiom"
+    },
+    {
+      "term": "beat around the bush",
+      "category": "idiom"
+    },
+    {
+      "term": "by the skin of one's teeth",
+      "category": "idiom"
+    },
+    {
+      "term": "the tip of the iceberg",
+      "category": "idiom"
+    },
+    {
+      "term": "a blessing in disguise",
+      "category": "idiom"
+    },
+    {
+      "term": "add insult to injury",
+      "category": "idiom"
+    },
+    {
+      "term": "barking up the wrong tree",
+      "category": "idiom"
+    },
+    {
+      "term": "cry over spilled milk",
+      "category": "idiom"
+    },
+    {
+      "term": "cut corners",
+      "category": "idiom"
+    },
+    {
+      "term": "get cold feet",
+      "category": "idiom"
+    },
+    {
+      "term": "go the extra mile",
+      "category": "idiom"
+    },
+    {
+      "term": "jump on the bandwagon",
+      "category": "idiom"
+    },
+    {
+      "term": "miss the boat",
+      "category": "idiom"
+    },
+    {
+      "term": "on thin ice",
+      "category": "idiom"
+    },
+    {
+      "term": "sit on the fence",
+      "category": "idiom"
+    },
+    {
+      "term": "throw in the towel",
+      "category": "idiom"
+    },
+    {
+      "term": "up in the air",
+      "category": "idiom"
+    },
+    {
+      "term": "when pigs fly",
+      "category": "idiom"
+    },
+    {
+      "term": "give up",
+      "category": "phrasal_verb"
+    },
+    {
+      "term": "look up",
+      "category": "phrasal_verb"
+    },
+    {
+      "term": "put off",
+      "category": "phrasal_verb"
+    },
+    {
+      "term": "take off",
+      "category": "phrasal_verb"
+    },
+    {
+      "term": "carry on",
+      "category": "phrasal_verb"
+    },
+    {
+      "term": "break down",
+      "category": "phrasal_verb"
+    },
+    {
+      "term": "bring up",
+      "category": "phrasal_verb"
+    },
+    {
+      "term": "call off",
+      "category": "phrasal_verb"
+    },
+    {
+      "term": "come across",
+      "category": "phrasal_verb"
+    },
+    {
+      "term": "come up with",
+      "category": "phrasal_verb"
+    },
+    {
+      "term": "cut down on",
+      "category": "phrasal_verb"
+    },
+    {
+      "term": "drop out",
+      "category": "phrasal_verb"
+    },
+    {
+      "term": "figure out",
+      "category": "phrasal_verb"
+    },
+    {
+      "term": "get along",
+      "category": "phrasal_verb"
+    },
+    {
+      "term": "get away with",
+      "category": "phrasal_verb"
+    },
+    {
+      "term": "give in",
+      "category": "phrasal_verb"
+    },
+    {
+      "term": "go over",
+      "category": "phrasal_verb"
+    },
+    {
+      "term": "hold on",
+      "category": "phrasal_verb"
+    },
+    {
+      "term": "keep up with",
+      "category": "phrasal_verb"
+    },
+    {
+      "term": "look after",
+      "category": "phrasal_verb"
+    },
+    {
+      "term": "look forward to",
+      "category": "phrasal_verb"
+    },
+    {
+      "term": "make up",
+      "category": "phrasal_verb"
+    },
+    {
+      "term": "pick up",
+      "category": "phrasal_verb"
+    },
+    {
+      "term": "put up with",
+      "category": "phrasal_verb"
+    },
+    {
+      "term": "run into",
+      "category": "phrasal_verb"
+    },
+    {
+      "term": "run out of",
+      "category": "phrasal_verb"
+    },
+    {
+      "term": "set up",
+      "category": "phrasal_verb"
+    },
+    {
+      "term": "show up",
+      "category": "phrasal_verb"
+    },
+    {
+      "term": "take after",
+      "category": "phrasal_verb"
+    },
+    {
+      "term": "turn down",
+      "category": "phrasal_verb"
+    },
+    {
+      "term": "work out",
+      "category": "phrasal_verb"
+    },
+    {
+      "term": "back up",
+      "category": "phrasal_verb"
+    },
+    {
+      "term": "atlas",
+      "category": "common"
+    },
+    {
+      "term": "apple",
+      "category": "common"
+    },
+    {
+      "term": "walk",
+      "category": "common"
+    },
+    {
+      "term": "read",
+      "category": "common"
+    },
+    {
+      "term": "lead",
+      "category": "common"
+    },
+    {
+      "term": "sesquipedalian",
+      "category": "uncommon"
+    },
+    {
+      "term": "defenestration",
+      "category": "uncommon"
+    },
+    {
+      "term": "ultracrepidarian",
+      "category": "uncommon"
+    },
+    {
+      "term": "petrichor",
+      "category": "uncommon"
+    },
+    {
+      "term": "quincunx",
+      "category": "uncommon"
+    },
+    {
+      "term": "zygomorphic",
+      "category": "technical"
+    },
+    {
+      "term": "eigenvalue",
+      "category": "technical"
+    },
+    {
+      "term": "polymerase",
+      "category": "technical"
+    },
+    {
+      "term": "synecdoche",
+      "category": "technical"
+    },
+    {
+      "term": "anastomosis",
+      "category": "technical"
+    },
+    {
+      "term": "walked",
+      "category": "inflection"
+    },
+    {
+      "term": "running",
+      "category": "inflection"
+    },
+    {
+      "term": "mice",
+      "category": "inflection"
+    },
+    {
+      "term": "better",
+      "category": "inflection"
+    },
+    {
+      "term": "children",
+      "category": "inflection"
+    },
+    {
+      "term": "colour",
+      "category": "variant"
+    },
+    {
+      "term": "co-operate",
+      "category": "variant"
+    },
+    {
+      "term": "judgement",
+      "category": "variant"
+    },
+    {
+      "term": "theatre",
+      "category": "variant"
+    },
+    {
+      "term": "organise",
+      "category": "variant"
+    },
+    {
+      "term": "mother-in-law",
+      "category": "punctuation"
+    },
+    {
+      "term": "rock ’n’ roll",
+      "category": "punctuation"
+    },
+    {
+      "term": "jack-o’-lantern",
+      "category": "punctuation"
+    },
+    {
+      "term": "lead",
+      "category": "homograph"
+    },
+    {
+      "term": "bow",
+      "category": "homograph"
+    },
+    {
+      "term": "wind",
+      "category": "homograph"
+    },
+    {
+      "term": "tear",
+      "category": "homograph"
+    },
+    {
+      "term": "bass",
+      "category": "homograph"
+    },
+    {
+      "term": "US",
+      "category": "case"
+    },
+    {
+      "term": "us",
+      "category": "case"
+    },
+    {
+      "term": "Polish",
+      "category": "case"
+    },
+    {
+      "term": "polish",
+      "category": "case"
+    },
+    {
+      "term": "qzxqzx-invalid",
+      "category": "unresolved"
+    }
+  ]
+}

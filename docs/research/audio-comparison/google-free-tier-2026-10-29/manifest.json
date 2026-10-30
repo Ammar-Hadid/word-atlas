@@ -1,0 +1,622 @@
+{
+  "project": "word-atlas-513101",
+  "date": "2026-10-29",
+  "max_input_bytes": 10000,
+  "attempted_input_bytes": 2954,
+  "requests": [
+    {
+      "voice": "en-US-Chirp3-HD-Kore",
+      "case": "lead-guide",
+      "input": {
+        "text": "lead",
+        "customPronunciations": {
+          "pronunciations": [
+            {
+              "phrase": "lead",
+              "phoneticEncoding": "PHONETIC_ENCODING_IPA",
+              "pronunciation": "liːd"
+            }
+          ]
+        }
+      },
+      "fingerprint": "136d5c3a48b5e74e0720cd7ec35d5e809c35b1b3f55505c9edc03ce550c50925",
+      "conservative_input_size": 157,
+      "status": "complete",
+      "file": "chirp3-hd-kore-lead-guide.wav",
+      "duration_seconds": 1.12,
+      "generation_seconds": 0.46
+    },
+    {
+      "voice": "en-US-Chirp3-HD-Kore",
+      "case": "lead-metal",
+      "input": {
+        "text": "lead",
+        "customPronunciations": {
+          "pronunciations": [
+            {
+              "phrase": "lead",
+              "phoneticEncoding": "PHONETIC_ENCODING_IPA",
+              "pronunciation": "lɛd"
+            }
+          ]
+        }
+      },
+      "fingerprint": "a7ccee251bbebe2edb0388eabbfd2b1cc53a38e044e1000318d2380b4ec1d9ee",
+      "conservative_input_size": 156,
+      "status": "complete",
+      "file": "chirp3-hd-kore-lead-metal.wav",
+      "duration_seconds": 0.84,
+      "generation_seconds": 0.417
+    },
+    {
+      "voice": "en-US-Chirp3-HD-Kore",
+      "case": "difficult-words",
+      "input": {
+        "text": "Worcestershire. Anemone. Rural. Squirrel. Ubiquitous. Onomatopoeia."
+      },
+      "fingerprint": "8402587f28617433626316678c3c8fbb7e6f40a22a77b343f20c38d06296cb15",
+      "conservative_input_size": 79,
+      "status": "complete",
+      "file": "chirp3-hd-kore-difficult-words.wav",
+      "duration_seconds": 7.2,
+      "generation_seconds": 1.08
+    },
+    {
+      "voice": "en-US-Chirp3-HD-Kore",
+      "case": "word-forms",
+      "input": {
+        "text": "Walk. Walked. Wanted. Watches. Children. Mice."
+      },
+      "fingerprint": "836465d4bfe3ed2bcad90060d774d2b9e6455f639870bff76b4c3ca353d12885",
+      "conservative_input_size": 58,
+      "status": "complete",
+      "file": "chirp3-hd-kore-word-forms.wav",
+      "duration_seconds": 7.96,
+      "generation_seconds": 1.227
+    },
+    {
+      "voice": "en-US-Chirp3-HD-Kore",
+      "case": "idioms",
+      "input": {
+        "text": "Break the ice. A blessing in disguise. Bite the bullet. Through thick and thin."
+      },
+      "fingerprint": "49714a1e1e357bbca0740bffd2e8c2c5506ec19b2a8511faadfaf1345b9c2a7c",
+      "conservative_input_size": 91,
+      "status": "complete",
+      "file": "chirp3-hd-kore-idioms.wav",
+      "duration_seconds": 5.28,
+      "generation_seconds": 0.88
+    },
+    {
+      "voice": "en-US-Chirp3-HD-Leda",
+      "case": "lead-guide",
+      "input": {
+        "text": "lead",
+        "customPronunciations": {
+          "pronunciations": [
+            {
+              "phrase": "lead",
+              "phoneticEncoding": "PHONETIC_ENCODING_IPA",
+              "pronunciation": "liːd"
+            }
+          ]
+        }
+      },
+      "fingerprint": "27454b5cb4cb94af20708a2f3930a0822919f775871116edf42a50b8528844a0",
+      "conservative_input_size": 157,
+      "status": "complete",
+      "file": "chirp3-hd-leda-lead-guide.wav",
+      "duration_seconds": 0.72,
+      "generation_seconds": 0.375
+    },
+    {
+      "voice": "en-US-Chirp3-HD-Leda",
+      "case": "lead-metal",
+      "input": {
+        "text": "lead",
+        "customPronunciations": {
+          "pronunciations": [
+            {
+              "phrase": "lead",
+              "phoneticEncoding": "PHONETIC_ENCODING_IPA",
+              "pronunciation": "lɛd"
+            }
+          ]
+        }
+      },
+      "fingerprint": "cee89c0620f48344c768fddf01ce26c6c3bf13469f74102d860ddfc0b57c2424",
+      "conservative_input_size": 156,
+      "status": "complete",
+      "file": "chirp3-hd-leda-lead-metal.wav",
+      "duration_seconds": 0.72,
+      "generation_seconds": 0.369
+    },
+    {
+      "voice": "en-US-Chirp3-HD-Leda",
+      "case": "difficult-words",
+      "input": {
+        "text": "Worcestershire. Anemone. Rural. Squirrel. Ubiquitous. Onomatopoeia."
+      },
+      "fingerprint": "4136775474de1eb285ec461f6b5197fbb939489efd1716744186f73c4749cfc5",
+      "conservative_input_size": 79,
+      "status": "complete",
+      "file": "chirp3-hd-leda-difficult-words.wav",
+      "duration_seconds": 6.88,
+      "generation_seconds": 1.063
+    },
+    {
+      "voice": "en-US-Chirp3-HD-Leda",
+      "case": "word-forms",
+      "input": {
+        "text": "Walk. Walked. Wanted. Watches. Children. Mice."
+      },
+      "fingerprint": "e1918d694c0756d4df1bc2c19076a91a0cc8fcca3b1777763a1d253cf991fd91",
+      "conservative_input_size": 58,
+      "status": "complete",
+      "file": "chirp3-hd-leda-word-forms.wav",
+      "duration_seconds": 6.28,
+      "generation_seconds": 0.958
+    },
+    {
+      "voice": "en-US-Chirp3-HD-Leda",
+      "case": "idioms",
+      "input": {
+        "text": "Break the ice. A blessing in disguise. Bite the bullet. Through thick and thin."
+      },
+      "fingerprint": "d5ea87ecb1ac4f53465629fdd6186da8416ef5e87ac5644a8258ba1df052d900",
+      "conservative_input_size": 91,
+      "status": "complete",
+      "file": "chirp3-hd-leda-idioms.wav",
+      "duration_seconds": 7.8,
+      "generation_seconds": 1.178
+    },
+    {
+      "voice": "en-US-Chirp3-HD-Iapetus",
+      "case": "lead-guide",
+      "input": {
+        "text": "lead",
+        "customPronunciations": {
+          "pronunciations": [
+            {
+              "phrase": "lead",
+              "phoneticEncoding": "PHONETIC_ENCODING_IPA",
+              "pronunciation": "liːd"
+            }
+          ]
+        }
+      },
+      "fingerprint": "36ca76d8297939a960b27c5707c794bb22edaafe583e45a24f71d5f2da9e39c4",
+      "conservative_input_size": 157,
+      "status": "complete",
+      "file": "chirp3-hd-iapetus-lead-guide.wav",
+      "duration_seconds": 1.64,
+      "generation_seconds": 0.681
+    },
+    {
+      "voice": "en-US-Chirp3-HD-Iapetus",
+      "case": "lead-metal",
+      "input": {
+        "text": "lead",
+        "customPronunciations": {
+          "pronunciations": [
+            {
+              "phrase": "lead",
+              "phoneticEncoding": "PHONETIC_ENCODING_IPA",
+              "pronunciation": "lɛd"
+            }
+          ]
+        }
+      },
+      "fingerprint": "5ca1146aeaa3dca29c401b596635059f506379fe9594da43287331ca4222747f",
+      "conservative_input_size": 156,
+      "status": "complete",
+      "file": "chirp3-hd-iapetus-lead-metal.wav",
+      "duration_seconds": 1.76,
+      "generation_seconds": 0.7
+    },
+    {
+      "voice": "en-US-Chirp3-HD-Iapetus",
+      "case": "difficult-words",
+      "input": {
+        "text": "Worcestershire. Anemone. Rural. Squirrel. Ubiquitous. Onomatopoeia."
+      },
+      "fingerprint": "0352d73e321301cf31eb89a194278ec19dbd591630d1c0685b0f19c60e925e23",
+      "conservative_input_size": 79,
+      "status": "complete",
+      "file": "chirp3-hd-iapetus-difficult-words.wav",
+      "duration_seconds": 7.6,
+      "generation_seconds": 1.174
+    },
+    {
+      "voice": "en-US-Chirp3-HD-Iapetus",
+      "case": "word-forms",
+      "input": {
+        "text": "Walk. Walked. Wanted. Watches. Children. Mice."
+      },
+      "fingerprint": "aaa510c711cc91aa0bb01a5d48258638894bf4209940468002dc12176df18103",
+      "conservative_input_size": 58,
+      "status": "complete",
+      "file": "chirp3-hd-iapetus-word-forms.wav",
+      "duration_seconds": 6.88,
+      "generation_seconds": 1.042
+    },
+    {
+      "voice": "en-US-Chirp3-HD-Iapetus",
+      "case": "idioms",
+      "input": {
+        "text": "Break the ice. A blessing in disguise. Bite the bullet. Through thick and thin."
+      },
+      "fingerprint": "47b04a82e9d9ca3005be0d7e13c84be3ed3e59b33f47de9cd71e036dd5cab3ae",
+      "conservative_input_size": 91,
+      "status": "complete",
+      "file": "chirp3-hd-iapetus-idioms.wav",
+      "duration_seconds": 5.88,
+      "generation_seconds": 0.926
+    },
+    {
+      "voice": "en-US-Chirp3-HD-Charon",
+      "case": "lead-guide",
+      "input": {
+        "text": "lead",
+        "customPronunciations": {
+          "pronunciations": [
+            {
+              "phrase": "lead",
+              "phoneticEncoding": "PHONETIC_ENCODING_IPA",
+              "pronunciation": "liːd"
+            }
+          ]
+        }
+      },
+      "fingerprint": "bb9ca54579f93d07db248637fd9b9b07405cdd6e5f02b918e76bcaf77d65610b",
+      "conservative_input_size": 157,
+      "status": "complete",
+      "file": "chirp3-hd-charon-lead-guide.wav",
+      "duration_seconds": 1.0,
+      "generation_seconds": 0.376
+    },
+    {
+      "voice": "en-US-Chirp3-HD-Charon",
+      "case": "lead-metal",
+      "input": {
+        "text": "lead",
+        "customPronunciations": {
+          "pronunciations": [
+            {
+              "phrase": "lead",
+              "phoneticEncoding": "PHONETIC_ENCODING_IPA",
+              "pronunciation": "lɛd"
+            }
+          ]
+        }
+      },
+      "fingerprint": "61a481c88ef021496f1dad5cb4074a8a2d08d05b3a1f126ffbe7029a92ca95b2",
+      "conservative_input_size": 156,
+      "status": "complete",
+      "file": "chirp3-hd-charon-lead-metal.wav",
+      "duration_seconds": 0.84,
+      "generation_seconds": 0.406
+    },
+    {
+      "voice": "en-US-Chirp3-HD-Charon",
+      "case": "difficult-words",
+      "input": {
+        "text": "Worcestershire. Anemone. Rural. Squirrel. Ubiquitous. Onomatopoeia."
+      },
+      "fingerprint": "441cfc796e3597fc164e5693d927818fd03a9eef282d03ed7d753b77761ac884",
+      "conservative_input_size": 79,
+      "status": "complete",
+      "file": "chirp3-hd-charon-difficult-words.wav",
+      "duration_seconds": 7.88,
+      "generation_seconds": 1.163
+    },
+    {
+      "voice": "en-US-Chirp3-HD-Charon",
+      "case": "word-forms",
+      "input": {
+        "text": "Walk. Walked. Wanted. Watches. Children. Mice."
+      },
+      "fingerprint": "be990dec620c13c95e18875c57fa4c8353420d6eb9d1bafe8fc46de6eecb717b",
+      "conservative_input_size": 58,
+      "status": "complete",
+      "file": "chirp3-hd-charon-word-forms.wav",
+      "duration_seconds": 6.0,
+      "generation_seconds": 0.937
+    },
+    {
+      "voice": "en-US-Chirp3-HD-Charon",
+      "case": "idioms",
+      "input": {
+        "text": "Break the ice. A blessing in disguise. Bite the bullet. Through thick and thin."
+      },
+      "fingerprint": "e2b2cf6d43f46fde2b6dc39987ac358eb9b27b37d6ece2e0c28059bb7dbe0c31",
+      "conservative_input_size": 91,
+      "status": "complete",
+      "file": "chirp3-hd-charon-idioms.wav",
+      "duration_seconds": 6.16,
+      "generation_seconds": 0.993
+    },
+    {
+      "voice": "en-US-Neural2-F",
+      "case": "lead-guide",
+      "input": {
+        "ssml": "<speak><phoneme alphabet=\"ipa\" ph=\"liːd\">lead</phoneme></speak>"
+      },
+      "fingerprint": "f7af8d10e1bbde4939e735bb83113c03a1816e38e1f0baaf2403b2d4c34f19d4",
+      "conservative_input_size": 84,
+      "status": "complete",
+      "file": "neural2-f-lead-guide.wav",
+      "duration_seconds": 0.655,
+      "generation_seconds": 0.252
+    },
+    {
+      "voice": "en-US-Neural2-F",
+      "case": "lead-metal",
+      "input": {
+        "ssml": "<speak><phoneme alphabet=\"ipa\" ph=\"lɛd\">lead</phoneme></speak>"
+      },
+      "fingerprint": "a7c0b94166fefbe804ef31b949df320e250dbf29bbe1418092bbf43f38e26aa7",
+      "conservative_input_size": 83,
+      "status": "complete",
+      "file": "neural2-f-lead-metal.wav",
+      "duration_seconds": 0.648,
+      "generation_seconds": 0.333
+    },
+    {
+      "voice": "en-US-Neural2-F",
+      "case": "difficult-words",
+      "input": {
+        "text": "Worcestershire. Anemone. Rural. Squirrel. Ubiquitous. Onomatopoeia."
+      },
+      "fingerprint": "cb9b0b3a081ed2bbbce9d8e06d1428754554ac56ba0a217fe01fd90039c21a16",
+      "conservative_input_size": 79,
+      "status": "complete",
+      "file": "neural2-f-difficult-words.wav",
+      "duration_seconds": 5.805,
+      "generation_seconds": 0.805
+    },
+    {
+      "voice": "en-US-Neural2-F",
+      "case": "word-forms",
+      "input": {
+        "text": "Walk. Walked. Wanted. Watches. Children. Mice."
+      },
+      "fingerprint": "ae2c50bd2e45c3c82df82e99bcce5258273356c18ef04dfd4626c0fc8f594342",
+      "conservative_input_size": 58,
+      "status": "complete",
+      "file": "neural2-f-word-forms.wav",
+      "duration_seconds": 4.83,
+      "generation_seconds": 0.931
+    },
+    {
+      "voice": "en-US-Neural2-F",
+      "case": "idioms",
+      "input": {
+        "text": "Break the ice. A blessing in disguise. Bite the bullet. Through thick and thin."
+      },
+      "fingerprint": "081a73fda36c056719d05ea24617b121fc0de68ca3bb5197cbccc79668a94950",
+      "conservative_input_size": 91,
+      "status": "complete",
+      "file": "neural2-f-idioms.wav",
+      "duration_seconds": 5.465,
+      "generation_seconds": 1.177
+    },
+    {
+      "voice": "en-US-Neural2-J",
+      "case": "lead-guide",
+      "input": {
+        "ssml": "<speak><phoneme alphabet=\"ipa\" ph=\"liːd\">lead</phoneme></speak>"
+      },
+      "fingerprint": "7111f3ca79e28a27b20f4d5f479a8d1c50d9bc890c21b9bc4de1631ee7f402ef",
+      "conservative_input_size": 84,
+      "status": "complete",
+      "file": "neural2-j-lead-guide.wav",
+      "duration_seconds": 0.605,
+      "generation_seconds": 0.264
+    },
+    {
+      "voice": "en-US-Neural2-J",
+      "case": "lead-metal",
+      "input": {
+        "ssml": "<speak><phoneme alphabet=\"ipa\" ph=\"lɛd\">lead</phoneme></speak>"
+      },
+      "fingerprint": "4e597ed19860f23cad1d2a23629b9c2454adddecb85b0aa36e7a9426831cffc8",
+      "conservative_input_size": 83,
+      "status": "complete",
+      "file": "neural2-j-lead-metal.wav",
+      "duration_seconds": 0.607,
+      "generation_seconds": 0.268
+    },
+    {
+      "voice": "en-US-Neural2-J",
+      "case": "difficult-words",
+      "input": {
+        "text": "Worcestershire. Anemone. Rural. Squirrel. Ubiquitous. Onomatopoeia."
+      },
+      "fingerprint": "2daac6d10b7191c6c408ebfaa1ddffa005c59eaab97c4114d13e52a95473feb8",
+      "conservative_input_size": 79,
+      "status": "complete",
+      "file": "neural2-j-difficult-words.wav",
+      "duration_seconds": 5.289,
+      "generation_seconds": 0.795
+    },
+    {
+      "voice": "en-US-Neural2-J",
+      "case": "word-forms",
+      "input": {
+        "text": "Walk. Walked. Wanted. Watches. Children. Mice."
+      },
+      "fingerprint": "9ad764236289b35f2aac046b0870319387b1beae08d7d21a812f86c6e4b8a663",
+      "conservative_input_size": 58,
+      "status": "complete",
+      "file": "neural2-j-word-forms.wav",
+      "duration_seconds": 4.347,
+      "generation_seconds": 0.738
+    },
+    {
+      "voice": "en-US-Neural2-J",
+      "case": "idioms",
+      "input": {
+        "text": "Break the ice. A blessing in disguise. Bite the bullet. Through thick and thin."
+      },
+      "fingerprint": "7bc854ce263d1ae7d5e63c8b7a5daaafcb605ed22d5bcfe16c338ae27f74201c",
+      "conservative_input_size": 91,
+      "status": "complete",
+      "file": "neural2-j-idioms.wav",
+      "duration_seconds": 5.35,
+      "generation_seconds": 0.626
+    }
+  ],
+  "combined": {
+    "en-US-Chirp3-HD-Kore": {
+      "file": "chirp3-hd-kore-comparison.wav",
+      "chapters": [
+        {
+          "case": "lead-guide",
+          "starts_at_seconds": 0
+        },
+        {
+          "case": "lead-metal",
+          "starts_at_seconds": 1.92
+        },
+        {
+          "case": "difficult-words",
+          "starts_at_seconds": 3.56
+        },
+        {
+          "case": "word-forms",
+          "starts_at_seconds": 11.56
+        },
+        {
+          "case": "idioms",
+          "starts_at_seconds": 20.32
+        }
+      ]
+    },
+    "en-US-Chirp3-HD-Leda": {
+      "file": "chirp3-hd-leda-comparison.wav",
+      "chapters": [
+        {
+          "case": "lead-guide",
+          "starts_at_seconds": 0
+        },
+        {
+          "case": "lead-metal",
+          "starts_at_seconds": 1.52
+        },
+        {
+          "case": "difficult-words",
+          "starts_at_seconds": 3.04
+        },
+        {
+          "case": "word-forms",
+          "starts_at_seconds": 10.72
+        },
+        {
+          "case": "idioms",
+          "starts_at_seconds": 17.8
+        }
+      ]
+    },
+    "en-US-Chirp3-HD-Iapetus": {
+      "file": "chirp3-hd-iapetus-comparison.wav",
+      "chapters": [
+        {
+          "case": "lead-guide",
+          "starts_at_seconds": 0
+        },
+        {
+          "case": "lead-metal",
+          "starts_at_seconds": 2.44
+        },
+        {
+          "case": "difficult-words",
+          "starts_at_seconds": 5.0
+        },
+        {
+          "case": "word-forms",
+          "starts_at_seconds": 13.4
+        },
+        {
+          "case": "idioms",
+          "starts_at_seconds": 21.08
+        }
+      ]
+    },
+    "en-US-Chirp3-HD-Charon": {
+      "file": "chirp3-hd-charon-comparison.wav",
+      "chapters": [
+        {
+          "case": "lead-guide",
+          "starts_at_seconds": 0
+        },
+        {
+          "case": "lead-metal",
+          "starts_at_seconds": 1.8
+        },
+        {
+          "case": "difficult-words",
+          "starts_at_seconds": 3.44
+        },
+        {
+          "case": "word-forms",
+          "starts_at_seconds": 12.12
+        },
+        {
+          "case": "idioms",
+          "starts_at_seconds": 18.92
+        }
+      ]
+    },
+    "en-US-Neural2-F": {
+      "file": "neural2-f-comparison.wav",
+      "chapters": [
+        {
+          "case": "lead-guide",
+          "starts_at_seconds": 0
+        },
+        {
+          "case": "lead-metal",
+          "starts_at_seconds": 1.455
+        },
+        {
+          "case": "difficult-words",
+          "starts_at_seconds": 2.903
+        },
+        {
+          "case": "word-forms",
+          "starts_at_seconds": 9.508
+        },
+        {
+          "case": "idioms",
+          "starts_at_seconds": 15.138
+        }
+      ]
+    },
+    "en-US-Neural2-J": {
+      "file": "neural2-j-comparison.wav",
+      "chapters": [
+        {
+          "case": "lead-guide",
+          "starts_at_seconds": 0
+        },
+        {
+          "case": "lead-metal",
+          "starts_at_seconds": 1.405
+        },
+        {
+          "case": "difficult-words",
+          "starts_at_seconds": 2.812
+        },
+        {
+          "case": "word-forms",
+          "starts_at_seconds": 8.901
+        },
+        {
+          "case": "idioms",
+          "starts_at_seconds": 14.048
+        }
+      ]
+    }
+  }
+}

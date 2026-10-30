@@ -17,7 +17,7 @@ import { useDocumentTitle } from "../lib/useDocumentTitle.js";
 const TRY_WORDS = ["serendipity", "ephemeral", "resilient", "luminous"];
 
 const FEATURES = [
-    { icon: AudioLines, title: "Hear it", text: "Studio recordings from Merriam-Webster, with a synthesised voice for everything else." },
+    { icon: AudioLines, title: "Hear it", text: "Pronunciation in the Iapetus voice, with saved recordings ready for replay." },
     { icon: ScrollText, title: "Trace it", text: "Etymology, first known use and quotations from published writing." },
     { icon: Network, title: "Map it", text: "An interactive constellation of synonyms, related words and associations." },
     { icon: BookMarked, title: "Keep it", text: "Save words to your library, revisit your history and export it anytime." },

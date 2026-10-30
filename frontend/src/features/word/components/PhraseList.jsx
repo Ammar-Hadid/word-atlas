@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { Search } from "lucide-react";
+import { Link } from "react-router-dom";
+import { wordPath } from "../../../lib/platform.js";
 
 import highlightTerms from "../utils/highlightTerms.jsx";
 
@@ -37,7 +39,10 @@ const PhraseList = ({ phrases, terms }) => {
             <ul className="divide-y divide-line border-y border-line">
                 {visible.map(phrase => (
                     <li key={phrase.id} className="grid gap-xs py-md sm:grid-cols-[minmax(0,2fr)_minmax(0,3fr)] sm:gap-lg">
-                        <span className="display text-h5 leading-snug">{phrase.phrase}</span>
+                        <div className="flex flex-col gap-xs">
+                            <Link to={wordPath(phrase.phrase)} className="display text-h5 leading-snug hover:text-accent">{phrase.phrase}</Link>
+                            {phrase.type && <span className="text-body-sm text-muted">{phrase.type}</span>}
+                        </div>
                         <div className="flex flex-col gap-xs">
                             {phrase.definition && <p className="text-body text-ink">{phrase.definition}</p>}
                             {phrase.examples?.[0] && (

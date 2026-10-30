@@ -1,0 +1,360 @@
+{
+  "origin": "https://word-atlas.ammarhadid.com",
+  "startedAt": "2026-10-29T23:25:58.347Z",
+  "checks": [
+    {
+      "name": "HTTPS login and synchronization",
+      "ok": true
+    },
+    {
+      "name": "Secure HttpOnly host-only cookie with SameSite Lax",
+      "ok": true,
+      "detail": [
+        {
+          "name": "__Host-wa",
+          "secure": true,
+          "httpOnly": true,
+          "sameSite": "Lax",
+          "domain": "word-atlas.ammarhadid.com",
+          "path": "/"
+        }
+      ]
+    },
+    {
+      "name": "Production save acknowledged",
+      "ok": true
+    },
+    {
+      "name": "desktop word fits viewport",
+      "ok": true
+    },
+    {
+      "name": "desktop library fits viewport",
+      "ok": true
+    },
+    {
+      "name": "mobile-viewport word fits viewport",
+      "ok": true
+    },
+    {
+      "name": "mobile-viewport library fits viewport",
+      "ok": true
+    },
+    {
+      "name": "Production lookup cat",
+      "ok": true
+    },
+    {
+      "name": "Existing cached Iapetus clip available for cat",
+      "ok": true
+    },
+    {
+      "name": "Production lookup rain cats and dogs",
+      "ok": true
+    },
+    {
+      "name": "Existing cached Iapetus clip available for rain cats and dogs",
+      "ok": true
+    },
+    {
+      "name": "HTTPS logout clears authenticated state",
+      "ok": true
+    },
+    {
+      "name": "Session endpoint confirms logout",
+      "ok": true
+    },
+    {
+      "name": "Private no-store session response",
+      "ok": true,
+      "detail": "private, no-store"
+    },
+    {
+      "name": "No audio preparation attempted",
+      "ok": true,
+      "detail": 0
+    },
+    {
+      "name": "No uncaught browser errors",
+      "ok": true,
+      "detail": []
+    }
+  ],
+  "errors": [],
+  "networkErrors": [],
+  "audioPostsBlocked": 0,
+  "screenshots": [
+    "production-lead-desktop.png",
+    "production-library-desktop.png",
+    "production-lead-mobile-viewport.png",
+    "production-library-mobile-viewport.png"
+  ],
+  "playback": [
+    {
+      "mode": "desktop",
+      "sound": "guide",
+      "pronunciationId": "7db5e69c20fd1c7cb635976194dd8b2025eeaf8ca30778426d83902ddd83e237",
+      "assetKey": "71450a2b7ec3728978224c0b2b7812689d1a13f387f406993f1ed79e9c95125c",
+      "clickToPlayingMs": 1429.4000000059605,
+      "readyStateAtClick": 1,
+      "estimatedFirstSoundMs": 1536.7000000059604,
+      "estimatedSustainedSoundMs": 1578.4000000059605
+    },
+    {
+      "mode": "desktop",
+      "sound": "guide",
+      "pronunciationId": "7db5e69c20fd1c7cb635976194dd8b2025eeaf8ca30778426d83902ddd83e237",
+      "assetKey": "71450a2b7ec3728978224c0b2b7812689d1a13f387f406993f1ed79e9c95125c",
+      "clickToPlayingMs": 13,
+      "readyStateAtClick": 4,
+      "estimatedFirstSoundMs": 120.3,
+      "estimatedSustainedSoundMs": 162
+    },
+    {
+      "mode": "desktop",
+      "sound": "guide",
+      "pronunciationId": "7db5e69c20fd1c7cb635976194dd8b2025eeaf8ca30778426d83902ddd83e237",
+      "assetKey": "71450a2b7ec3728978224c0b2b7812689d1a13f387f406993f1ed79e9c95125c",
+      "clickToPlayingMs": 12.799999982118607,
+      "readyStateAtClick": 4,
+      "estimatedFirstSoundMs": 120.0999999821186,
+      "estimatedSustainedSoundMs": 161.7999999821186
+    },
+    {
+      "mode": "desktop",
+      "sound": "guide",
+      "pronunciationId": "7db5e69c20fd1c7cb635976194dd8b2025eeaf8ca30778426d83902ddd83e237",
+      "assetKey": "71450a2b7ec3728978224c0b2b7812689d1a13f387f406993f1ed79e9c95125c",
+      "clickToPlayingMs": 14.099999994039536,
+      "readyStateAtClick": 4,
+      "estimatedFirstSoundMs": 121.39999999403953,
+      "estimatedSustainedSoundMs": 163.09999999403954
+    },
+    {
+      "mode": "desktop",
+      "sound": "guide",
+      "pronunciationId": "7db5e69c20fd1c7cb635976194dd8b2025eeaf8ca30778426d83902ddd83e237",
+      "assetKey": "71450a2b7ec3728978224c0b2b7812689d1a13f387f406993f1ed79e9c95125c",
+      "clickToPlayingMs": 12.799999982118607,
+      "readyStateAtClick": 4,
+      "estimatedFirstSoundMs": 120.0999999821186,
+      "estimatedSustainedSoundMs": 161.7999999821186
+    },
+    {
+      "mode": "desktop",
+      "sound": "metal",
+      "pronunciationId": "f1b8c6fd2378c4ed663fe2b2fa4e299c2eedd7aa3133552f44f694e4668196c1",
+      "assetKey": "cb9618a73be7e211a4f748456e9883f85b6099a156e8a593c0275b61b2fe289a",
+      "clickToPlayingMs": 15.099999994039536,
+      "readyStateAtClick": 4,
+      "estimatedFirstSoundMs": 124.59999999403954,
+      "estimatedSustainedSoundMs": 164.09999999403954
+    },
+    {
+      "mode": "desktop",
+      "sound": "metal",
+      "pronunciationId": "f1b8c6fd2378c4ed663fe2b2fa4e299c2eedd7aa3133552f44f694e4668196c1",
+      "assetKey": "cb9618a73be7e211a4f748456e9883f85b6099a156e8a593c0275b61b2fe289a",
+      "clickToPlayingMs": 14.200000017881393,
+      "readyStateAtClick": 4,
+      "estimatedFirstSoundMs": 123.7000000178814,
+      "estimatedSustainedSoundMs": 163.2000000178814
+    },
+    {
+      "mode": "desktop",
+      "sound": "metal",
+      "pronunciationId": "f1b8c6fd2378c4ed663fe2b2fa4e299c2eedd7aa3133552f44f694e4668196c1",
+      "assetKey": "cb9618a73be7e211a4f748456e9883f85b6099a156e8a593c0275b61b2fe289a",
+      "clickToPlayingMs": 13.799999982118607,
+      "readyStateAtClick": 4,
+      "estimatedFirstSoundMs": 123.2999999821186,
+      "estimatedSustainedSoundMs": 162.7999999821186
+    },
+    {
+      "mode": "desktop",
+      "sound": "metal",
+      "pronunciationId": "f1b8c6fd2378c4ed663fe2b2fa4e299c2eedd7aa3133552f44f694e4668196c1",
+      "assetKey": "cb9618a73be7e211a4f748456e9883f85b6099a156e8a593c0275b61b2fe289a",
+      "clickToPlayingMs": 15.300000011920929,
+      "readyStateAtClick": 4,
+      "estimatedFirstSoundMs": 124.80000001192093,
+      "estimatedSustainedSoundMs": 164.30000001192093
+    },
+    {
+      "mode": "desktop",
+      "sound": "metal",
+      "pronunciationId": "f1b8c6fd2378c4ed663fe2b2fa4e299c2eedd7aa3133552f44f694e4668196c1",
+      "assetKey": "cb9618a73be7e211a4f748456e9883f85b6099a156e8a593c0275b61b2fe289a",
+      "clickToPlayingMs": 15.800000011920929,
+      "readyStateAtClick": 4,
+      "estimatedFirstSoundMs": 125.30000001192093,
+      "estimatedSustainedSoundMs": 164.80000001192093
+    },
+    {
+      "mode": "mobile-viewport",
+      "sound": "guide",
+      "pronunciationId": "7db5e69c20fd1c7cb635976194dd8b2025eeaf8ca30778426d83902ddd83e237",
+      "assetKey": "71450a2b7ec3728978224c0b2b7812689d1a13f387f406993f1ed79e9c95125c",
+      "clickToPlayingMs": 15,
+      "readyStateAtClick": 4,
+      "estimatedFirstSoundMs": 122.3,
+      "estimatedSustainedSoundMs": 164
+    },
+    {
+      "mode": "mobile-viewport",
+      "sound": "guide",
+      "pronunciationId": "7db5e69c20fd1c7cb635976194dd8b2025eeaf8ca30778426d83902ddd83e237",
+      "assetKey": "71450a2b7ec3728978224c0b2b7812689d1a13f387f406993f1ed79e9c95125c",
+      "clickToPlayingMs": 13.699999988079071,
+      "readyStateAtClick": 4,
+      "estimatedFirstSoundMs": 120.99999998807907,
+      "estimatedSustainedSoundMs": 162.69999998807907
+    },
+    {
+      "mode": "mobile-viewport",
+      "sound": "guide",
+      "pronunciationId": "7db5e69c20fd1c7cb635976194dd8b2025eeaf8ca30778426d83902ddd83e237",
+      "assetKey": "71450a2b7ec3728978224c0b2b7812689d1a13f387f406993f1ed79e9c95125c",
+      "clickToPlayingMs": 14.800000011920929,
+      "readyStateAtClick": 4,
+      "estimatedFirstSoundMs": 122.10000001192093,
+      "estimatedSustainedSoundMs": 163.80000001192093
+    },
+    {
+      "mode": "mobile-viewport",
+      "sound": "guide",
+      "pronunciationId": "7db5e69c20fd1c7cb635976194dd8b2025eeaf8ca30778426d83902ddd83e237",
+      "assetKey": "71450a2b7ec3728978224c0b2b7812689d1a13f387f406993f1ed79e9c95125c",
+      "clickToPlayingMs": 15.5,
+      "readyStateAtClick": 4,
+      "estimatedFirstSoundMs": 122.8,
+      "estimatedSustainedSoundMs": 164.5
+    },
+    {
+      "mode": "mobile-viewport",
+      "sound": "guide",
+      "pronunciationId": "7db5e69c20fd1c7cb635976194dd8b2025eeaf8ca30778426d83902ddd83e237",
+      "assetKey": "71450a2b7ec3728978224c0b2b7812689d1a13f387f406993f1ed79e9c95125c",
+      "clickToPlayingMs": 12.599999994039536,
+      "readyStateAtClick": 4,
+      "estimatedFirstSoundMs": 119.89999999403953,
+      "estimatedSustainedSoundMs": 161.59999999403954
+    },
+    {
+      "mode": "mobile-viewport",
+      "sound": "metal",
+      "pronunciationId": "f1b8c6fd2378c4ed663fe2b2fa4e299c2eedd7aa3133552f44f694e4668196c1",
+      "assetKey": "cb9618a73be7e211a4f748456e9883f85b6099a156e8a593c0275b61b2fe289a",
+      "clickToPlayingMs": 12.599999994039536,
+      "readyStateAtClick": 4,
+      "estimatedFirstSoundMs": 122.09999999403954,
+      "estimatedSustainedSoundMs": 161.59999999403954
+    },
+    {
+      "mode": "mobile-viewport",
+      "sound": "metal",
+      "pronunciationId": "f1b8c6fd2378c4ed663fe2b2fa4e299c2eedd7aa3133552f44f694e4668196c1",
+      "assetKey": "cb9618a73be7e211a4f748456e9883f85b6099a156e8a593c0275b61b2fe289a",
+      "clickToPlayingMs": 13.5,
+      "readyStateAtClick": 4,
+      "estimatedFirstSoundMs": 123,
+      "estimatedSustainedSoundMs": 162.5
+    },
+    {
+      "mode": "mobile-viewport",
+      "sound": "metal",
+      "pronunciationId": "f1b8c6fd2378c4ed663fe2b2fa4e299c2eedd7aa3133552f44f694e4668196c1",
+      "assetKey": "cb9618a73be7e211a4f748456e9883f85b6099a156e8a593c0275b61b2fe289a",
+      "clickToPlayingMs": 15.400000005960464,
+      "readyStateAtClick": 4,
+      "estimatedFirstSoundMs": 124.90000000596046,
+      "estimatedSustainedSoundMs": 164.40000000596046
+    },
+    {
+      "mode": "mobile-viewport",
+      "sound": "metal",
+      "pronunciationId": "f1b8c6fd2378c4ed663fe2b2fa4e299c2eedd7aa3133552f44f694e4668196c1",
+      "assetKey": "cb9618a73be7e211a4f748456e9883f85b6099a156e8a593c0275b61b2fe289a",
+      "clickToPlayingMs": 13,
+      "readyStateAtClick": 4,
+      "estimatedFirstSoundMs": 122.5,
+      "estimatedSustainedSoundMs": 162
+    },
+    {
+      "mode": "mobile-viewport",
+      "sound": "metal",
+      "pronunciationId": "f1b8c6fd2378c4ed663fe2b2fa4e299c2eedd7aa3133552f44f694e4668196c1",
+      "assetKey": "cb9618a73be7e211a4f748456e9883f85b6099a156e8a593c0275b61b2fe289a",
+      "clickToPlayingMs": 14.900000005960464,
+      "readyStateAtClick": 4,
+      "estimatedFirstSoundMs": 124.40000000596046,
+      "estimatedSustainedSoundMs": 163.90000000596046
+    }
+  ],
+  "desktopPlayback": {
+    "playingMs": {
+      "n": 10,
+      "p50": 14.099999994039536,
+      "p95": 1429.4000000059605,
+      "max": 1429.4000000059605
+    },
+    "estimatedFirstSoundMs": {
+      "n": 10,
+      "p50": 123.2999999821186,
+      "p95": 1536.7000000059604,
+      "max": 1536.7000000059604
+    },
+    "estimatedSustainedSoundMs": {
+      "n": 10,
+      "p50": 163.09999999403954,
+      "p95": 1578.4000000059605,
+      "max": 1578.4000000059605
+    },
+    "allPreloaded": false
+  },
+  "mobile-viewportPlayback": {
+    "playingMs": {
+      "n": 10,
+      "p50": 13.699999988079071,
+      "p95": 15.5,
+      "max": 15.5
+    },
+    "estimatedFirstSoundMs": {
+      "n": 10,
+      "p50": 122.3,
+      "p95": 124.90000000596046,
+      "max": 124.90000000596046
+    },
+    "estimatedSustainedSoundMs": {
+      "n": 10,
+      "p50": 162.69999998807907,
+      "p95": 164.5,
+      "max": 164.5
+    },
+    "allPreloaded": true
+  },
+  "passed": true,
+  "backupFixture": {
+    "userId": "browser-backup-test-a42a8e55-54a5-4fa4-b9f6-47221c13f75a",
+    "username": "browser-backup-test-be27fbadbd",
+    "active": false,
+    "saved": [
+      {
+        "display_term": "lead",
+        "entry_id": "205898f96f3cf0380d76c314403bb73d6a1200832d51d9eebbef12138c9dd8d8",
+        "saved_at": "2026-10-29T23:26:00.741Z"
+      }
+    ],
+    "history": [
+      {
+        "display_term": "lead",
+        "entry_id": null,
+        "first_visited_at": "2026-10-29T23:26:00.443Z",
+        "last_visited_at": "2026-10-29T23:26:20.134Z",
+        "visit_count": "2"
+      }
+    ],
+    "sessions": 0
+  },
+  "finishedAt": "2026-10-29T23:26:39.985Z"
+}

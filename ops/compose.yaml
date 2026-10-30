@@ -1,0 +1,43 @@
+services:
+  frontend:
+    image: word-atlas-frontend:release-20261030-v3
+    container_name: word-atlas-frontend
+    restart: unless-stopped
+    mem_limit: 96m
+    networks: [word-atlas]
+  backend:
+    image: word-atlas-backend:release-20261030-v4
+    container_name: word-atlas-backend
+    restart: unless-stopped
+    mem_limit: 384m
+    env_file:
+      - /srv/data/word-atlas/backend/backend.env
+      - /srv/apps/word-atlas-data/production.env
+    volumes:
+      - /srv/apps/word-atlas-data/audio:/data/audio:ro
+      - /srv/apps/word-atlas-backups:/data/backups:ro
+    networks: [word-atlas, nexo-school-db]
+    healthcheck:
+      test: [CMD, node, -e, "fetch('http://localhost:4000/api/ready').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+  audio-worker:
+    image: word-atlas-backend:release-20261030-v4
+    container_name: word-atlas-audio-worker
+    restart: unless-stopped
+    mem_limit: 256m
+    cpus: 0.5
+    command: [node, src/workers/audioWorker.js]
+    env_file: [/srv/apps/word-atlas-data/production.env]
+    environment:
+      DB_POOL_SIZE: '2'
+    volumes:
+      - /srv/apps/word-atlas-data/audio:/data/audio
+      - /srv/apps/word-atlas-ops/credentials/google-tts.json:/run/secrets/google-tts.json:ro
+    networks: [nexo-school-db, word-atlas]
+networks:
+  word-atlas:
+    external: true
+  nexo-school-db:
+    external: true

@@ -1,0 +1,54 @@
+{
+  "desktop-before": {
+    "heading": "Every word,beautifully mapped.",
+    "fontFamily": "Fraunces, \"Iowan Old Style\", Georgia, serif",
+    "fontSize": "104px",
+    "lineHeight": "98.8px",
+    "color": "rgb(22, 20, 15)",
+    "x": 112,
+    "y": 209.5,
+    "width": 682.65625,
+    "height": 296.390625,
+    "bodyBackground": "rgb(244, 241, 234)",
+    "overflow": false
+  },
+  "desktop-after": {
+    "heading": "Every word,beautifully mapped.",
+    "fontFamily": "Fraunces, \"Iowan Old Style\", Georgia, serif",
+    "fontSize": "104px",
+    "lineHeight": "98.8px",
+    "color": "rgb(22, 20, 15)",
+    "x": 112,
+    "y": 209.5,
+    "width": 682.65625,
+    "height": 296.390625,
+    "bodyBackground": "rgb(244, 241, 234)",
+    "overflow": false
+  },
+  "mobile-before": {
+    "heading": "Every word,beautifully mapped.",
+    "fontFamily": "Fraunces, \"Iowan Old Style\", Georgia, serif",
+    "fontSize": "48px",
+    "lineHeight": "45.6px",
+    "color": "rgb(22, 20, 15)",
+    "x": 16,
+    "y": 161.5,
+    "width": 358,
+    "height": 136.78125,
+    "bodyBackground": "rgb(244, 241, 234)",
+    "overflow": false
+  },
+  "mobile-after": {
+    "heading": "Every word,beautifully mapped.",
+    "fontFamily": "Fraunces, \"Iowan Old Style\", Georgia, serif",
+    "fontSize": "48px",
+    "lineHeight": "45.6px",
+    "color": "rgb(22, 20, 15)",
+    "x": 16,
+    "y": 161.5,
+    "width": 358,
+    "height": 136.78125,
+    "bodyBackground": "rgb(244, 241, 234)",
+    "overflow": false
+  }
+}

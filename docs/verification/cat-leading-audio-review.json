@@ -1,0 +1,521 @@
+{
+  "checkedAt": "2026-10-29T23:27:15.401Z",
+  "sourceAssetKey": "3f140b06f29cf53a84ca0371de3f75142f82f72b840e0357fe39e7a3a29c5cb7",
+  "sourceChecksum": "831acebcb2622ffd5446dd6c436bc24d2c7e16f4954cab9c942f51a8c329cd4f",
+  "isolation": "Copied source only, VPS temporary directory, container --network none; no production changes, synthesis calls, or database access.",
+  "proposedPolicy": "Asset-specific reviewed trim only; not applied.",
+  "proposedTrimSeconds": 0.450125,
+  "sourceDurationSeconds": 1.104,
+  "candidate": {
+    "checksum": "2dec834925189c56608b4aa05559a733e7e02f18546882566ebca02b12864498",
+    "byteSize": 8973,
+    "duration": 0.653875
+  },
+  "rawDetection": {
+    "thresholdDb": -45,
+    "filter": null,
+    "events": [
+      {
+        "type": "start",
+        "seconds": 0
+      },
+      {
+        "type": "end",
+        "seconds": 0.550125
+      },
+      {
+        "type": "start",
+        "seconds": 0.777292
+      },
+      {
+        "type": "end",
+        "seconds": 0.835667
+      },
+      {
+        "type": "start",
+        "seconds": 0.873583
+      },
+      {
+        "type": "end",
+        "seconds": 1.104
+      }
+    ],
+    "leadingEndSeconds": 0.550125
+  },
+  "candidateDetection": {
+    "thresholdDb": -45,
+    "filter": null,
+    "events": [
+      {
+        "type": "start",
+        "seconds": 0
+      },
+      {
+        "type": "end",
+        "seconds": 0.1
+      },
+      {
+        "type": "start",
+        "seconds": 0.327167
+      },
+      {
+        "type": "end",
+        "seconds": 0.385542
+      },
+      {
+        "type": "start",
+        "seconds": 0.423458
+      },
+      {
+        "type": "end",
+        "seconds": 0.653875
+      }
+    ],
+    "leadingEndSeconds": 0.1
+  },
+  "highpass80Detection": {
+    "thresholdDb": -50,
+    "filter": "highpass=f=80",
+    "events": [
+      {
+        "type": "start",
+        "seconds": 0
+      },
+      {
+        "type": "end",
+        "seconds": 0.547333
+      },
+      {
+        "type": "start",
+        "seconds": 0.792375
+      },
+      {
+        "type": "end",
+        "seconds": 0.835667
+      },
+      {
+        "type": "start",
+        "seconds": 0.875
+      },
+      {
+        "type": "end",
+        "seconds": 1.104
+      }
+    ],
+    "leadingEndSeconds": 0.547333
+  },
+  "highpass300Detection": {
+    "thresholdDb": -50,
+    "filter": "highpass=f=300",
+    "events": [
+      {
+        "type": "start",
+        "seconds": 0
+      },
+      {
+        "type": "end",
+        "seconds": 0.547333
+      },
+      {
+        "type": "start",
+        "seconds": 0.778167
+      },
+      {
+        "type": "end",
+        "seconds": 0.836
+      },
+      {
+        "type": "start",
+        "seconds": 0.875292
+      },
+      {
+        "type": "end",
+        "seconds": 1.104
+      }
+    ],
+    "leadingEndSeconds": 0.547333
+  },
+  "energyBeforeProposedCut": {
+    "raw": {
+      "rmsDbfs": -57.41,
+      "peakDbfs": -48.41
+    },
+    "highpass80Hz": {
+      "rmsDbfs": -68.06,
+      "peakDbfs": -57.97
+    },
+    "highpass300Hz": {
+      "rmsDbfs": -86.19,
+      "peakDbfs": -73.88
+    }
+  },
+  "windows": [
+    {
+      "fromMs": 0,
+      "toMs": 50,
+      "raw": {
+        "rmsDbfs": -85.59,
+        "peakDbfs": -70.7
+      },
+      "highpass80Hz": {
+        "rmsDbfs": -92.88,
+        "peakDbfs": -74.08
+      },
+      "highpass300Hz": {
+        "rmsDbfs": -98.46,
+        "peakDbfs": -77.76
+      }
+    },
+    {
+      "fromMs": 50,
+      "toMs": 100,
+      "raw": {
+        "rmsDbfs": -60.21,
+        "peakDbfs": -52.25
+      },
+      "highpass80Hz": {
+        "rmsDbfs": -71.67,
+        "peakDbfs": -64.69
+      },
+      "highpass300Hz": {
+        "rmsDbfs": -87.26,
+        "peakDbfs": -77.71
+      }
+    },
+    {
+      "fromMs": 100,
+      "toMs": 150,
+      "raw": {
+        "rmsDbfs": -56.52,
+        "peakDbfs": -49.41
+      },
+      "highpass80Hz": {
+        "rmsDbfs": -65.95,
+        "peakDbfs": -59.33
+      },
+      "highpass300Hz": {
+        "rmsDbfs": -84.72,
+        "peakDbfs": -75.61
+      }
+    },
+    {
+      "fromMs": 150,
+      "toMs": 200,
+      "raw": {
+        "rmsDbfs": -60.03,
+        "peakDbfs": -53.73
+      },
+      "highpass80Hz": {
+        "rmsDbfs": -68.31,
+        "peakDbfs": -61.79
+      },
+      "highpass300Hz": {
+        "rmsDbfs": -85.54,
+        "peakDbfs": -75.11
+      }
+    },
+    {
+      "fromMs": 200,
+      "toMs": 250,
+      "raw": {
+        "rmsDbfs": -57.25,
+        "peakDbfs": -51.26
+      },
+      "highpass80Hz": {
+        "rmsDbfs": -67.93,
+        "peakDbfs": -62.42
+      },
+      "highpass300Hz": {
+        "rmsDbfs": -85.36,
+        "peakDbfs": -74.92
+      }
+    },
+    {
+      "fromMs": 250,
+      "toMs": 300,
+      "raw": {
+        "rmsDbfs": -54.81,
+        "peakDbfs": -48.6
+      },
+      "highpass80Hz": {
+        "rmsDbfs": -63.3,
+        "peakDbfs": -57.97
+      },
+      "highpass300Hz": {
+        "rmsDbfs": -83.32,
+        "peakDbfs": -73.88
+      }
+    },
+    {
+      "fromMs": 300,
+      "toMs": 350,
+      "raw": {
+        "rmsDbfs": -60.06,
+        "peakDbfs": -54.06
+      },
+      "highpass80Hz": {
+        "rmsDbfs": -70.47,
+        "peakDbfs": -62.67
+      },
+      "highpass300Hz": {
+        "rmsDbfs": -87.76,
+        "peakDbfs": -77.14
+      }
+    },
+    {
+      "fromMs": 350,
+      "toMs": 400,
+      "raw": {
+        "rmsDbfs": -53.32,
+        "peakDbfs": -48.41
+      },
+      "highpass80Hz": {
+        "rmsDbfs": -68.35,
+        "peakDbfs": -61.62
+      },
+      "highpass300Hz": {
+        "rmsDbfs": -85.88,
+        "peakDbfs": -76.6
+      }
+    },
+    {
+      "fromMs": 400,
+      "toMs": 450,
+      "raw": {
+        "rmsDbfs": -58.79,
+        "peakDbfs": -51.12
+      },
+      "highpass80Hz": {
+        "rmsDbfs": -71.32,
+        "peakDbfs": -62.76
+      },
+      "highpass300Hz": {
+        "rmsDbfs": -87.86,
+        "peakDbfs": -76.8
+      }
+    },
+    {
+      "fromMs": 450,
+      "toMs": 500,
+      "raw": {
+        "rmsDbfs": -55.06,
+        "peakDbfs": -50.8
+      },
+      "highpass80Hz": {
+        "rmsDbfs": -66.38,
+        "peakDbfs": -60.42
+      },
+      "highpass300Hz": {
+        "rmsDbfs": -84.85,
+        "peakDbfs": -74.36
+      }
+    },
+    {
+      "fromMs": 500,
+      "toMs": 550,
+      "raw": {
+        "rmsDbfs": -56.23,
+        "peakDbfs": -45.78
+      },
+      "highpass80Hz": {
+        "rmsDbfs": -63.18,
+        "peakDbfs": -44.24
+      },
+      "highpass300Hz": {
+        "rmsDbfs": -65.06,
+        "peakDbfs": -45.38
+      }
+    },
+    {
+      "fromMs": 550,
+      "toMs": 600,
+      "raw": {
+        "rmsDbfs": -31.9,
+        "peakDbfs": -14.12
+      },
+      "highpass80Hz": {
+        "rmsDbfs": -32.14,
+        "peakDbfs": -14.35
+      },
+      "highpass300Hz": {
+        "rmsDbfs": -32.47,
+        "peakDbfs": -14.88
+      }
+    },
+    {
+      "fromMs": 600,
+      "toMs": 650,
+      "raw": {
+        "rmsDbfs": -26.28,
+        "peakDbfs": -15.41
+      },
+      "highpass80Hz": {
+        "rmsDbfs": -26.81,
+        "peakDbfs": -18.3
+      },
+      "highpass300Hz": {
+        "rmsDbfs": -30.73,
+        "peakDbfs": -18.06
+      }
+    },
+    {
+      "fromMs": 650,
+      "toMs": 700,
+      "raw": {
+        "rmsDbfs": -19.95,
+        "peakDbfs": -8.55
+      },
+      "highpass80Hz": {
+        "rmsDbfs": -19.99,
+        "peakDbfs": -9.11
+      },
+      "highpass300Hz": {
+        "rmsDbfs": -21.22,
+        "peakDbfs": -7.86
+      }
+    },
+    {
+      "fromMs": 700,
+      "toMs": 750,
+      "raw": {
+        "rmsDbfs": -25.34,
+        "peakDbfs": -12.6
+      },
+      "highpass80Hz": {
+        "rmsDbfs": -25.51,
+        "peakDbfs": -13.66
+      },
+      "highpass300Hz": {
+        "rmsDbfs": -26.42,
+        "peakDbfs": -13.16
+      }
+    },
+    {
+      "fromMs": 750,
+      "toMs": 800,
+      "raw": {
+        "rmsDbfs": -38.38,
+        "peakDbfs": -25.14
+      },
+      "highpass80Hz": {
+        "rmsDbfs": -39.21,
+        "peakDbfs": -26.58
+      },
+      "highpass300Hz": {
+        "rmsDbfs": -42.72,
+        "peakDbfs": -30.95
+      }
+    },
+    {
+      "fromMs": 800,
+      "toMs": 850,
+      "raw": {
+        "rmsDbfs": -41.96,
+        "peakDbfs": -27.77
+      },
+      "highpass80Hz": {
+        "rmsDbfs": -44.8,
+        "peakDbfs": -29.11
+      },
+      "highpass300Hz": {
+        "rmsDbfs": -46.26,
+        "peakDbfs": -29.5
+      }
+    },
+    {
+      "fromMs": 850,
+      "toMs": 900,
+      "raw": {
+        "rmsDbfs": -51.94,
+        "peakDbfs": -40.96
+      },
+      "highpass80Hz": {
+        "rmsDbfs": -55.12,
+        "peakDbfs": -42.01
+      },
+      "highpass300Hz": {
+        "rmsDbfs": -57.52,
+        "peakDbfs": -46.8
+      }
+    },
+    {
+      "fromMs": 900,
+      "toMs": 950,
+      "raw": {
+        "rmsDbfs": -56.15,
+        "peakDbfs": -48.83
+      },
+      "highpass80Hz": {
+        "rmsDbfs": -65.76,
+        "peakDbfs": -54.4
+      },
+      "highpass300Hz": {
+        "rmsDbfs": -69.9,
+        "peakDbfs": -55.56
+      }
+    },
+    {
+      "fromMs": 950,
+      "toMs": 1000,
+      "raw": {
+        "rmsDbfs": -58.09,
+        "peakDbfs": -52.43
+      },
+      "highpass80Hz": {
+        "rmsDbfs": -67.34,
+        "peakDbfs": -60.6
+      },
+      "highpass300Hz": {
+        "rmsDbfs": -82.84,
+        "peakDbfs": -71.81
+      }
+    },
+    {
+      "fromMs": 1000,
+      "toMs": 1050,
+      "raw": {
+        "rmsDbfs": -61.88,
+        "peakDbfs": -55.05
+      },
+      "highpass80Hz": {
+        "rmsDbfs": -70.36,
+        "peakDbfs": -63.48
+      },
+      "highpass300Hz": {
+        "rmsDbfs": -85.24,
+        "peakDbfs": -75.3
+      }
+    },
+    {
+      "fromMs": 1050,
+      "toMs": 1100,
+      "raw": {
+        "rmsDbfs": -58.27,
+        "peakDbfs": -51.37
+      },
+      "highpass80Hz": {
+        "rmsDbfs": -66.12,
+        "peakDbfs": -55.45
+      },
+      "highpass300Hz": {
+        "rmsDbfs": -78.12,
+        "peakDbfs": -54.85
+      }
+    }
+  ],
+  "assessment": {
+    "conclusion": "Evidence supports an asset-specific reviewed 450.125ms trim with 100ms padding before the -45dB onset. Not applied.",
+    "basis": [
+      "Before the proposed cut, energy above 300Hz is -86.19dBFS RMS versus -57.41dBFS unfiltered; the false -50dB trigger is predominantly very low-frequency noise.",
+      "Highpass80Hz and highpass300Hz detection agree on 547.333ms onset, leaving 97.208ms before that onset after the proposed cut.",
+      "The inspected spectrum shows the broadband consonant burst and following vowel after the retained margin; the proposed removed range has no comparable consonantal energy.",
+      "The temporary candidate is 653.875ms long and crosses -45dB at100ms, preserving the complete remaining recording."
+    ],
+    "limitations": [
+      "This is objective signal inspection, not an independently documented listening test.",
+      "Do not apply a fixed 450.125ms cut to other clips or change the generic threshold on this evidence.",
+      "Any publication should use auditable source-checksum-specific processing and a new immutable asset identity; retain original source and current production file."
+    ],
+    "spectrumArtifact": "docs/verification/cat-source-spectrum.png"
+  }
+}

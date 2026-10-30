@@ -11,6 +11,7 @@ import HomePage from "../pages/HomePage.jsx";
 import WordPage from "../pages/WordPage.jsx";
 import LibraryPage from "../pages/LibraryPage.jsx";
 import NotFoundPage from "../pages/NotFoundPage.jsx";
+import PasskeyPage from "../pages/PasskeyPage.jsx";
 
 import { wordPath } from "../lib/platform.js";
 
@@ -33,6 +34,7 @@ const App = () => {
                                         <Route path="/" element={<HomePage />} />
                                         <Route path="/word/:term" element={<WordPage />} />
                                         <Route path="/library" element={<LibraryPage />} />
+                                        <Route path="/k/:gate" element={<PasskeyPage />} />
                                         <Route path="/:wordId" element={<LegacyWordRedirect />} />
                                         <Route path="*" element={<NotFoundPage />} />
                                     </Route>

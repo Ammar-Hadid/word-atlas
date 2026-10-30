@@ -1,6 +1,6 @@
-const API_URL = import.meta.env.VITE_API_URL
+const API_URL = "/api"
 
-export const fetchWordData = async (word) => {
+export const fetchWordData = async (word, { localOnly = false } = {}) => {
     const trimmedWord = word?.trim();
 
     if (!trimmedWord) {
@@ -12,7 +12,7 @@ export const fetchWordData = async (word) => {
     let response;
 
     try {
-        response = await fetch(`${API_URL}/words?term=${normalizedWord}`);
+        response = await fetch(`${API_URL}/words?term=${normalizedWord}${localOnly ? "&localOnly=1" : ""}`);
     }
 
     catch {
@@ -28,6 +28,7 @@ export const fetchWordData = async (word) => {
 
         error.suggestions = data.suggestions ?? [];
         error.status = response.status;
+        error.editorialUnavailable = data.editorialUnavailable ?? false;
 
         throw error;
     }

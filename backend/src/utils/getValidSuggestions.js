@@ -1,34 +1,7 @@
-import fetchWord from "../services/merriamService.js";
-import { getMatchingEntries } from "./getMatchingLearnersEntries.js";
-
-const getValidSuggestions = async (suggestions) => {
-    if (!Array.isArray(suggestions)) return []
-
-    const stringifiedSuggestions = suggestions.filter(suggestion => typeof suggestion === 'string')
-
-    const validSuggestions = await Promise.all(
-        stringifiedSuggestions.map(async suggestion => {
-
-            try {
-                const word = await fetchWord(suggestion);
-
-                const matchingSuggestions = getMatchingEntries(word, suggestion);
-
-                if (!matchingSuggestions.length) {
-                    return null
-                }
-
-                return suggestion
-            }
-
-            catch {
-                console.error('Failed to load suggestion');
-                return null;
-            }
-        })
-    )
-
-    return validSuggestions.filter(Boolean);
-}
+// Provider suggestions are suggestions, never verified entries. Validating each
+// suggestion used to issue another billable/quota-limited lookup per candidate.
+const getValidSuggestions = async (suggestions) => Array.isArray(suggestions)
+    ? [...new Set(suggestions.filter(value => typeof value === "string" && value.trim() && value.length <= 160))].slice(0, 8)
+    : [];
 
 export default getValidSuggestions;

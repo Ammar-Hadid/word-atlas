@@ -1,0 +1,17 @@
+.env*
+!.env.example
+node_modules/
+dist/
+.DS_Store
+*.pem
+*.key
+backups/
+artifacts/
+__pycache__/
+
+# Local-only: editor launch config and large audio research samples
+.claude/
+docs/research/audio-comparison/**/*.wav
+docs/research/audio-comparison/**/*.png
+docs/research/audio-comparison/*.wav
+docs/research/audio-comparison/*.png

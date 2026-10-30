@@ -1,0 +1,111 @@
+{
+  "checks": [
+    {
+      "name": "login and verified legacy import",
+      "ok": true
+    },
+    {
+      "name": "105 legacy saves in PostgreSQL",
+      "ok": true,
+      "detail": 105
+    },
+    {
+      "name": "legacy history preserved once",
+      "ok": true,
+      "detail": {
+        "n": 55,
+        "visits": 55
+      }
+    },
+    {
+      "name": "load more visible",
+      "ok": true
+    },
+    {
+      "name": "pagination reaches oldest save",
+      "ok": true
+    },
+    {
+      "name": "browser original keys unchanged",
+      "ok": true
+    },
+    {
+      "name": "reload cannot duplicate imported visits",
+      "ok": true,
+      "detail": {
+        "n": 55,
+        "visits": 55
+      }
+    },
+    {
+      "name": "save acknowledged by server",
+      "ok": true
+    },
+    {
+      "name": "selected homograph reference persisted",
+      "ok": true
+    },
+    {
+      "name": "saved state survives reload",
+      "ok": true
+    },
+    {
+      "name": "second isolated browser sees saved entry",
+      "ok": true
+    },
+    {
+      "name": "export includes all pages and history",
+      "ok": true,
+      "detail": {
+        "saved": 106,
+        "history": 56
+      }
+    },
+    {
+      "name": "word page has no mobile horizontal overflow",
+      "ok": true
+    },
+    {
+      "name": "library has no mobile horizontal overflow",
+      "ok": true
+    },
+    {
+      "name": "logout displays guest state",
+      "ok": true
+    },
+    {
+      "name": "login after logout refreshes CSRF",
+      "ok": true
+    },
+    {
+      "name": "unresolved submitted search is persisted",
+      "ok": true,
+      "detail": 1
+    },
+    {
+      "name": "failed write is visibly pending",
+      "ok": true
+    },
+    {
+      "name": "retry flushes pending removal",
+      "ok": true,
+      "detail": {
+        "n": 0
+      }
+    },
+    {
+      "name": "no uncaught browser errors",
+      "ok": true,
+      "detail": []
+    }
+  ],
+  "consoleErrors": [],
+  "screenshots": [
+    "library-desktop.png",
+    "lead-desktop.png",
+    "lead-mobile.png",
+    "library-mobile.png"
+  ],
+  "startedAt": "2026-10-29T22:48:53.429Z",
+  "finishedAt": "2026-10-29T22:49:04.355Z"
+}

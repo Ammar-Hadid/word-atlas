@@ -12,7 +12,6 @@ const cleanMarkup = (text = "") => {
         .replace(/\{ldquo\}/g, "“")
         .replace(/\{rdquo\}/g, "”")
         .replace(/\{\/?[^}]+\}/g, "")
-        .replace(/\[=[^\]]+\]/g, "")
         .replace(/\s+([,.;:])/g, "$1")
         .replace(/\s+/g, " ")
         .replace(/^[;\s]+/, "")

@@ -1,0 +1,257 @@
+{
+  "origin": "https://word-atlas.ammarhadid.com",
+  "release": "kaikki-20261029-full",
+  "startedAt": "2026-10-30T00:05:11.890Z",
+  "checks": [
+    {
+      "name": "desktop full-corpus lookup serendipity",
+      "ok": true,
+      "detail": {
+        "releaseId": "kaikki-20261029-full",
+        "entries": 1
+      }
+    },
+    {
+      "name": "desktop source senses and attribution serendipity",
+      "ok": true
+    },
+    {
+      "name": "desktop forms render serendipity",
+      "ok": true,
+      "detail": {
+        "forms": 1
+      }
+    },
+    {
+      "name": "desktop no horizontal overflow serendipity",
+      "ok": true
+    },
+    {
+      "name": "desktop full-corpus lookup petrichor",
+      "ok": true,
+      "detail": {
+        "releaseId": "kaikki-20261029-full",
+        "entries": 1
+      }
+    },
+    {
+      "name": "desktop source senses and attribution petrichor",
+      "ok": true
+    },
+    {
+      "name": "desktop no horizontal overflow petrichor",
+      "ok": true
+    },
+    {
+      "name": "desktop full-corpus lookup children",
+      "ok": true,
+      "detail": {
+        "releaseId": "kaikki-20261029-full",
+        "entries": 1
+      }
+    },
+    {
+      "name": "desktop source senses and attribution children",
+      "ok": true
+    },
+    {
+      "name": "desktop forms render children",
+      "ok": true,
+      "detail": {
+        "forms": 5
+      }
+    },
+    {
+      "name": "desktop children preserves explicit ambiguous base linkage",
+      "ok": true,
+      "detail": {
+        "status": "ambiguous",
+        "candidates": [
+          "child",
+          "childer"
+        ]
+      }
+    },
+    {
+      "name": "desktop children offers both source base links",
+      "ok": true,
+      "detail": {
+        "linked": [
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "name": "desktop no horizontal overflow children",
+      "ok": true
+    },
+    {
+      "name": "desktop full-corpus lookup kick the bucket",
+      "ok": true,
+      "detail": {
+        "releaseId": "kaikki-20261029-full",
+        "entries": 1
+      }
+    },
+    {
+      "name": "desktop source senses and attribution kick the bucket",
+      "ok": true
+    },
+    {
+      "name": "desktop forms render kick the bucket",
+      "ok": true,
+      "detail": {
+        "forms": 3
+      }
+    },
+    {
+      "name": "desktop no horizontal overflow kick the bucket",
+      "ok": true
+    },
+    {
+      "name": "desktop local autocomplete finds petrichor without recording a search",
+      "ok": true,
+      "detail": {
+        "pendingBefore": 4,
+        "pendingAfter": 4
+      }
+    },
+    {
+      "name": "mobile full-corpus lookup serendipity",
+      "ok": true,
+      "detail": {
+        "releaseId": "kaikki-20261029-full",
+        "entries": 1
+      }
+    },
+    {
+      "name": "mobile source senses and attribution serendipity",
+      "ok": true
+    },
+    {
+      "name": "mobile forms render serendipity",
+      "ok": true,
+      "detail": {
+        "forms": 1
+      }
+    },
+    {
+      "name": "mobile no horizontal overflow serendipity",
+      "ok": true
+    },
+    {
+      "name": "mobile full-corpus lookup petrichor",
+      "ok": true,
+      "detail": {
+        "releaseId": "kaikki-20261029-full",
+        "entries": 1
+      }
+    },
+    {
+      "name": "mobile source senses and attribution petrichor",
+      "ok": true
+    },
+    {
+      "name": "mobile no horizontal overflow petrichor",
+      "ok": true
+    },
+    {
+      "name": "mobile full-corpus lookup children",
+      "ok": true,
+      "detail": {
+        "releaseId": "kaikki-20261029-full",
+        "entries": 1
+      }
+    },
+    {
+      "name": "mobile source senses and attribution children",
+      "ok": true
+    },
+    {
+      "name": "mobile forms render children",
+      "ok": true,
+      "detail": {
+        "forms": 5
+      }
+    },
+    {
+      "name": "mobile children preserves explicit ambiguous base linkage",
+      "ok": true,
+      "detail": {
+        "status": "ambiguous",
+        "candidates": [
+          "child",
+          "childer"
+        ]
+      }
+    },
+    {
+      "name": "mobile children offers both source base links",
+      "ok": true,
+      "detail": {
+        "linked": [
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "name": "mobile no horizontal overflow children",
+      "ok": true
+    },
+    {
+      "name": "mobile full-corpus lookup kick the bucket",
+      "ok": true,
+      "detail": {
+        "releaseId": "kaikki-20261029-full",
+        "entries": 1
+      }
+    },
+    {
+      "name": "mobile source senses and attribution kick the bucket",
+      "ok": true
+    },
+    {
+      "name": "mobile forms render kick the bucket",
+      "ok": true,
+      "detail": {
+        "forms": 3
+      }
+    },
+    {
+      "name": "mobile no horizontal overflow kick the bucket",
+      "ok": true
+    },
+    {
+      "name": "mobile local autocomplete finds petrichor without recording a search",
+      "ok": true,
+      "detail": {
+        "pendingBefore": 4,
+        "pendingAfter": 4
+      }
+    },
+    {
+      "name": "Anonymous smoke sends no personal or audio writes",
+      "ok": true,
+      "detail": []
+    },
+    {
+      "name": "No browser exceptions or HTTP errors",
+      "ok": true,
+      "detail": {
+        "errors": [],
+        "httpErrors": []
+      }
+    }
+  ],
+  "errors": [],
+  "httpErrors": [],
+  "mutations": [],
+  "screenshots": [
+    "full-corpus-children-desktop.png",
+    "full-corpus-children-mobile.png"
+  ],
+  "passed": true,
+  "finishedAt": "2026-10-30T00:05:17.699Z"
+}

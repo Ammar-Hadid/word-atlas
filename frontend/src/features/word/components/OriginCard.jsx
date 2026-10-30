@@ -1,7 +1,7 @@
 import InsightCard from "./InsightCard.jsx";
 
-const OriginCard = ({ entry, entries }) => {
-    const etymology = entry.etymology ?? entries.find(item => item.etymology)?.etymology;
+const OriginCard = ({ entry }) => {
+    const etymology = entry.etymology;
 
     if (!etymology) return null;
 

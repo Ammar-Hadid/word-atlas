@@ -14,7 +14,8 @@ const navLinkClass = ({ isActive }) =>
 
 const Header = () => {
     const { openPalette } = useCommand();
-    const { saved } = useLibrary();
+    const { saved, user, pages } = useLibrary();
+    const savedCount = user ? pages.saved.total : saved.length;
     const [isScrolled, setIsScrolled] = useState(false);
 
     useEffect(() => {
@@ -38,9 +39,9 @@ const Header = () => {
                     <NavLink to="/" end className={navLinkClass}>Explore</NavLink>
                     <NavLink to="/library" className={navLinkClass}>
                         Library
-                        {saved.length > 0 && (
+                        {savedCount > 0 && (
                             <span className="ml-xs rounded-full bg-accent-soft px-1.5 py-px font-mono text-[0.625rem] text-accent">
-                                {saved.length}
+                                {savedCount}
                             </span>
                         )}
                     </NavLink>

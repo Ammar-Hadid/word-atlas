@@ -1,0 +1,11 @@
+{
+  "checks": [
+    "Saved entry beyond first100 recognized on opened word",
+    "Second independent browser removed entry",
+    "First browser refreshes open-word bookmark on focus",
+    "Preserved legacy originals do not resurrect remote removal",
+    "Original browser record still recoverable"
+  ],
+  "errors": [],
+  "passed": true
+}

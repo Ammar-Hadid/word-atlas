@@ -1,0 +1,833 @@
+{
+  "environment": "Chrome headless, actual VPS staging via SSH and Vite localhost:5173; mobile viewport emulation on Mac, not a physical phone",
+  "before": {
+    "jobs": 0,
+    "usage": 0,
+    "reserved": 0
+  },
+  "preloaded": [
+    {
+      "mode": "desktop",
+      "sound": "guide",
+      "pronunciationId": "7db5e69c20fd1c7cb635976194dd8b2025eeaf8ca30778426d83902ddd83e237",
+      "assetKey": "71450a2b7ec3728978224c0b2b7812689d1a13f387f406993f1ed79e9c95125c",
+      "clickToPlayingMs": 17.400000005960464,
+      "readyStateAtClick": 4,
+      "estimatedFirstSoundMs": 124.70000000596046,
+      "estimatedSustainedSoundMs": 166.40000000596046
+    },
+    {
+      "mode": "desktop",
+      "sound": "guide",
+      "pronunciationId": "7db5e69c20fd1c7cb635976194dd8b2025eeaf8ca30778426d83902ddd83e237",
+      "assetKey": "71450a2b7ec3728978224c0b2b7812689d1a13f387f406993f1ed79e9c95125c",
+      "clickToPlayingMs": 13.900000005960464,
+      "readyStateAtClick": 4,
+      "estimatedFirstSoundMs": 121.20000000596046,
+      "estimatedSustainedSoundMs": 162.90000000596046
+    },
+    {
+      "mode": "desktop",
+      "sound": "guide",
+      "pronunciationId": "7db5e69c20fd1c7cb635976194dd8b2025eeaf8ca30778426d83902ddd83e237",
+      "assetKey": "71450a2b7ec3728978224c0b2b7812689d1a13f387f406993f1ed79e9c95125c",
+      "clickToPlayingMs": 12.5,
+      "readyStateAtClick": 4,
+      "estimatedFirstSoundMs": 119.8,
+      "estimatedSustainedSoundMs": 161.5
+    },
+    {
+      "mode": "desktop",
+      "sound": "guide",
+      "pronunciationId": "7db5e69c20fd1c7cb635976194dd8b2025eeaf8ca30778426d83902ddd83e237",
+      "assetKey": "71450a2b7ec3728978224c0b2b7812689d1a13f387f406993f1ed79e9c95125c",
+      "clickToPlayingMs": 10.599999994039536,
+      "readyStateAtClick": 4,
+      "estimatedFirstSoundMs": 117.89999999403953,
+      "estimatedSustainedSoundMs": 159.59999999403954
+    },
+    {
+      "mode": "desktop",
+      "sound": "guide",
+      "pronunciationId": "7db5e69c20fd1c7cb635976194dd8b2025eeaf8ca30778426d83902ddd83e237",
+      "assetKey": "71450a2b7ec3728978224c0b2b7812689d1a13f387f406993f1ed79e9c95125c",
+      "clickToPlayingMs": 15.5,
+      "readyStateAtClick": 4,
+      "estimatedFirstSoundMs": 122.8,
+      "estimatedSustainedSoundMs": 164.5
+    },
+    {
+      "mode": "desktop",
+      "sound": "guide",
+      "pronunciationId": "7db5e69c20fd1c7cb635976194dd8b2025eeaf8ca30778426d83902ddd83e237",
+      "assetKey": "71450a2b7ec3728978224c0b2b7812689d1a13f387f406993f1ed79e9c95125c",
+      "clickToPlayingMs": 14.5,
+      "readyStateAtClick": 4,
+      "estimatedFirstSoundMs": 121.8,
+      "estimatedSustainedSoundMs": 163.5
+    },
+    {
+      "mode": "desktop",
+      "sound": "guide",
+      "pronunciationId": "7db5e69c20fd1c7cb635976194dd8b2025eeaf8ca30778426d83902ddd83e237",
+      "assetKey": "71450a2b7ec3728978224c0b2b7812689d1a13f387f406993f1ed79e9c95125c",
+      "clickToPlayingMs": 15.199999988079071,
+      "readyStateAtClick": 4,
+      "estimatedFirstSoundMs": 122.49999998807907,
+      "estimatedSustainedSoundMs": 164.19999998807907
+    },
+    {
+      "mode": "desktop",
+      "sound": "guide",
+      "pronunciationId": "7db5e69c20fd1c7cb635976194dd8b2025eeaf8ca30778426d83902ddd83e237",
+      "assetKey": "71450a2b7ec3728978224c0b2b7812689d1a13f387f406993f1ed79e9c95125c",
+      "clickToPlayingMs": 13.900000005960464,
+      "readyStateAtClick": 4,
+      "estimatedFirstSoundMs": 121.20000000596046,
+      "estimatedSustainedSoundMs": 162.90000000596046
+    },
+    {
+      "mode": "desktop",
+      "sound": "guide",
+      "pronunciationId": "7db5e69c20fd1c7cb635976194dd8b2025eeaf8ca30778426d83902ddd83e237",
+      "assetKey": "71450a2b7ec3728978224c0b2b7812689d1a13f387f406993f1ed79e9c95125c",
+      "clickToPlayingMs": 15.400000005960464,
+      "readyStateAtClick": 4,
+      "estimatedFirstSoundMs": 122.70000000596046,
+      "estimatedSustainedSoundMs": 164.40000000596046
+    },
+    {
+      "mode": "desktop",
+      "sound": "guide",
+      "pronunciationId": "7db5e69c20fd1c7cb635976194dd8b2025eeaf8ca30778426d83902ddd83e237",
+      "assetKey": "71450a2b7ec3728978224c0b2b7812689d1a13f387f406993f1ed79e9c95125c",
+      "clickToPlayingMs": 10.799999982118607,
+      "readyStateAtClick": 4,
+      "estimatedFirstSoundMs": 118.0999999821186,
+      "estimatedSustainedSoundMs": 159.7999999821186
+    },
+    {
+      "mode": "desktop",
+      "sound": "metal",
+      "pronunciationId": "f1b8c6fd2378c4ed663fe2b2fa4e299c2eedd7aa3133552f44f694e4668196c1",
+      "assetKey": "cb9618a73be7e211a4f748456e9883f85b6099a156e8a593c0275b61b2fe289a",
+      "clickToPlayingMs": 15.200000017881393,
+      "readyStateAtClick": 4,
+      "estimatedFirstSoundMs": 124.7000000178814,
+      "estimatedSustainedSoundMs": 164.2000000178814
+    },
+    {
+      "mode": "desktop",
+      "sound": "metal",
+      "pronunciationId": "f1b8c6fd2378c4ed663fe2b2fa4e299c2eedd7aa3133552f44f694e4668196c1",
+      "assetKey": "cb9618a73be7e211a4f748456e9883f85b6099a156e8a593c0275b61b2fe289a",
+      "clickToPlayingMs": 13.5,
+      "readyStateAtClick": 4,
+      "estimatedFirstSoundMs": 123,
+      "estimatedSustainedSoundMs": 162.5
+    },
+    {
+      "mode": "desktop",
+      "sound": "metal",
+      "pronunciationId": "f1b8c6fd2378c4ed663fe2b2fa4e299c2eedd7aa3133552f44f694e4668196c1",
+      "assetKey": "cb9618a73be7e211a4f748456e9883f85b6099a156e8a593c0275b61b2fe289a",
+      "clickToPlayingMs": 14.300000011920929,
+      "readyStateAtClick": 4,
+      "estimatedFirstSoundMs": 123.80000001192093,
+      "estimatedSustainedSoundMs": 163.30000001192093
+    },
+    {
+      "mode": "desktop",
+      "sound": "metal",
+      "pronunciationId": "f1b8c6fd2378c4ed663fe2b2fa4e299c2eedd7aa3133552f44f694e4668196c1",
+      "assetKey": "cb9618a73be7e211a4f748456e9883f85b6099a156e8a593c0275b61b2fe289a",
+      "clickToPlayingMs": 12.800000011920929,
+      "readyStateAtClick": 4,
+      "estimatedFirstSoundMs": 122.30000001192093,
+      "estimatedSustainedSoundMs": 161.80000001192093
+    },
+    {
+      "mode": "desktop",
+      "sound": "metal",
+      "pronunciationId": "f1b8c6fd2378c4ed663fe2b2fa4e299c2eedd7aa3133552f44f694e4668196c1",
+      "assetKey": "cb9618a73be7e211a4f748456e9883f85b6099a156e8a593c0275b61b2fe289a",
+      "clickToPlayingMs": 15,
+      "readyStateAtClick": 4,
+      "estimatedFirstSoundMs": 124.5,
+      "estimatedSustainedSoundMs": 164
+    },
+    {
+      "mode": "desktop",
+      "sound": "metal",
+      "pronunciationId": "f1b8c6fd2378c4ed663fe2b2fa4e299c2eedd7aa3133552f44f694e4668196c1",
+      "assetKey": "cb9618a73be7e211a4f748456e9883f85b6099a156e8a593c0275b61b2fe289a",
+      "clickToPlayingMs": 14.699999988079071,
+      "readyStateAtClick": 4,
+      "estimatedFirstSoundMs": 124.19999998807907,
+      "estimatedSustainedSoundMs": 163.69999998807907
+    },
+    {
+      "mode": "desktop",
+      "sound": "metal",
+      "pronunciationId": "f1b8c6fd2378c4ed663fe2b2fa4e299c2eedd7aa3133552f44f694e4668196c1",
+      "assetKey": "cb9618a73be7e211a4f748456e9883f85b6099a156e8a593c0275b61b2fe289a",
+      "clickToPlayingMs": 13.5,
+      "readyStateAtClick": 4,
+      "estimatedFirstSoundMs": 123,
+      "estimatedSustainedSoundMs": 162.5
+    },
+    {
+      "mode": "desktop",
+      "sound": "metal",
+      "pronunciationId": "f1b8c6fd2378c4ed663fe2b2fa4e299c2eedd7aa3133552f44f694e4668196c1",
+      "assetKey": "cb9618a73be7e211a4f748456e9883f85b6099a156e8a593c0275b61b2fe289a",
+      "clickToPlayingMs": 14.600000023841858,
+      "readyStateAtClick": 4,
+      "estimatedFirstSoundMs": 124.10000002384186,
+      "estimatedSustainedSoundMs": 163.60000002384186
+    },
+    {
+      "mode": "desktop",
+      "sound": "metal",
+      "pronunciationId": "f1b8c6fd2378c4ed663fe2b2fa4e299c2eedd7aa3133552f44f694e4668196c1",
+      "assetKey": "cb9618a73be7e211a4f748456e9883f85b6099a156e8a593c0275b61b2fe289a",
+      "clickToPlayingMs": 15.300000011920929,
+      "readyStateAtClick": 4,
+      "estimatedFirstSoundMs": 124.80000001192093,
+      "estimatedSustainedSoundMs": 164.30000001192093
+    },
+    {
+      "mode": "desktop",
+      "sound": "metal",
+      "pronunciationId": "f1b8c6fd2378c4ed663fe2b2fa4e299c2eedd7aa3133552f44f694e4668196c1",
+      "assetKey": "cb9618a73be7e211a4f748456e9883f85b6099a156e8a593c0275b61b2fe289a",
+      "clickToPlayingMs": 15.300000011920929,
+      "readyStateAtClick": 4,
+      "estimatedFirstSoundMs": 124.80000001192093,
+      "estimatedSustainedSoundMs": 164.30000001192093
+    },
+    {
+      "mode": "mobile-viewport",
+      "sound": "guide",
+      "pronunciationId": "7db5e69c20fd1c7cb635976194dd8b2025eeaf8ca30778426d83902ddd83e237",
+      "assetKey": "71450a2b7ec3728978224c0b2b7812689d1a13f387f406993f1ed79e9c95125c",
+      "clickToPlayingMs": 14.899999976158142,
+      "readyStateAtClick": 4,
+      "estimatedFirstSoundMs": 122.19999997615814,
+      "estimatedSustainedSoundMs": 163.89999997615814
+    },
+    {
+      "mode": "mobile-viewport",
+      "sound": "guide",
+      "pronunciationId": "7db5e69c20fd1c7cb635976194dd8b2025eeaf8ca30778426d83902ddd83e237",
+      "assetKey": "71450a2b7ec3728978224c0b2b7812689d1a13f387f406993f1ed79e9c95125c",
+      "clickToPlayingMs": 14.900000005960464,
+      "readyStateAtClick": 4,
+      "estimatedFirstSoundMs": 122.20000000596046,
+      "estimatedSustainedSoundMs": 163.90000000596046
+    },
+    {
+      "mode": "mobile-viewport",
+      "sound": "guide",
+      "pronunciationId": "7db5e69c20fd1c7cb635976194dd8b2025eeaf8ca30778426d83902ddd83e237",
+      "assetKey": "71450a2b7ec3728978224c0b2b7812689d1a13f387f406993f1ed79e9c95125c",
+      "clickToPlayingMs": 15.5,
+      "readyStateAtClick": 4,
+      "estimatedFirstSoundMs": 122.8,
+      "estimatedSustainedSoundMs": 164.5
+    },
+    {
+      "mode": "mobile-viewport",
+      "sound": "guide",
+      "pronunciationId": "7db5e69c20fd1c7cb635976194dd8b2025eeaf8ca30778426d83902ddd83e237",
+      "assetKey": "71450a2b7ec3728978224c0b2b7812689d1a13f387f406993f1ed79e9c95125c",
+      "clickToPlayingMs": 14.599999994039536,
+      "readyStateAtClick": 4,
+      "estimatedFirstSoundMs": 121.89999999403953,
+      "estimatedSustainedSoundMs": 163.59999999403954
+    },
+    {
+      "mode": "mobile-viewport",
+      "sound": "guide",
+      "pronunciationId": "7db5e69c20fd1c7cb635976194dd8b2025eeaf8ca30778426d83902ddd83e237",
+      "assetKey": "71450a2b7ec3728978224c0b2b7812689d1a13f387f406993f1ed79e9c95125c",
+      "clickToPlayingMs": 14.900000005960464,
+      "readyStateAtClick": 4,
+      "estimatedFirstSoundMs": 122.20000000596046,
+      "estimatedSustainedSoundMs": 163.90000000596046
+    },
+    {
+      "mode": "mobile-viewport",
+      "sound": "guide",
+      "pronunciationId": "7db5e69c20fd1c7cb635976194dd8b2025eeaf8ca30778426d83902ddd83e237",
+      "assetKey": "71450a2b7ec3728978224c0b2b7812689d1a13f387f406993f1ed79e9c95125c",
+      "clickToPlayingMs": 15.400000005960464,
+      "readyStateAtClick": 4,
+      "estimatedFirstSoundMs": 122.70000000596046,
+      "estimatedSustainedSoundMs": 164.40000000596046
+    },
+    {
+      "mode": "mobile-viewport",
+      "sound": "guide",
+      "pronunciationId": "7db5e69c20fd1c7cb635976194dd8b2025eeaf8ca30778426d83902ddd83e237",
+      "assetKey": "71450a2b7ec3728978224c0b2b7812689d1a13f387f406993f1ed79e9c95125c",
+      "clickToPlayingMs": 14.5,
+      "readyStateAtClick": 4,
+      "estimatedFirstSoundMs": 121.8,
+      "estimatedSustainedSoundMs": 163.5
+    },
+    {
+      "mode": "mobile-viewport",
+      "sound": "guide",
+      "pronunciationId": "7db5e69c20fd1c7cb635976194dd8b2025eeaf8ca30778426d83902ddd83e237",
+      "assetKey": "71450a2b7ec3728978224c0b2b7812689d1a13f387f406993f1ed79e9c95125c",
+      "clickToPlayingMs": 13.5,
+      "readyStateAtClick": 4,
+      "estimatedFirstSoundMs": 120.8,
+      "estimatedSustainedSoundMs": 162.5
+    },
+    {
+      "mode": "mobile-viewport",
+      "sound": "guide",
+      "pronunciationId": "7db5e69c20fd1c7cb635976194dd8b2025eeaf8ca30778426d83902ddd83e237",
+      "assetKey": "71450a2b7ec3728978224c0b2b7812689d1a13f387f406993f1ed79e9c95125c",
+      "clickToPlayingMs": 15.599999994039536,
+      "readyStateAtClick": 4,
+      "estimatedFirstSoundMs": 122.89999999403953,
+      "estimatedSustainedSoundMs": 164.59999999403954
+    },
+    {
+      "mode": "mobile-viewport",
+      "sound": "guide",
+      "pronunciationId": "7db5e69c20fd1c7cb635976194dd8b2025eeaf8ca30778426d83902ddd83e237",
+      "assetKey": "71450a2b7ec3728978224c0b2b7812689d1a13f387f406993f1ed79e9c95125c",
+      "clickToPlayingMs": 3.9000000059604645,
+      "readyStateAtClick": 4,
+      "estimatedFirstSoundMs": 111.20000000596046,
+      "estimatedSustainedSoundMs": 152.90000000596046
+    },
+    {
+      "mode": "mobile-viewport",
+      "sound": "metal",
+      "pronunciationId": "f1b8c6fd2378c4ed663fe2b2fa4e299c2eedd7aa3133552f44f694e4668196c1",
+      "assetKey": "cb9618a73be7e211a4f748456e9883f85b6099a156e8a593c0275b61b2fe289a",
+      "clickToPlayingMs": 14.700000017881393,
+      "readyStateAtClick": 4,
+      "estimatedFirstSoundMs": 124.2000000178814,
+      "estimatedSustainedSoundMs": 163.7000000178814
+    },
+    {
+      "mode": "mobile-viewport",
+      "sound": "metal",
+      "pronunciationId": "f1b8c6fd2378c4ed663fe2b2fa4e299c2eedd7aa3133552f44f694e4668196c1",
+      "assetKey": "cb9618a73be7e211a4f748456e9883f85b6099a156e8a593c0275b61b2fe289a",
+      "clickToPlayingMs": 15.400000005960464,
+      "readyStateAtClick": 4,
+      "estimatedFirstSoundMs": 124.90000000596046,
+      "estimatedSustainedSoundMs": 164.40000000596046
+    },
+    {
+      "mode": "mobile-viewport",
+      "sound": "metal",
+      "pronunciationId": "f1b8c6fd2378c4ed663fe2b2fa4e299c2eedd7aa3133552f44f694e4668196c1",
+      "assetKey": "cb9618a73be7e211a4f748456e9883f85b6099a156e8a593c0275b61b2fe289a",
+      "clickToPlayingMs": 15.5,
+      "readyStateAtClick": 4,
+      "estimatedFirstSoundMs": 125,
+      "estimatedSustainedSoundMs": 164.5
+    },
+    {
+      "mode": "mobile-viewport",
+      "sound": "metal",
+      "pronunciationId": "f1b8c6fd2378c4ed663fe2b2fa4e299c2eedd7aa3133552f44f694e4668196c1",
+      "assetKey": "cb9618a73be7e211a4f748456e9883f85b6099a156e8a593c0275b61b2fe289a",
+      "clickToPlayingMs": 15.699999988079071,
+      "readyStateAtClick": 4,
+      "estimatedFirstSoundMs": 125.19999998807907,
+      "estimatedSustainedSoundMs": 164.69999998807907
+    },
+    {
+      "mode": "mobile-viewport",
+      "sound": "metal",
+      "pronunciationId": "f1b8c6fd2378c4ed663fe2b2fa4e299c2eedd7aa3133552f44f694e4668196c1",
+      "assetKey": "cb9618a73be7e211a4f748456e9883f85b6099a156e8a593c0275b61b2fe289a",
+      "clickToPlayingMs": 14.900000005960464,
+      "readyStateAtClick": 4,
+      "estimatedFirstSoundMs": 124.40000000596046,
+      "estimatedSustainedSoundMs": 163.90000000596046
+    },
+    {
+      "mode": "mobile-viewport",
+      "sound": "metal",
+      "pronunciationId": "f1b8c6fd2378c4ed663fe2b2fa4e299c2eedd7aa3133552f44f694e4668196c1",
+      "assetKey": "cb9618a73be7e211a4f748456e9883f85b6099a156e8a593c0275b61b2fe289a",
+      "clickToPlayingMs": 15.099999994039536,
+      "readyStateAtClick": 4,
+      "estimatedFirstSoundMs": 124.59999999403954,
+      "estimatedSustainedSoundMs": 164.09999999403954
+    },
+    {
+      "mode": "mobile-viewport",
+      "sound": "metal",
+      "pronunciationId": "f1b8c6fd2378c4ed663fe2b2fa4e299c2eedd7aa3133552f44f694e4668196c1",
+      "assetKey": "cb9618a73be7e211a4f748456e9883f85b6099a156e8a593c0275b61b2fe289a",
+      "clickToPlayingMs": 14.699999988079071,
+      "readyStateAtClick": 4,
+      "estimatedFirstSoundMs": 124.19999998807907,
+      "estimatedSustainedSoundMs": 163.69999998807907
+    },
+    {
+      "mode": "mobile-viewport",
+      "sound": "metal",
+      "pronunciationId": "f1b8c6fd2378c4ed663fe2b2fa4e299c2eedd7aa3133552f44f694e4668196c1",
+      "assetKey": "cb9618a73be7e211a4f748456e9883f85b6099a156e8a593c0275b61b2fe289a",
+      "clickToPlayingMs": 15.400000005960464,
+      "readyStateAtClick": 4,
+      "estimatedFirstSoundMs": 124.90000000596046,
+      "estimatedSustainedSoundMs": 164.40000000596046
+    },
+    {
+      "mode": "mobile-viewport",
+      "sound": "metal",
+      "pronunciationId": "f1b8c6fd2378c4ed663fe2b2fa4e299c2eedd7aa3133552f44f694e4668196c1",
+      "assetKey": "cb9618a73be7e211a4f748456e9883f85b6099a156e8a593c0275b61b2fe289a",
+      "clickToPlayingMs": 15,
+      "readyStateAtClick": 4,
+      "estimatedFirstSoundMs": 124.5,
+      "estimatedSustainedSoundMs": 164
+    },
+    {
+      "mode": "mobile-viewport",
+      "sound": "metal",
+      "pronunciationId": "f1b8c6fd2378c4ed663fe2b2fa4e299c2eedd7aa3133552f44f694e4668196c1",
+      "assetKey": "cb9618a73be7e211a4f748456e9883f85b6099a156e8a593c0275b61b2fe289a",
+      "clickToPlayingMs": 14.5,
+      "readyStateAtClick": 4,
+      "estimatedFirstSoundMs": 124,
+      "estimatedSustainedSoundMs": 163.5
+    }
+  ],
+  "cold": [
+    {
+      "mode": "desktop",
+      "sound": "metal",
+      "pronunciationId": "f1b8c6fd2378c4ed663fe2b2fa4e299c2eedd7aa3133552f44f694e4668196c1",
+      "assetKey": "cb9618a73be7e211a4f748456e9883f85b6099a156e8a593c0275b61b2fe289a",
+      "clickToPlayingMs": 64.5,
+      "readyStateAtClick": 0,
+      "estimatedFirstSoundMs": 174,
+      "estimatedSustainedSoundMs": 213.5,
+      "resource": {
+        "durationMs": 88.7000000178814,
+        "transferSize": 16473,
+        "encodedBodySize": 16173
+      }
+    },
+    {
+      "mode": "desktop",
+      "sound": "metal",
+      "pronunciationId": "f1b8c6fd2378c4ed663fe2b2fa4e299c2eedd7aa3133552f44f694e4668196c1",
+      "assetKey": "cb9618a73be7e211a4f748456e9883f85b6099a156e8a593c0275b61b2fe289a",
+      "clickToPlayingMs": 68.5,
+      "readyStateAtClick": 0,
+      "estimatedFirstSoundMs": 178,
+      "estimatedSustainedSoundMs": 217.5,
+      "resource": {
+        "durationMs": 90.09999999403954,
+        "transferSize": 16473,
+        "encodedBodySize": 16173
+      }
+    },
+    {
+      "mode": "desktop",
+      "sound": "metal",
+      "pronunciationId": "f1b8c6fd2378c4ed663fe2b2fa4e299c2eedd7aa3133552f44f694e4668196c1",
+      "assetKey": "cb9618a73be7e211a4f748456e9883f85b6099a156e8a593c0275b61b2fe289a",
+      "clickToPlayingMs": 52.900000005960464,
+      "readyStateAtClick": 0,
+      "estimatedFirstSoundMs": 162.40000000596046,
+      "estimatedSustainedSoundMs": 201.90000000596046,
+      "resource": {
+        "durationMs": 77.39999997615814,
+        "transferSize": 16473,
+        "encodedBodySize": 16173
+      }
+    },
+    {
+      "mode": "desktop",
+      "sound": "metal",
+      "pronunciationId": "f1b8c6fd2378c4ed663fe2b2fa4e299c2eedd7aa3133552f44f694e4668196c1",
+      "assetKey": "cb9618a73be7e211a4f748456e9883f85b6099a156e8a593c0275b61b2fe289a",
+      "clickToPlayingMs": 56,
+      "readyStateAtClick": 0,
+      "estimatedFirstSoundMs": 165.5,
+      "estimatedSustainedSoundMs": 205,
+      "resource": {
+        "durationMs": 79.5,
+        "transferSize": 16473,
+        "encodedBodySize": 16173
+      }
+    },
+    {
+      "mode": "desktop",
+      "sound": "metal",
+      "pronunciationId": "f1b8c6fd2378c4ed663fe2b2fa4e299c2eedd7aa3133552f44f694e4668196c1",
+      "assetKey": "cb9618a73be7e211a4f748456e9883f85b6099a156e8a593c0275b61b2fe289a",
+      "clickToPlayingMs": 65.69999998807907,
+      "readyStateAtClick": 0,
+      "estimatedFirstSoundMs": 175.19999998807907,
+      "estimatedSustainedSoundMs": 214.69999998807907,
+      "resource": {
+        "durationMs": 90.40000000596046,
+        "transferSize": 16473,
+        "encodedBodySize": 16173
+      }
+    },
+    {
+      "mode": "desktop",
+      "sound": "metal",
+      "pronunciationId": "f1b8c6fd2378c4ed663fe2b2fa4e299c2eedd7aa3133552f44f694e4668196c1",
+      "assetKey": "cb9618a73be7e211a4f748456e9883f85b6099a156e8a593c0275b61b2fe289a",
+      "clickToPlayingMs": 57.80000001192093,
+      "readyStateAtClick": 0,
+      "estimatedFirstSoundMs": 167.30000001192093,
+      "estimatedSustainedSoundMs": 206.80000001192093,
+      "resource": {
+        "durationMs": 82.40000000596046,
+        "transferSize": 16473,
+        "encodedBodySize": 16173
+      }
+    },
+    {
+      "mode": "desktop",
+      "sound": "metal",
+      "pronunciationId": "f1b8c6fd2378c4ed663fe2b2fa4e299c2eedd7aa3133552f44f694e4668196c1",
+      "assetKey": "cb9618a73be7e211a4f748456e9883f85b6099a156e8a593c0275b61b2fe289a",
+      "clickToPlayingMs": 53.70000001788139,
+      "readyStateAtClick": 0,
+      "estimatedFirstSoundMs": 163.2000000178814,
+      "estimatedSustainedSoundMs": 202.7000000178814,
+      "resource": {
+        "durationMs": 78.59999999403954,
+        "transferSize": 16473,
+        "encodedBodySize": 16173
+      }
+    },
+    {
+      "mode": "desktop",
+      "sound": "metal",
+      "pronunciationId": "f1b8c6fd2378c4ed663fe2b2fa4e299c2eedd7aa3133552f44f694e4668196c1",
+      "assetKey": "cb9618a73be7e211a4f748456e9883f85b6099a156e8a593c0275b61b2fe289a",
+      "clickToPlayingMs": 55.19999998807907,
+      "readyStateAtClick": 0,
+      "estimatedFirstSoundMs": 164.69999998807907,
+      "estimatedSustainedSoundMs": 204.19999998807907,
+      "resource": {
+        "durationMs": 77.5,
+        "transferSize": 16473,
+        "encodedBodySize": 16173
+      }
+    },
+    {
+      "mode": "desktop",
+      "sound": "metal",
+      "pronunciationId": "f1b8c6fd2378c4ed663fe2b2fa4e299c2eedd7aa3133552f44f694e4668196c1",
+      "assetKey": "cb9618a73be7e211a4f748456e9883f85b6099a156e8a593c0275b61b2fe289a",
+      "clickToPlayingMs": 48.30000001192093,
+      "readyStateAtClick": 0,
+      "estimatedFirstSoundMs": 157.80000001192093,
+      "estimatedSustainedSoundMs": 197.30000001192093,
+      "resource": {
+        "durationMs": 83.30000001192093,
+        "transferSize": 16473,
+        "encodedBodySize": 16173
+      }
+    },
+    {
+      "mode": "desktop",
+      "sound": "metal",
+      "pronunciationId": "f1b8c6fd2378c4ed663fe2b2fa4e299c2eedd7aa3133552f44f694e4668196c1",
+      "assetKey": "cb9618a73be7e211a4f748456e9883f85b6099a156e8a593c0275b61b2fe289a",
+      "clickToPlayingMs": 61.79999998211861,
+      "readyStateAtClick": 0,
+      "estimatedFirstSoundMs": 171.2999999821186,
+      "estimatedSustainedSoundMs": 210.7999999821186,
+      "resource": {
+        "durationMs": 85.2000000178814,
+        "transferSize": 16473,
+        "encodedBodySize": 16173
+      }
+    },
+    {
+      "mode": "mobile-viewport",
+      "sound": "metal",
+      "pronunciationId": "f1b8c6fd2378c4ed663fe2b2fa4e299c2eedd7aa3133552f44f694e4668196c1",
+      "assetKey": "cb9618a73be7e211a4f748456e9883f85b6099a156e8a593c0275b61b2fe289a",
+      "clickToPlayingMs": 50.900000005960464,
+      "readyStateAtClick": 0,
+      "estimatedFirstSoundMs": 160.40000000596046,
+      "estimatedSustainedSoundMs": 199.90000000596046,
+      "resource": {
+        "durationMs": 79.90000000596046,
+        "transferSize": 16473,
+        "encodedBodySize": 16173
+      }
+    },
+    {
+      "mode": "mobile-viewport",
+      "sound": "metal",
+      "pronunciationId": "f1b8c6fd2378c4ed663fe2b2fa4e299c2eedd7aa3133552f44f694e4668196c1",
+      "assetKey": "cb9618a73be7e211a4f748456e9883f85b6099a156e8a593c0275b61b2fe289a",
+      "clickToPlayingMs": 59.400000005960464,
+      "readyStateAtClick": 0,
+      "estimatedFirstSoundMs": 168.90000000596046,
+      "estimatedSustainedSoundMs": 208.40000000596046,
+      "resource": {
+        "durationMs": 95.69999998807907,
+        "transferSize": 16473,
+        "encodedBodySize": 16173
+      }
+    },
+    {
+      "mode": "mobile-viewport",
+      "sound": "metal",
+      "pronunciationId": "f1b8c6fd2378c4ed663fe2b2fa4e299c2eedd7aa3133552f44f694e4668196c1",
+      "assetKey": "cb9618a73be7e211a4f748456e9883f85b6099a156e8a593c0275b61b2fe289a",
+      "clickToPlayingMs": 44.80000001192093,
+      "readyStateAtClick": 0,
+      "estimatedFirstSoundMs": 154.30000001192093,
+      "estimatedSustainedSoundMs": 193.80000001192093,
+      "resource": {
+        "durationMs": 80.30000001192093,
+        "transferSize": 16473,
+        "encodedBodySize": 16173
+      }
+    },
+    {
+      "mode": "mobile-viewport",
+      "sound": "metal",
+      "pronunciationId": "f1b8c6fd2378c4ed663fe2b2fa4e299c2eedd7aa3133552f44f694e4668196c1",
+      "assetKey": "cb9618a73be7e211a4f748456e9883f85b6099a156e8a593c0275b61b2fe289a",
+      "clickToPlayingMs": 49.900000005960464,
+      "readyStateAtClick": 0,
+      "estimatedFirstSoundMs": 159.40000000596046,
+      "estimatedSustainedSoundMs": 198.90000000596046,
+      "resource": {
+        "durationMs": 79.89999997615814,
+        "transferSize": 16473,
+        "encodedBodySize": 16173
+      }
+    },
+    {
+      "mode": "mobile-viewport",
+      "sound": "metal",
+      "pronunciationId": "f1b8c6fd2378c4ed663fe2b2fa4e299c2eedd7aa3133552f44f694e4668196c1",
+      "assetKey": "cb9618a73be7e211a4f748456e9883f85b6099a156e8a593c0275b61b2fe289a",
+      "clickToPlayingMs": 39.30000001192093,
+      "readyStateAtClick": 0,
+      "estimatedFirstSoundMs": 148.80000001192093,
+      "estimatedSustainedSoundMs": 188.30000001192093,
+      "resource": {
+        "durationMs": 74.40000000596046,
+        "transferSize": 16473,
+        "encodedBodySize": 16173
+      }
+    },
+    {
+      "mode": "mobile-viewport",
+      "sound": "metal",
+      "pronunciationId": "f1b8c6fd2378c4ed663fe2b2fa4e299c2eedd7aa3133552f44f694e4668196c1",
+      "assetKey": "cb9618a73be7e211a4f748456e9883f85b6099a156e8a593c0275b61b2fe289a",
+      "clickToPlayingMs": 62.70000001788139,
+      "readyStateAtClick": 0,
+      "estimatedFirstSoundMs": 172.2000000178814,
+      "estimatedSustainedSoundMs": 211.7000000178814,
+      "resource": {
+        "durationMs": 94.19999998807907,
+        "transferSize": 16473,
+        "encodedBodySize": 16173
+      }
+    },
+    {
+      "mode": "mobile-viewport",
+      "sound": "metal",
+      "pronunciationId": "f1b8c6fd2378c4ed663fe2b2fa4e299c2eedd7aa3133552f44f694e4668196c1",
+      "assetKey": "cb9618a73be7e211a4f748456e9883f85b6099a156e8a593c0275b61b2fe289a",
+      "clickToPlayingMs": 40.19999998807907,
+      "readyStateAtClick": 0,
+      "estimatedFirstSoundMs": 149.69999998807907,
+      "estimatedSustainedSoundMs": 189.19999998807907,
+      "resource": {
+        "durationMs": 75.09999999403954,
+        "transferSize": 16473,
+        "encodedBodySize": 16173
+      }
+    },
+    {
+      "mode": "mobile-viewport",
+      "sound": "metal",
+      "pronunciationId": "f1b8c6fd2378c4ed663fe2b2fa4e299c2eedd7aa3133552f44f694e4668196c1",
+      "assetKey": "cb9618a73be7e211a4f748456e9883f85b6099a156e8a593c0275b61b2fe289a",
+      "clickToPlayingMs": 40,
+      "readyStateAtClick": 0,
+      "estimatedFirstSoundMs": 149.5,
+      "estimatedSustainedSoundMs": 189,
+      "resource": {
+        "durationMs": 74.60000002384186,
+        "transferSize": 16473,
+        "encodedBodySize": 16173
+      }
+    },
+    {
+      "mode": "mobile-viewport",
+      "sound": "metal",
+      "pronunciationId": "f1b8c6fd2378c4ed663fe2b2fa4e299c2eedd7aa3133552f44f694e4668196c1",
+      "assetKey": "cb9618a73be7e211a4f748456e9883f85b6099a156e8a593c0275b61b2fe289a",
+      "clickToPlayingMs": 51,
+      "readyStateAtClick": 0,
+      "estimatedFirstSoundMs": 160.5,
+      "estimatedSustainedSoundMs": 200,
+      "resource": {
+        "durationMs": 81.69999998807907,
+        "transferSize": 16473,
+        "encodedBodySize": 16173
+      }
+    },
+    {
+      "mode": "mobile-viewport",
+      "sound": "metal",
+      "pronunciationId": "f1b8c6fd2378c4ed663fe2b2fa4e299c2eedd7aa3133552f44f694e4668196c1",
+      "assetKey": "cb9618a73be7e211a4f748456e9883f85b6099a156e8a593c0275b61b2fe289a",
+      "clickToPlayingMs": 50.69999998807907,
+      "readyStateAtClick": 0,
+      "estimatedFirstSoundMs": 160.19999998807907,
+      "estimatedSustainedSoundMs": 199.69999998807907,
+      "resource": {
+        "durationMs": 79.30000001192093,
+        "transferSize": 16473,
+        "encodedBodySize": 16173
+      }
+    }
+  ],
+  "audioPosts": 0,
+  "consoleErrors": [],
+  "desktopAutocomplete": {
+    "historyBefore": 1,
+    "historyAfter": 1,
+    "jobsBefore": {
+      "jobs": 0,
+      "usage": 0,
+      "reserved": 0
+    },
+    "jobsAfter": {
+      "jobs": 0,
+      "usage": 0,
+      "reserved": 0
+    }
+  },
+  "mobile-viewportAutocomplete": {
+    "historyBefore": 1,
+    "historyAfter": 1,
+    "jobsBefore": {
+      "jobs": 0,
+      "usage": 0,
+      "reserved": 0
+    },
+    "jobsAfter": {
+      "jobs": 0,
+      "usage": 0,
+      "reserved": 0
+    }
+  },
+  "after": {
+    "jobs": 0,
+    "usage": 0,
+    "reserved": 0
+  },
+  "summary": {
+    "desktop-preloaded": {
+      "clickToPlayingMs": {
+        "n": 20,
+        "p50": 14.5,
+        "p95": 15.5,
+        "max": 17.400000005960464
+      },
+      "estimatedFirstSoundMs": {
+        "n": 20,
+        "p50": 122.8,
+        "p95": 124.80000001192093,
+        "max": 124.80000001192093
+      },
+      "estimatedSustainedSoundMs": {
+        "n": 20,
+        "p50": 163.5,
+        "p95": 164.5,
+        "max": 166.40000000596046
+      },
+      "allPreloaded": true
+    },
+    "desktop-cold": {
+      "clickToPlayingMs": {
+        "n": 10,
+        "p50": 56,
+        "p95": 68.5,
+        "max": 68.5
+      },
+      "estimatedFirstSoundMs": {
+        "n": 10,
+        "p50": 165.5,
+        "p95": 178,
+        "max": 178
+      },
+      "estimatedSustainedSoundMs": {
+        "n": 10,
+        "p50": 205,
+        "p95": 217.5,
+        "max": 217.5
+      },
+      "allPreloaded": false
+    },
+    "mobile-viewport-preloaded": {
+      "clickToPlayingMs": {
+        "n": 20,
+        "p50": 14.900000005960464,
+        "p95": 15.599999994039536,
+        "max": 15.699999988079071
+      },
+      "estimatedFirstSoundMs": {
+        "n": 20,
+        "p50": 122.89999999403953,
+        "p95": 125,
+        "max": 125.19999998807907
+      },
+      "estimatedSustainedSoundMs": {
+        "n": 20,
+        "p50": 163.90000000596046,
+        "p95": 164.59999999403954,
+        "max": 164.69999998807907
+      },
+      "allPreloaded": true
+    },
+    "mobile-viewport-cold": {
+      "clickToPlayingMs": {
+        "n": 10,
+        "p50": 49.900000005960464,
+        "p95": 62.70000001788139,
+        "max": 62.70000001788139
+      },
+      "estimatedFirstSoundMs": {
+        "n": 10,
+        "p50": 159.40000000596046,
+        "p95": 172.2000000178814,
+        "max": 172.2000000178814
+      },
+      "estimatedSustainedSoundMs": {
+        "n": 10,
+        "p50": 198.90000000596046,
+        "p95": 211.7000000178814,
+        "max": 211.7000000178814
+      },
+      "allPreloaded": false
+    }
+  }
+}
