@@ -9,7 +9,7 @@
     "worker": "node src/workers/audioWorker.js"
   },
   "dependencies": {
-    "bcryptjs": "3.0.3",
+    "@simplewebauthn/server": "14.0.3",
     "connect-pg-simple": "10.0.0",
     "cors": "^2.8.6",
     "dotenv": "^17.4.2",

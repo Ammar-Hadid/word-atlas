@@ -32,7 +32,8 @@ export const useSuggestions = (query, { delay = 180 } = {}) => {
     const isFresh = cleanedQuery && state.query === cleanedQuery;
 
     return {
-        suggestions: isFresh ? state.suggestions : [],
+        // Keep the previous list on screen while the next one loads, so it doesn't flicker as you type.
+        suggestions: cleanedQuery ? state.suggestions : [],
         isLoading: Boolean(cleanedQuery) && !isFresh,
         error: isFresh ? state.error : null,
     };

@@ -1,21 +1,27 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { randomUUID } from 'node:crypto';
-import bcrypt from 'bcryptjs';
 import { pool, query } from '../src/db/index.js';
 import { importItems, listItems, saveItem, removeItem, clearHistory } from '../src/repositories/library.js';
 import { createApp } from '../src/server.js';
+import { createSetupToken, passkeyConfig } from '../src/auth/passkeys.js';
+import { createSoftPasskey } from './helpers/softPasskey.js';
 
 const enabled=Boolean(process.env.TEST_DATABASE_URL)&&process.env.DATABASE_URL===process.env.TEST_DATABASE_URL;
 test('personal persistence, owner sessions, CSRF, migration, isolation and idempotency',{skip:!enabled},async t=>{
-    const user=randomUUID(),other=randomUUID(),username=`test-${user}`,password='test fixture password only';
-    const hash=await bcrypt.hash(password,12);
-    await query('INSERT INTO users(id,username,password_hash) VALUES($1,$2,$3),($4,$5,$3)',[user,username,hash,other,`test-${other}`]);
+    const user=randomUUID(),other=randomUUID(),username=`test-${user}`;
+    await query('INSERT INTO users(id,username) VALUES($1,$2),($3,$4)',[user,username,other,`test-${other}`]);
+    const originalGate=process.env.LOGIN_PATH;
+    const gate=process.env.LOGIN_PATH='test-secret-sign-in-path';
+    await query("DELETE FROM request_limits WHERE bucket='passkey'"); // earlier runs from this machine count toward the limit
     const server=createApp().listen(0,'127.0.0.1');await new Promise(resolve=>server.once('listening',resolve));
     t.after(async()=>{
         await new Promise(resolve=>server.close(resolve));
         for(const table of ['personal_operations','saved_entries','search_history'])await query(`DELETE FROM ${table} WHERE user_id=ANY($1)`,[[user,other]]);
         await query('DELETE FROM sessions WHERE sess::jsonb->>\'userId\'=ANY($1)',[[user,other]]);
+        await query('DELETE FROM passkeys WHERE user_id=ANY($1)',[[user,other]]);
+        await query('DELETE FROM passkey_setup_tokens WHERE user_id=ANY($1)',[[user,other]]);
+        if(originalGate===undefined)delete process.env.LOGIN_PATH;else process.env.LOGIN_PATH=originalGate;
         await query('DELETE FROM users WHERE id=ANY($1)',[[user,other]]);await pool.end();
     });
     const origin=process.env.APP_ORIGIN,url=`http://127.0.0.1:${server.address().port}`;
@@ -27,13 +33,36 @@ test('personal persistence, owner sessions, CSRF, migration, isolation and idemp
         return {res,data};
     }
     assert.equal((await request('/me/library')).res.status,401);
+    await request('/auth/me');
+    // Without the secret path, the passkey endpoints look like they don't exist.
+    assert.equal((await request('/auth/passkey/gate?gate=wrong-guess-of-the-path')).res.status,404);
+    assert.equal((await request('/auth/passkey/login/options','POST',{gate:'wrong-guess-of-the-path'})).res.status,404);
+    assert.equal((await request(`/auth/passkey/gate?gate=${gate}`)).res.status,200);
+    assert.equal((await request('/auth/passkey/login/options','POST',{gate},{Origin:'https://evil.invalid'})).res.status,403);
+    assert.equal((await request('/auth/passkey/login/options','POST',{gate},{'X-CSRF-Token':'bad'})).res.status,403);
+    assert.equal((await request('/auth/passkey/login/options','POST',{gate},{'X-CSRF-Token':'é'.repeat(48)})).res.status,403);
+    // First passkey: a one-time setup link registers it and signs the owner in.
+    const passkey=createSoftPasskey(passkeyConfig());
+    const token=await createSetupToken(user);
+    assert.equal((await request('/auth/passkey/setup/options','POST',{gate,token:'not-a-real-token'})).res.status,410);
+    const setup=await request('/auth/passkey/setup/options','POST',{gate,token});
+    assert.equal(setup.res.status,200);assert.equal(setup.data.authenticatorSelection.residentKey,'required');
+    const registered=await request('/auth/passkey/setup/verify','POST',{gate,token,response:passkey.register(setup.data)});
+    assert.equal(registered.res.status,200);assert.equal(registered.data.user.id,user);
+    assert.equal((await request('/auth/passkey/setup/options','POST',{gate,token})).res.status,410); // links work once
+    assert.equal((await request('/auth/logout','POST',{})).res.status,200);
     await request('/auth/me');const before=cookie;
-    assert.equal((await request('/auth/login','POST',{username,password},{Origin:'https://evil.invalid'})).res.status,403);
-    assert.equal((await request('/auth/login','POST',{username,password},{'X-CSRF-Token':'bad'})).res.status,403);
-    assert.equal((await request('/auth/login','POST',{username,password},{'X-CSRF-Token':'é'.repeat(48)})).res.status,403);
-    assert.equal((await request('/auth/login','POST',{username,password:'incorrect'})).res.status,401);
-    const login=await request('/auth/login','POST',{username,password});
-    assert.equal(login.res.status,200);assert.notEqual(cookie,before);assert.match(login.res.headers.get('set-cookie'),/HttpOnly/);assert.match(login.res.headers.get('set-cookie'),/SameSite=Lax/);
+    // A stranger's passkey and a replayed challenge are both refused.
+    const stranger=createSoftPasskey(passkeyConfig());
+    const foreign=await request('/auth/passkey/login/options','POST',{gate});
+    assert.equal((await request('/auth/passkey/login/verify','POST',{gate,response:stranger.authenticate(foreign.data)})).res.status,401);
+    const challenge=await request('/auth/passkey/login/options','POST',{gate});
+    const login=await request('/auth/passkey/login/verify','POST',{gate,response:passkey.authenticate(challenge.data)});
+    assert.equal(login.res.status,200);assert.equal(login.data.user.id,user);
+    assert.notEqual(cookie,before);assert.match(login.res.headers.get('set-cookie'),/HttpOnly/);assert.match(login.res.headers.get('set-cookie'),/SameSite=Lax/);
+    assert.equal((await query('SELECT counter FROM passkeys WHERE user_id=$1',[user])).rows[0].counter,'2');
+    assert.equal((await request('/auth/passkey/login/verify','POST',{gate,response:passkey.authenticate(challenge.data)})).res.status,401);
+    assert.equal((await request('/auth/me')).data.user.id,user);
     const at=Date.now()-60000;
     const legacy={saved:[{word:'unresolved-personal-term',savedAt:at,definition:'PROPRIETARY SENTINEL'}],history:[{word:'unresolved-personal-term',visitedAt:at}]};
     assert.equal((await request('/me/import','POST',{saved:[],history:[{word:'missing timestamp'}]})).res.status,400);

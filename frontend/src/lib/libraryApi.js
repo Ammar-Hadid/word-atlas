@@ -29,6 +29,8 @@ export async function libraryRequest(path, { method = "GET", body, operationId, 
 
 export const readSession = () => libraryRequest("/auth/me");
 
+export const hasCsrfToken = () => Boolean(csrfToken);
+
 export async function downloadLibrary() {
     const data = await libraryRequest("/me/export");
     const url = URL.createObjectURL(new Blob([JSON.stringify(data, null, 2)], { type: "application/json" }));

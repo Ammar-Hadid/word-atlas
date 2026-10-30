@@ -1,10 +1,29 @@
 import { useEffect, useRef, useState } from "react";
 import { LoaderCircle, Volume2 } from "lucide-react";
 
-import { useLibrary } from "../../../context/contexts.js";
-import { audioStateLabel, usePronunciation } from "../hooks/usePronunciation.js";
+import { usePronunciation } from "../hooks/usePronunciation.js";
 
 import { isTypingTarget } from "../../../lib/platform.js";
+
+const ACCENTS = [
+    { value: "us", label: "US", name: "American English", lang: "en-US" },
+    { value: "uk", label: "UK", name: "British English", lang: "en-GB" },
+];
+
+const speak = (word, lang, { onEnd }) => {
+    if (!("speechSynthesis" in window)) return false;
+
+    const utterance = new SpeechSynthesisUtterance(word);
+    utterance.lang = lang;
+    utterance.rate = 0.9;
+    utterance.onend = onEnd;
+    utterance.onerror = onEnd;
+
+    window.speechSynthesis.cancel();
+    window.speechSynthesis.speak(utterance);
+
+    return true;
+};
 
 const Equalizer = () => (
     <span className="flex h-4 items-center gap-[2px]" aria-hidden="true">
@@ -18,77 +37,112 @@ const Equalizer = () => (
     </span>
 );
 
-// One selected, server-owned pronunciation uses the persisted Iapetus recording.
-const AudioButton = ({ word, pronunciations = [], size = "md", shortcutKey }) => {
-    const candidates = pronunciations.filter(item => /^[a-f0-9]{64}$/.test(item.id ?? ""));
-    const available = candidates.filter(item => item.status !== "unavailable");
-    const uniqueSounds = new Set(available.map(item => item.assetKey ?? item.id));
-    const preferred = available.find(item => /\bUS\b|General[ -]American/i.test(item.label ?? "")) ?? available[0];
-    const [chosen, setChosen] = useState(uniqueSounds.size === 1 ? preferred.id : "");
-    const selected = candidates.find(item => item.id === chosen);
-    const { user } = useLibrary();
-    const playback = usePronunciation(selected, Boolean(user));
-    const playRef = useRef(null);
-    const canPlay = selected && playback.status === "ready";
-    const canRetry = selected && ["failed", "pending"].includes(playback.status);
-    const play = canPlay ? playback.play : canRetry ? playback.retry : () => {};
+// Plays the Iapetus recording for the chosen accent. Words without one (including
+// while new recordings are paused) fall back to Merriam-Webster, then the browser's voice.
+const AudioButton = ({ word, pronunciations = [], fallbackAudio, accent, onAccentChange, shortcutKey }) => {
+    const byAccent = Object.fromEntries(pronunciations.filter(item => item.accent).map(item => [item.accent, item]));
+    const hasAccents = Boolean(byAccent.us && byAccent.uk);
+    const active = ACCENTS.find(item => item.value === accent && byAccent[item.value]) ?? ACCENTS[0];
+    const selected = byAccent[active.value]?.status === "unavailable" ? null : byAccent[active.value];
 
-    useEffect(() => { playRef.current = play; });
+    const recording = usePronunciation(selected);
+    const [isSpeaking, setIsSpeaking] = useState(false);
+    const fallbackRef = useRef(null);
+    const playRef = useRef(null);
+
+    const isPreparing = Boolean(selected) && ["loading", "pending"].includes(recording.status);
+    const isPlaying = recording.isPlaying || isSpeaking;
+
+    useEffect(() => () => {
+        fallbackRef.current?.pause();
+        if ("speechSynthesis" in window) window.speechSynthesis.cancel();
+    }, []);
+
+    const play = () => {
+        if (isPreparing) return;
+
+        if (selected && recording.status === "ready") {
+            recording.play();
+            return;
+        }
+
+        // A failed recording is retried quietly in the background for next time.
+        if (selected && recording.status === "failed") recording.retry();
+
+        const stop = () => setIsSpeaking(false);
+        setIsSpeaking(true);
+
+        if (fallbackAudio && active.value === "us") {
+            fallbackRef.current?.pause();
+            fallbackRef.current = new Audio(fallbackAudio);
+            fallbackRef.current.onended = stop;
+            fallbackRef.current.play().catch(() => {
+                if (!speak(word, active.lang, { onEnd: stop })) stop();
+            });
+            return;
+        }
+
+        if (!speak(word, active.lang, { onEnd: stop })) stop();
+    };
+
+    useEffect(() => {
+        playRef.current = play;
+    });
+
     useEffect(() => {
         if (!shortcutKey) return;
+
         const onKeyDown = (event) => {
             if (event.key.toLowerCase() !== shortcutKey || event.metaKey || event.ctrlKey || event.repeat || isTypingTarget(event.target)) return;
             playRef.current?.();
         };
+
         window.addEventListener("keydown", onKeyDown);
         return () => window.removeEventListener("keydown", onKeyDown);
     }, [shortcutKey]);
 
-    // A persisted asset can still be downloading. Keep the user gesture usable
-    // (some mobile browsers defer preload), while reporting that it is loading.
-    const buffering = canPlay && !playback.loaded;
-    const pending = selected && (["loading", "pending"].includes(playback.status) || buffering);
-    const text = !selected && candidates.length > 1 ? "Choose sound"
-        : !selected ? "Audio unavailable"
-            : playback.status === "pending" ? "Preparing"
-                : playback.status === "loading" || buffering ? "Loading"
-                    : playback.status === "failed" ? "Try audio again"
-                        : audioStateLabel[playback.status] ?? "Listen";
-    const label = canPlay ? `Play Iapetus pronunciation of ${word}`
-        : playback.description ?? text;
-    const button = (
-        <button
-            type="button"
-            onClick={play}
-            disabled={!canPlay && !canRetry}
-            aria-label={label}
-            title={label}
-            aria-busy={pending || undefined}
-            className={size === "sm"
-                ? "grid h-7 w-7 place-items-center rounded-full text-muted transition-colors hover:bg-sunken hover:text-accent disabled:opacity-50"
-                : `group flex h-11 items-center gap-sm rounded-full pl-base pr-md text-body-sm font-medium transition-all duration-300 disabled:cursor-default disabled:opacity-60 ${playback.isPlaying
-                    ? "bg-accent text-accent-ink"
-                    : "bg-ink text-paper hover:bg-accent hover:text-accent-ink"}`}
-        >
-            <span className={size === "sm" ? "grid place-items-center" : "grid h-6 w-6 place-items-center"}>
-                {playback.isPlaying ? <Equalizer /> : pending ? <LoaderCircle className="h-4 w-4 animate-spin" strokeWidth={2} /> : <Volume2 className={size === "sm" ? "h-3.5 w-3.5" : "h-4 w-4"} strokeWidth={2} />}
-            </span>
-            {size !== "sm" && <span aria-live="polite">{text}</span>}
-        </button>
-    );
-    if (candidates.length <= 1) return button;
+    const label = isPreparing ? `Preparing ${active.name} pronunciation of ${word}` : `Play ${active.name} pronunciation of ${word}`;
+
     return (
-        <div className="flex flex-wrap items-center gap-sm">
-            {button}
-            <select
-                aria-label={`Pronunciation of ${word}`}
-                value={chosen}
-                onChange={event => setChosen(event.target.value)}
-                className="h-10 max-w-[18rem] rounded-full border border-line bg-surface px-md font-mono text-body-sm text-muted focus:border-ink focus:outline-none"
+        <div className="flex items-center gap-sm">
+            <button
+                type="button"
+                onClick={play}
+                aria-label={label}
+                title={label}
+                aria-busy={isPreparing || undefined}
+                className={`group flex h-11 items-center gap-sm rounded-full pl-base pr-md text-body-sm font-medium transition-all duration-300 ${isPlaying
+                    ? "bg-accent text-accent-ink"
+                    : "bg-ink text-paper hover:bg-accent hover:text-accent-ink"
+                    }`}
             >
-                <option value="">Choose a pronunciation</option>
-                {candidates.map(item => <option key={item.id} value={item.id} disabled={item.status === "unavailable"}>{item.label ?? item.ipa ?? "US English"}</option>)}
-            </select>
+                <span className="grid h-6 w-6 place-items-center">
+                    {isPlaying ? <Equalizer /> : isPreparing ? <LoaderCircle className="h-4 w-4 animate-spin" strokeWidth={2} /> : <Volume2 className="h-4 w-4" strokeWidth={2} />}
+                </span>
+                Listen
+            </button>
+
+            {hasAccents && (
+                <div role="radiogroup" aria-label="Accent" className="flex rounded-full border border-line bg-surface p-[3px]">
+                    {ACCENTS.map(item => {
+                        const isActive = item.value === active.value;
+
+                        return (
+                            <button
+                                key={item.value}
+                                type="button"
+                                role="radio"
+                                aria-checked={isActive}
+                                title={item.name}
+                                onClick={() => onAccentChange(item.value)}
+                                className={`rounded-full px-sm py-[0.3rem] font-mono text-[0.7rem] font-medium tracking-wider transition-colors ${isActive ? "bg-ink text-paper" : "text-muted hover:text-ink"}`}
+                            >
+                                {item.label}
+                            </button>
+                        );
+                    })}
+                </div>
+            )}
         </div>
     );
 };

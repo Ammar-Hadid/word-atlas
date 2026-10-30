@@ -205,10 +205,9 @@ const LibraryProvider = ({ children }) => {
     const recordVisit = useCallback(entry => enqueue("history", entry.word, entry.visitedAt, entry.operationId), [enqueue]);
     const clearHistory = useCallback(() => enqueue("clearHistory"), [enqueue]);
 
-    const login = useCallback(async (username, password) => {
+    // Called by the passkey page once the server has verified the owner.
+    const completeSignIn = useCallback(async session => {
         sessionGeneration.current++;
-        await readSession();
-        const session = await libraryRequest("/auth/login", { method: "POST", body: { username, password } });
         userRef.current = session.user;
         setUser(session.user);
         await synchronize(session.user);
@@ -236,8 +235,8 @@ const LibraryProvider = ({ children }) => {
     }, [currentSession, pages]);
 
     const value = useMemo(() => ({ saved, history, isSaved, checkSaved, membershipRevision, toggleSaved, removeSaved, recordVisit, clearHistory,
-        user, authReady, login, logout, synchronize, syncState, syncError, offlineStorageAvailable, pendingCount: relevant.length, pages, loadMore,
-    }), [saved, history, isSaved, checkSaved, membershipRevision, toggleSaved, removeSaved, recordVisit, clearHistory, user, authReady, login, logout,
+        user, authReady, completeSignIn, logout, synchronize, syncState, syncError, offlineStorageAvailable, pendingCount: relevant.length, pages, loadMore,
+    }), [saved, history, isSaved, checkSaved, membershipRevision, toggleSaved, removeSaved, recordVisit, clearHistory, user, authReady, completeSignIn, logout,
         synchronize, syncState, syncError, offlineStorageAvailable, relevant.length, pages, loadMore]);
     return <LibraryContext.Provider value={value}>{children}</LibraryContext.Provider>;
 };

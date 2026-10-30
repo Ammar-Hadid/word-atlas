@@ -1,0 +1,465 @@
+{
+  "date": "2026-10-26",
+  "host": "mini-pc",
+  "cpu": "i5-8400",
+  "engine": "piper-tts",
+  "version": "1.8.0",
+  "voice": "en_US-ljspeech-medium",
+  "load_seconds": 1.7982548469999529,
+  "median_ms": 25.12,
+  "p95_ms": 108.14,
+  "max_ms": 111.73,
+  "max_rss_mib": 243.16796875,
+  "rows": [
+    {
+      "round": 0,
+      "word": "hello",
+      "synthesis_ms": 25.1,
+      "audio_seconds": 0.56
+    },
+    {
+      "round": 0,
+      "word": "serendipity",
+      "synthesis_ms": 34.71,
+      "audio_seconds": 1.07
+    },
+    {
+      "round": 0,
+      "word": "ubiquitous",
+      "synthesis_ms": 29.51,
+      "audio_seconds": 0.89
+    },
+    {
+      "round": 0,
+      "word": "ephemeral",
+      "synthesis_ms": 21.98,
+      "audio_seconds": 0.62
+    },
+    {
+      "round": 0,
+      "word": "read",
+      "synthesis_ms": 19.24,
+      "audio_seconds": 0.5
+    },
+    {
+      "round": 0,
+      "word": "lead",
+      "synthesis_ms": 16.22,
+      "audio_seconds": 0.42
+    },
+    {
+      "round": 0,
+      "word": "record",
+      "synthesis_ms": 19.76,
+      "audio_seconds": 0.53
+    },
+    {
+      "round": 0,
+      "word": "colonel",
+      "synthesis_ms": 18.69,
+      "audio_seconds": 0.52
+    },
+    {
+      "round": 0,
+      "word": "quinoa",
+      "synthesis_ms": 23.92,
+      "audio_seconds": 0.71
+    },
+    {
+      "round": 0,
+      "word": "Worcestershire",
+      "synthesis_ms": 26.14,
+      "audio_seconds": 0.79
+    },
+    {
+      "round": 0,
+      "word": "break the ice",
+      "synthesis_ms": 36.72,
+      "audio_seconds": 1.14
+    },
+    {
+      "round": 0,
+      "word": "a blessing in disguise",
+      "synthesis_ms": 55.11,
+      "audio_seconds": 1.54
+    },
+    {
+      "round": 0,
+      "word": "throw in the towel",
+      "synthesis_ms": 36.67,
+      "audio_seconds": 1.14
+    },
+    {
+      "round": 0,
+      "word": "on the spur of the moment",
+      "synthesis_ms": 42.6,
+      "audio_seconds": 1.31
+    },
+    {
+      "round": 0,
+      "word": "pneumonoultramicroscopicsilicovolcanoconiosis",
+      "synthesis_ms": 111.67,
+      "audio_seconds": 3.25
+    },
+    {
+      "round": 1,
+      "word": "hello",
+      "synthesis_ms": 19.2,
+      "audio_seconds": 0.56
+    },
+    {
+      "round": 1,
+      "word": "serendipity",
+      "synthesis_ms": 32.02,
+      "audio_seconds": 1.04
+    },
+    {
+      "round": 1,
+      "word": "ubiquitous",
+      "synthesis_ms": 29.79,
+      "audio_seconds": 0.94
+    },
+    {
+      "round": 1,
+      "word": "ephemeral",
+      "synthesis_ms": 22.35,
+      "audio_seconds": 0.7
+    },
+    {
+      "round": 1,
+      "word": "read",
+      "synthesis_ms": 18.35,
+      "audio_seconds": 0.52
+    },
+    {
+      "round": 1,
+      "word": "lead",
+      "synthesis_ms": 17.54,
+      "audio_seconds": 0.48
+    },
+    {
+      "round": 1,
+      "word": "record",
+      "synthesis_ms": 18.67,
+      "audio_seconds": 0.51
+    },
+    {
+      "round": 1,
+      "word": "colonel",
+      "synthesis_ms": 18.38,
+      "audio_seconds": 0.5
+    },
+    {
+      "round": 1,
+      "word": "quinoa",
+      "synthesis_ms": 23.99,
+      "audio_seconds": 0.73
+    },
+    {
+      "round": 1,
+      "word": "Worcestershire",
+      "synthesis_ms": 25.37,
+      "audio_seconds": 0.8
+    },
+    {
+      "round": 1,
+      "word": "break the ice",
+      "synthesis_ms": 35.96,
+      "audio_seconds": 1.16
+    },
+    {
+      "round": 1,
+      "word": "a blessing in disguise",
+      "synthesis_ms": 48.88,
+      "audio_seconds": 1.54
+    },
+    {
+      "round": 1,
+      "word": "throw in the towel",
+      "synthesis_ms": 35.11,
+      "audio_seconds": 1.13
+    },
+    {
+      "round": 1,
+      "word": "on the spur of the moment",
+      "synthesis_ms": 42.58,
+      "audio_seconds": 1.36
+    },
+    {
+      "round": 1,
+      "word": "pneumonoultramicroscopicsilicovolcanoconiosis",
+      "synthesis_ms": 111.73,
+      "audio_seconds": 3.24
+    },
+    {
+      "round": 2,
+      "word": "hello",
+      "synthesis_ms": 17.51,
+      "audio_seconds": 0.49
+    },
+    {
+      "round": 2,
+      "word": "serendipity",
+      "synthesis_ms": 31.96,
+      "audio_seconds": 1.03
+    },
+    {
+      "round": 2,
+      "word": "ubiquitous",
+      "synthesis_ms": 29.53,
+      "audio_seconds": 0.93
+    },
+    {
+      "round": 2,
+      "word": "ephemeral",
+      "synthesis_ms": 21.73,
+      "audio_seconds": 0.66
+    },
+    {
+      "round": 2,
+      "word": "read",
+      "synthesis_ms": 16.88,
+      "audio_seconds": 0.45
+    },
+    {
+      "round": 2,
+      "word": "lead",
+      "synthesis_ms": 16.96,
+      "audio_seconds": 0.45
+    },
+    {
+      "round": 2,
+      "word": "record",
+      "synthesis_ms": 18.0,
+      "audio_seconds": 0.49
+    },
+    {
+      "round": 2,
+      "word": "colonel",
+      "synthesis_ms": 18.03,
+      "audio_seconds": 0.48
+    },
+    {
+      "round": 2,
+      "word": "quinoa",
+      "synthesis_ms": 23.66,
+      "audio_seconds": 0.71
+    },
+    {
+      "round": 2,
+      "word": "Worcestershire",
+      "synthesis_ms": 24.94,
+      "audio_seconds": 0.79
+    },
+    {
+      "round": 2,
+      "word": "break the ice",
+      "synthesis_ms": 35.8,
+      "audio_seconds": 1.15
+    },
+    {
+      "round": 2,
+      "word": "a blessing in disguise",
+      "synthesis_ms": 46.61,
+      "audio_seconds": 1.49
+    },
+    {
+      "round": 2,
+      "word": "throw in the towel",
+      "synthesis_ms": 33.74,
+      "audio_seconds": 1.09
+    },
+    {
+      "round": 2,
+      "word": "on the spur of the moment",
+      "synthesis_ms": 42.82,
+      "audio_seconds": 1.37
+    },
+    {
+      "round": 2,
+      "word": "pneumonoultramicroscopicsilicovolcanoconiosis",
+      "synthesis_ms": 108.14,
+      "audio_seconds": 3.24
+    },
+    {
+      "round": 3,
+      "word": "hello",
+      "synthesis_ms": 17.87,
+      "audio_seconds": 0.5
+    },
+    {
+      "round": 3,
+      "word": "serendipity",
+      "synthesis_ms": 31.3,
+      "audio_seconds": 1.02
+    },
+    {
+      "round": 3,
+      "word": "ubiquitous",
+      "synthesis_ms": 29.14,
+      "audio_seconds": 0.93
+    },
+    {
+      "round": 3,
+      "word": "ephemeral",
+      "synthesis_ms": 21.4,
+      "audio_seconds": 0.65
+    },
+    {
+      "round": 3,
+      "word": "read",
+      "synthesis_ms": 17.23,
+      "audio_seconds": 0.46
+    },
+    {
+      "round": 3,
+      "word": "lead",
+      "synthesis_ms": 17.7,
+      "audio_seconds": 0.48
+    },
+    {
+      "round": 3,
+      "word": "record",
+      "synthesis_ms": 18.59,
+      "audio_seconds": 0.52
+    },
+    {
+      "round": 3,
+      "word": "colonel",
+      "synthesis_ms": 17.59,
+      "audio_seconds": 0.46
+    },
+    {
+      "round": 3,
+      "word": "quinoa",
+      "synthesis_ms": 24.15,
+      "audio_seconds": 0.74
+    },
+    {
+      "round": 3,
+      "word": "Worcestershire",
+      "synthesis_ms": 25.12,
+      "audio_seconds": 0.79
+    },
+    {
+      "round": 3,
+      "word": "break the ice",
+      "synthesis_ms": 33.52,
+      "audio_seconds": 1.08
+    },
+    {
+      "round": 3,
+      "word": "a blessing in disguise",
+      "synthesis_ms": 51.15,
+      "audio_seconds": 1.61
+    },
+    {
+      "round": 3,
+      "word": "throw in the towel",
+      "synthesis_ms": 34.59,
+      "audio_seconds": 1.11
+    },
+    {
+      "round": 3,
+      "word": "on the spur of the moment",
+      "synthesis_ms": 42.2,
+      "audio_seconds": 1.35
+    },
+    {
+      "round": 3,
+      "word": "pneumonoultramicroscopicsilicovolcanoconiosis",
+      "synthesis_ms": 110.91,
+      "audio_seconds": 3.32
+    },
+    {
+      "round": 4,
+      "word": "hello",
+      "synthesis_ms": 18.13,
+      "audio_seconds": 0.52
+    },
+    {
+      "round": 4,
+      "word": "serendipity",
+      "synthesis_ms": 31.41,
+      "audio_seconds": 1.02
+    },
+    {
+      "round": 4,
+      "word": "ubiquitous",
+      "synthesis_ms": 29.85,
+      "audio_seconds": 0.94
+    },
+    {
+      "round": 4,
+      "word": "ephemeral",
+      "synthesis_ms": 22.4,
+      "audio_seconds": 0.68
+    },
+    {
+      "round": 4,
+      "word": "read",
+      "synthesis_ms": 17.44,
+      "audio_seconds": 0.49
+    },
+    {
+      "round": 4,
+      "word": "lead",
+      "synthesis_ms": 17.13,
+      "audio_seconds": 0.46
+    },
+    {
+      "round": 4,
+      "word": "record",
+      "synthesis_ms": 18.42,
+      "audio_seconds": 0.51
+    },
+    {
+      "round": 4,
+      "word": "colonel",
+      "synthesis_ms": 18.42,
+      "audio_seconds": 0.5
+    },
+    {
+      "round": 4,
+      "word": "quinoa",
+      "synthesis_ms": 22.32,
+      "audio_seconds": 0.7
+    },
+    {
+      "round": 4,
+      "word": "Worcestershire",
+      "synthesis_ms": 24.25,
+      "audio_seconds": 0.75
+    },
+    {
+      "round": 4,
+      "word": "break the ice",
+      "synthesis_ms": 35.74,
+      "audio_seconds": 1.15
+    },
+    {
+      "round": 4,
+      "word": "a blessing in disguise",
+      "synthesis_ms": 51.33,
+      "audio_seconds": 1.59
+    },
+    {
+      "round": 4,
+      "word": "throw in the towel",
+      "synthesis_ms": 35.21,
+      "audio_seconds": 1.13
+    },
+    {
+      "round": 4,
+      "word": "on the spur of the moment",
+      "synthesis_ms": 40.59,
+      "audio_seconds": 1.3
+    },
+    {
+      "round": 4,
+      "word": "pneumonoultramicroscopicsilicovolcanoconiosis",
+      "synthesis_ms": 107.67,
+      "audio_seconds": 3.2
+    }
+  ]
+}

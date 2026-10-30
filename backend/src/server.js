@@ -4,15 +4,17 @@ import { pathToFileURL } from 'node:url';
 import { resolve } from 'node:path';
 import { readFile,statfs } from 'node:fs/promises';
 import { query, pool } from './db/index.js';
-import { privateResponse, sessionMiddleware, csrfProtection, requireAuth } from './auth/session.js';
+import { privateResponse, sessionMiddleware, csrfProtection, requireAuth, identifyUser, rateLimit } from './auth/session.js';
 import authRouter from './routes/authRoutes.js';
 import libraryRouter from './routes/libraryRoutes.js';
 import insightRouter from './routes/insightRoutes.js';
 import wordRouter from './routes/wordRoutes.js';
 import { createAudioRouter } from './routes/audioRoutes.js';
-import { getEntry, suggestions } from './repositories/entries.js';
+import { getEntry } from './repositories/entries.js';
+import { rankedSuggestions } from './services/suggestionService.js';
 import { validTerm } from './import/normalizeKaikki.js';
 import { getEditorial } from './services/editorialService.js';
+import { limits, monthUsage } from './services/providerBudget.js';
 
 export function createApp() {
     const app=express();
@@ -36,7 +38,7 @@ export function createApp() {
     app.use('/api/insights',insightRouter);
     app.get('/api/suggestions',async(req,res)=>{
         if(!validTerm(req.query.term)) return res.status(400).json({error:'Invalid term.'});
-        res.set('Cache-Control','public,max-age=60').json({suggestions:await suggestions(req.query.term)});
+        res.set('Cache-Control','public,max-age=60').json({suggestions:await rankedSuggestions(req.query.term)});
     });
     app.get('/api/entries/:id/enrichment',async(req,res)=>{
         const entry=await getEntry(req.params.id);
@@ -47,15 +49,15 @@ export function createApp() {
     app.use('/api',privateResponse,csrfProtection);
     app.use('/api/auth',authRouter);
     app.use('/api/me',libraryRouter);
-    app.use('/api/pronunciations',createAudioRouter({requireAuth}));
+    app.use('/api/pronunciations',createAudioRouter({identifyUser,limitVisitor:(req,maximum)=>rateLimit('audio-visitor',req.ip,maximum,3600)}));
     app.get('/api/status',requireAuth,async(req,res)=>{
         const [release,usage]=await Promise.all([
             query("SELECT r.id,r.counts,r.completed_at FROM dictionary_releases r JOIN sources s ON s.active_release_id=r.id"),
-            query('SELECT provider,period_start,period_end,character_limit,verified_until,reserved_characters FROM provider_allowances ORDER BY period_start DESC LIMIT 1').catch(()=>({rows:[]})),
+            monthUsage({query}),
         ]);
         const storage=await statfs(resolve(process.env.AUDIO_DIR||'./data/audio')).catch(()=>null);
         const lastBackup=await readFile('/data/backups/latest-success','utf8').catch(()=>null);
-        res.json({release:release.rows[0],synthesisEnabled:process.env.AUDIO_SYNTHESIS_ENABLED==='true',allowance:usage.rows[0]||null,freeDiskBytes:storage?storage.bavail*storage.bsize:null,lastBackup:lastBackup?.trim()||null});
+        res.json({release:release.rows[0],synthesisEnabled:process.env.AUDIO_SYNTHESIS_ENABLED==='true',audioCharacters:{...usage,limits:limits()},freeDiskBytes:storage?storage.bavail*storage.bsize:null,lastBackup:lastBackup?.trim()||null});
     });
     app.use('/api',(_req,res)=>res.status(404).json({error:'Endpoint not found.'}));
     app.use((error,_req,res,_next)=>{

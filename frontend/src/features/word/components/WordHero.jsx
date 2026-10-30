@@ -3,6 +3,7 @@ import { motion } from "motion/react";
 
 import AudioButton from "./AudioButton.jsx";
 import WordActions from "./WordActions.jsx";
+import { useAccent } from "../hooks/useAccent.js";
 
 const getHeadwordSize = (word = "") => {
     if (word.length > 16) return "text-h1";
@@ -15,6 +16,11 @@ const WordHero = ({ entries, activeIndex, onSelect, insights }) => {
     const hasTabs = entries.length > 1;
     const syllables = entry.syllables?.length > 1 ? entry.syllables.join("·") : null;
     const definition = entry.senses?.flatMap(group => group.senses).find(sense => sense.definition)?.definition ?? null;
+    const [accent, setAccent] = useAccent();
+    // Show the transcription for the accent being played, not whichever variant the source listed first.
+    const phonetic = entry.pronunciations?.find(item => item.accent === accent)?.ipa
+        ?? entry.pronunciations?.find(item => item.accent === "us")?.ipa
+        ?? entry.phonetic;
 
     return (
         <section className="relative overflow-hidden border-b border-line">
@@ -55,7 +61,7 @@ const WordHero = ({ entries, activeIndex, onSelect, insights }) => {
 
                     <div className="flex flex-wrap items-center gap-x-lg gap-y-sm font-mono text-body-sm text-muted">
                         {syllables && <span>{syllables}</span>}
-                        {entry.phonetic && <span className="text-ink">/{entry.phonetic.replace(/^[/[]|[/\]]$/g, '')}/</span>}
+                        {phonetic && <span className="text-ink">/{phonetic.replace(/^[/[]|[/\]]$/g, '')}/</span>}
                         {insights.syllableCount && (
                             <span>{insights.syllableCount} {insights.syllableCount === 1 ? "syllable" : "syllables"}</span>
                         )}
@@ -64,7 +70,15 @@ const WordHero = ({ entries, activeIndex, onSelect, insights }) => {
 
                 <div className="flex flex-col gap-lg sm:flex-row sm:items-center sm:justify-between">
                     <div className="flex flex-wrap items-center gap-md">
-                        <AudioButton key={entry.id} word={entry.word} pronunciations={entry.pronunciations} shortcutKey="p" />
+                        <AudioButton
+                            key={entry.id}
+                            word={entry.word}
+                            pronunciations={entry.pronunciations}
+                            fallbackAudio={entry.audio}
+                            accent={accent}
+                            onAccentChange={setAccent}
+                            shortcutKey="p"
+                        />
 
                         {hasTabs ? (
                             <div role="tablist" aria-label="Part of speech" className="flex max-w-full flex-wrap rounded-full border border-line bg-surface p-xs">

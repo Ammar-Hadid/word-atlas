@@ -38,8 +38,25 @@ export async function requireAuth(req, res, next) {
     req.user = rows[0];
     next();
 }
+// Like requireAuth, but signed-out requests continue as visitors.
+export async function identifyUser(req, _res, next) {
+    if (req.session?.userId) {
+        const { rows } = await query('SELECT id,username FROM users WHERE id=$1 AND active', [req.session.userId]);
+        req.user = rows[0] ?? null;
+    }
+    next();
+}
+// Start a fresh session for a verified user, so a pre-login session ID is never reused.
+export async function signIn(req, user) {
+    await new Promise((resolve,reject) => req.session.regenerate(error => error ? reject(error) : resolve()));
+    req.session.userId = user.id;
+    const token = csrfToken(req);
+    await new Promise((resolve,reject) => req.session.save(error => error ? reject(error) : resolve()));
+    return { user: { id: user.id, username: user.username }, csrfToken: token };
+}
 export async function rateLimit(bucket, subject, maximum, windowSeconds = 900) {
-    const digest = createHash('sha256').update(subject).digest('hex');
+    // An aborted request has no remote address left; count those under one bucket.
+    const digest = createHash('sha256').update(String(subject ?? 'unknown')).digest('hex');
     const { rows } = await query(`INSERT INTO request_limits(bucket,subject,window_start,requests)
         VALUES($1,$2,to_timestamp(floor(extract(epoch from now())/$3)*$3),1)
         ON CONFLICT(bucket,subject,window_start) DO UPDATE SET requests=request_limits.requests+1

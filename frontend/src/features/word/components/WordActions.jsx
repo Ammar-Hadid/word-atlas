@@ -34,8 +34,9 @@ const WordActions = ({ entry, definition }) => {
             definition,
         });
 
-        notify(result.pending
-            ? (user ? "Change queued. Synchronization pending." : "Change queued. Sign in from Library to synchronize.")
+        // Visitors' libraries live on their device, so only the owner ever waits on a sync.
+        notify(result.pending && user
+            ? "Change queued. Synchronization pending."
             : result.saved ? `Saved “${entry.word}” to your library` : "Removed from your library");
     };
 

@@ -1,8 +1,8 @@
 import { readFile } from 'node:fs/promises';
-import { VOICE } from './pronunciationService.js';
+import { VOICES } from './pronunciationService.js';
 
 export function googleRequest(config) {
-    if (config.provider !== 'google-chirp3-hd' || config.voice !== VOICE || config.language !== 'en-US'
+    if (config.provider !== 'google-chirp3-hd' || !VOICES[config.language] || config.voice !== VOICES[config.language]
         || config.format !== 'MP3' || config.speakingRate !== 1 || !config.text || config.text.length > 200) {
         throw new Error('unsupported_synthesis_configuration');
     }
@@ -12,7 +12,7 @@ export function googleRequest(config) {
             ...(config.phoneme ? { customPronunciations: { pronunciations: [{ phrase: config.text,
                 phoneticEncoding: 'PHONETIC_ENCODING_IPA', pronunciation: config.phoneme }] } } : {}),
         },
-        voice: { languageCode: 'en-US', name: VOICE },
+        voice: { languageCode: config.language, name: config.voice },
         audioConfig: { audioEncoding: 'MP3', speakingRate: 1 },
     };
 }

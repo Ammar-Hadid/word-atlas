@@ -171,7 +171,8 @@ export async function processAudioJob(job,{
         // Fail credential setup before taking a synthesis reservation or sending text.
         const token = await getToken();
         const reservation = await inTransaction(client,async () => {
-            const permission = await reserve(client,key,billableUpperBound(job.config));
+            const permission = await reserve(client,key,billableUpperBound(job.config),
+                {audience:job.requested_by==='visitor'?'visitor':'owner'});
             if (permission.status !== 'reserved') return permission;
             await client.query(`UPDATE audio_jobs SET dispatched_at=now(),attempts=1,updated_at=now()
                 WHERE asset_key=$1 AND dispatched_at IS NULL`,[key]);

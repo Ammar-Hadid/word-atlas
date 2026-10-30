@@ -56,7 +56,7 @@ const EmptyState = ({ tab }) => (
         </h2>
         <p className="max-w-[28rem] text-body text-muted">
             {tab === "saved"
-                ? "Press S on any entry, or tap the bookmark, to keep it here. Sign in to synchronize your library across devices."
+                ? "Press S on any entry, or tap the bookmark, to keep it here."
                 : "Words you look up appear here, so you can retrace your steps."}
         </p>
         <div className="flex flex-wrap gap-xs">

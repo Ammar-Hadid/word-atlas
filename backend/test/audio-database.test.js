@@ -36,12 +36,13 @@ test('PostgreSQL audio deduplication, quota races, worker locking, and persisted
     await db.query('CREATE TABLE entries(id text PRIMARY KEY)');
     await db.query(await readFile(new URL('../migrations/004_pronunciation_audio.sql',import.meta.url),'utf8'));
     await db.query(await readFile(new URL('../migrations/005_audio_safety.sql',import.meta.url),'utf8'));
+    await db.query(await readFile(new URL('../migrations/008_uk_pronunciation_and_monthly_cap.sql',import.meta.url),'utf8'));
+    await db.query("INSERT INTO entries(id) VALUES('visitor-entry')");
     await db.query("INSERT INTO entries(id) VALUES('test-entry')");
     const pronunciations=await registerEntryPronunciations({id:'test-entry',word:'lead',sourceSounds:[{ipa:'/lɛd/'}],senses:[]},db);
+    assert.deepEqual(pronunciations.map(item=>item.accent),['us','uk']);
     const id=pronunciations[0].id;
-    assert.equal((await prepareAudio(id,'user',db)).reason,'allowance_unverified');
-    const {rows:[grant]}=await db.query(`INSERT INTO provider_allowances(provider,period_start,period_end,character_limit,verified_until,verification_evidence)
-        VALUES('google-chirp3-hd',date_trunc('month',now() AT TIME ZONE 'UTC') AT TIME ZONE 'UTC',(date_trunc('month',now() AT TIME ZONE 'UTC')+interval '1 month') AT TIME ZONE 'UTC',100000,LEAST(now()+interval '1 hour',(date_trunc('month',now() AT TIME ZONE 'UTC')+interval '1 month') AT TIME ZONE 'UTC'),'Synthetic test allocation; no real synthesis permitted') RETURNING id`);
+    // Twenty concurrent requests still create one job.
     const requests=await Promise.all(Array.from({length:20},()=>prepareAudio(id,'user',db)));
     assert.ok(requests.every(result=>result.status==='pending'));
     assert.equal((await db.query('SELECT count(*)::int AS count FROM audio_jobs')).rows[0].count,1);
@@ -75,11 +76,11 @@ test('PostgreSQL audio deduplication, quota races, worker locking, and persisted
     assert.equal((await readAudio(id,db)).status,'ready');
     assert.equal(calls,1);
 
-    await db.query('UPDATE provider_allowances SET revoked_at=now() WHERE id=$1',[grant.id]);
-    const {rows:[raceGrant]}=await db.query(`INSERT INTO provider_allowances(provider,period_start,period_end,character_limit,verified_until,verification_evidence)
-        VALUES('google-chirp3-hd',now(),(date_trunc('month',now() AT TIME ZONE 'UTC')+interval '1 month') AT TIME ZONE 'UTC',21,
-            LEAST(now()+interval '1 hour',(date_trunc('month',now() AT TIME ZONE 'UTC')+interval '1 month') AT TIME ZONE 'UTC'),
-            'Synthetic test allocation for quota race boundary') RETURNING id`);
+    // The monthly cap admits exactly as many concurrent reservations as fit.
+    const used=(await db.query('SELECT sum(characters)::int AS total FROM provider_usage')).rows[0].total;
+    const originalLimit=process.env.AUDIO_MONTHLY_CHARACTER_LIMIT;
+    process.env.AUDIO_MONTHLY_CHARACTER_LIMIT=String(used+21);
+    t.after(()=>{if(originalLimit===undefined)delete process.env.AUDIO_MONTHLY_CHARACTER_LIMIT;else process.env.AUDIO_MONTHLY_CHARACTER_LIMIT=originalLimit;});
     const assetKeys=Array.from({length:12},(_,i)=>hash(`budget-${i}`));
     for(const key of assetKeys)await db.query("INSERT INTO audio_assets(asset_key,config,status)VALUES($1,'{}','pending')",[key]);
     const results=await Promise.all(assetKeys.map(key=>db.transaction(client=>reserveAllowance(client,key,7))));
@@ -88,26 +89,20 @@ test('PostgreSQL audio deduplication, quota races, worker locking, and persisted
     const reserved=assetKeys[results.findIndex(result=>result.status==='reserved')];
     assert.equal((await db.transaction(client=>reserveAllowance(client,reserved,7))).status,'already_reserved');
     assert.equal(await verifyDispatchAllowance(db,reserved),true);
-    // Simultaneously active grants are never additive and cannot authorize dispatch.
-    await db.query('UPDATE provider_allowances SET revoked_at=NULL WHERE id=$1',[grant.id]);
-    assert.equal((await allowanceStatus(db)).reason,'allowance_unverified');
-    assert.equal(await verifyDispatchAllowance(db,reserved),false);
-    await db.query('UPDATE provider_allowances SET revoked_at=now() WHERE id=ANY($1::bigint[])',[[grant.id,raceGrant.id]]);
-    assert.equal(await verifyDispatchAllowance(db,reserved),false);
-    assert.equal((await allowanceStatus(db)).reason,'allowance_unverified');
-    await assert.rejects(db.query(`INSERT INTO provider_allowances(provider,period_start,period_end,character_limit,verified_until,verification_evidence)
-        VALUES('google-chirp3-hd',now(),now()+interval '1 year',100,now()+interval '1 year','Invalid future allowance must be rejected')`),error=>error.code==='23514');
-    await assert.rejects(db.query(`INSERT INTO provider_allowances(provider,period_start,period_end,character_limit,verified_until,verification_evidence)
-        VALUES('google-chirp3-hd',now()+interval '1 month',now()+interval '2 months',100,now()+interval '2 months','Invalid future allowance must be rejected')`),error=>error.code==='23514');
-    // Regression: verification expires while a competing transaction holds the budget lock.
-    const {rows:[expiring]}=await db.query(`INSERT INTO provider_allowances(provider,period_start,period_end,character_limit,verified_until,verification_evidence)
-        VALUES('google-chirp3-hd',now(),(date_trunc('month',now() AT TIME ZONE 'UTC')+interval '1 month') AT TIME ZONE 'UTC',100,
-            clock_timestamp()+interval '2 seconds','Synthetic expiring allowance for lock-wait regression') RETURNING verified_until`);
-    const holder=await pool.connect();
-    await holder.query('BEGIN');await holder.query("SELECT pg_advisory_xact_lock(hashtext('word-atlas-google-budget'))");
-    const waiting=db.transaction(client=>reserveAllowance(client,assetKeys[11],7));
-    await new Promise(resolve=>setTimeout(resolve,2200));
-    await holder.query('COMMIT');holder.release();
-    assert.ok(Date.now()>new Date(expiring.verified_until).getTime());
-    assert.equal((await waiting).reason,'allowance_unverified');
+    assert.equal(await verifyDispatchAllowance(db,assetKeys[results.findIndex(result=>result.status!=='reserved')]),false);
+    assert.equal((await allowanceStatus(db)).status,'allowance_exhausted');
+
+    // When the allowance runs out a request is parked, and it resumes once there is room again.
+    process.env.AUDIO_SYNTHESIS_ENABLED='true';
+    const [visitorUs]=await registerEntryPronunciations({id:'visitor-entry',word:'cat',sourceSounds:[{ipa:'/kæt/'}],senses:[]},db);
+    const parked=await prepareAudio(visitorUs.id,undefined,db);
+    assert.equal(parked.status,'allowance_exhausted');
+    assert.equal((await readAudio(visitorUs.id,db)).status,'allowance_exhausted');
+    process.env.AUDIO_MONTHLY_CHARACTER_LIMIT=String(used+21+100);
+    process.env.AUDIO_VISITOR_DAILY_LIMIT='1';
+    assert.equal((await prepareAudio(visitorUs.id,undefined,db)).status,'allowance_exhausted'); // visitors' daily share
+    assert.equal((await readAudio(visitorUs.id,db,{userId:'user'})).status,'unprepared'); // the owner's reserve
+    delete process.env.AUDIO_VISITOR_DAILY_LIMIT;
+    assert.equal((await prepareAudio(visitorUs.id,undefined,db)).status,'pending');
+    assert.equal((await db.query("SELECT requested_by FROM audio_jobs WHERE pronunciation_id=$1",[visitorUs.id])).rows[0].requested_by,'visitor');
 });

@@ -1,70 +1,65 @@
-// No clock-based reset creates spending authority. Every allocation needs explicit evidence.
+// Google's official price list (checked 30 Oct 2026): Chirp 3 HD voices are free for
+// the first 1 million characters each month, then US$30 per million. Every input
+// character counts, spaces included. Word Atlas stops well before the free tier ends.
 export const PROVIDER = 'google-chirp3-hd';
+export const FREE_TIER_CHARACTERS = 1_000_000;
 export const synthesisEnabled = () => process.env.AUDIO_SYNTHESIS_ENABLED === 'true';
 
+const setting = (name, fallback) => Math.min(Number(process.env[name]) || fallback, FREE_TIER_CHARACTERS * 0.9);
+
+// Visitors share less than the whole cap, so the rest stays reserved for the owner,
+// and a daily share stops one busy day (or one bot) from using up the month.
+export function limits() {
+    const monthly = setting('AUDIO_MONTHLY_CHARACTER_LIMIT', 800_000);
+    return {
+        monthly,
+        visitorMonthly: Math.min(setting('AUDIO_VISITOR_MONTHLY_LIMIT', 600_000), monthly),
+        visitorDaily: setting('AUDIO_VISITOR_DAILY_LIMIT', 20_000),
+    };
+}
+export const monthlyLimit = () => limits().monthly;
+
+// Google bills the input text, including the custom pronunciation. UTF-8 bytes
+// are never fewer than characters, so this is a safe upper bound.
 export function billableUpperBound(config) {
-    // UTF-8 bytes of the FULL request exceed Unicode input characters, including override metadata.
-    return Buffer.byteLength(JSON.stringify({
-        input: { text: config.text, customPronunciations: config.phoneme ? {
-            pronunciations: [{ phrase: config.text, phoneticEncoding: 'PHONETIC_ENCODING_IPA', pronunciation: config.phoneme }],
-        } : undefined },
-        voice: { languageCode: config.language, name: config.voice },
-        audioConfig: { audioEncoding: config.format, speakingRate: config.speakingRate },
-    }));
+    const bytes = value => Buffer.byteLength(value ?? '');
+    return bytes(config.text) + (config.phoneme ? bytes(config.text) + bytes(config.phoneme) : 0);
 }
 
-export async function allowanceStatus(client, characters = 1) {
-    const { rows } = await client.query(`SELECT * FROM provider_allowances
-        WHERE provider=$1 AND period_start <= clock_timestamp() AND period_end > clock_timestamp()
-          AND verified_until > clock_timestamp() AND revoked_at IS NULL
-          AND period_start >= date_trunc('month',clock_timestamp() AT TIME ZONE 'UTC') AT TIME ZONE 'UTC'
-          AND period_end <= (date_trunc('month',clock_timestamp() AT TIME ZONE 'UTC') + interval '1 month') AT TIME ZONE 'UTC'
-        ORDER BY period_start DESC LIMIT 2`, [PROVIDER]);
-    // Overlapping grants are an operational error, never two additive allowances.
-    if (rows.length !== 1) return { status: 'unavailable', reason: 'allowance_unverified' };
-    const allowance = rows[0];
-    if (allowance.reserved_characters + characters > allowance.character_limit) {
-        return { status: 'allowance_exhausted', reason: 'allowance_exhausted' };
-    }
-    return { status: 'permitted', allowance };
+// Google's billing month follows Pacific time.
+const periodStart = unit => `date_trunc('${unit}',now() AT TIME ZONE 'America/Los_Angeles') AT TIME ZONE 'America/Los_Angeles'`;
+
+export async function monthUsage(client) {
+    const { rows: [row] } = await client.query(`SELECT
+            coalesce(sum(characters),0)::integer AS month,
+            coalesce(sum(characters) FILTER (WHERE audience='visitor'),0)::integer AS visitor_month,
+            coalesce(sum(characters) FILTER (WHERE audience='visitor' AND created_at >= ${periodStart('day')}),0)::integer AS visitor_day
+        FROM provider_usage WHERE created_at >= ${periodStart('month')}`);
+    return row;
 }
 
-export async function reserveAllowance(client, assetKey, characters) {
-    // All worker processes serialize against this lock before inspecting grant rows.
+export async function allowanceStatus(client, characters = 1, { audience = 'owner' } = {}) {
+    const used = await monthUsage(client);
+    const cap = limits();
+    const fits = used.month + characters <= cap.monthly && (audience === 'owner'
+        || (used.visitor_month + characters <= cap.visitorMonthly && used.visitor_day + characters <= cap.visitorDaily));
+    return fits ? { status: 'permitted' } : { status: 'allowance_exhausted', reason: 'allowance_exhausted' };
+}
+
+export async function reserveAllowance(client, assetKey, characters, { audience = 'owner' } = {}) {
+    // All worker processes serialize against this lock before reading usage.
     await client.query("SELECT pg_advisory_xact_lock(hashtext('word-atlas-google-budget'))");
-    const {rows:[clock]}=await client.query('SELECT clock_timestamp() AS now');
-    const now=clock.now;
     const { rows: existing } = await client.query('SELECT * FROM provider_usage WHERE asset_key=$1', [assetKey]);
     if (existing.length) return { status: 'already_reserved', usage: existing[0] };
-    // A second operator grant in the same calendar month cannot raise the app's hard cap.
-    const { rows: [{ total }] } = await client.query(`SELECT coalesce(sum(characters),0)::integer AS total
-        FROM provider_usage WHERE created_at >= date_trunc('month',$1::timestamptz AT TIME ZONE 'UTC') AT TIME ZONE 'UTC'
-        AND created_at < (date_trunc('month',$1::timestamptz AT TIME ZONE 'UTC') + interval '1 month') AT TIME ZONE 'UTC'`,[now]);
-    if (total + characters > 100000) return { status: 'allowance_exhausted', reason: 'monthly_application_limit' };
-    const permission = await allowanceStatus(client, characters);
+    const permission = await allowanceStatus(client, characters, { audience });
     if (permission.status !== 'permitted') return permission;
-    const { rows } = await client.query(`UPDATE provider_allowances SET reserved_characters=reserved_characters+$2
-        WHERE id=$1 AND revoked_at IS NULL AND verified_until>clock_timestamp() AND period_end>clock_timestamp()
-          AND reserved_characters+$2 <= character_limit RETURNING id`, [permission.allowance.id,characters]);
-    if (!rows.length) return { status: 'unavailable', reason: 'allowance_changed' };
-    await client.query(`INSERT INTO provider_usage(asset_key,allowance_id,characters,state,created_at)
-        VALUES($1,$2,$3,'reserved',$4)`, [assetKey,permission.allowance.id,characters,now]);
+    await client.query(`INSERT INTO provider_usage(asset_key,characters,state,audience) VALUES($1,$2,'reserved',$3)`,
+        [assetKey, characters, audience]);
     return { status: 'reserved', characters };
 }
 
-// Check again after reservation COMMIT, immediately before the sole external call.
-// The margin also closes the period-end boundary during request dispatch/transport.
-export async function verifyDispatchAllowance(client,assetKey) {
-    const {rows}=await client.query(`SELECT u.asset_key FROM provider_usage u
-        JOIN provider_allowances a ON a.id=u.allowance_id
-        WHERE u.asset_key=$1 AND u.state='reserved' AND a.revoked_at IS NULL
-          AND a.period_start <= clock_timestamp()
-          AND a.period_end > clock_timestamp()+interval '30 seconds'
-          AND a.verified_until > clock_timestamp()+interval '30 seconds'
-          AND a.period_start >= date_trunc('month',clock_timestamp() AT TIME ZONE 'UTC') AT TIME ZONE 'UTC'
-          AND a.period_end <= (date_trunc('month',clock_timestamp() AT TIME ZONE 'UTC')+interval '1 month') AT TIME ZONE 'UTC'
-          AND NOT EXISTS (SELECT 1 FROM provider_allowances other WHERE other.provider=a.provider AND other.id<>a.id
-            AND other.revoked_at IS NULL AND other.period_start<=clock_timestamp()
-            AND other.period_end>clock_timestamp() AND other.verified_until>clock_timestamp())`,[assetKey]);
-    return rows.length===1;
+// The reservation must still exist right before the single provider call.
+export async function verifyDispatchAllowance(client, assetKey) {
+    const { rows } = await client.query("SELECT 1 FROM provider_usage WHERE asset_key=$1 AND state='reserved'", [assetKey]);
+    return rows.length === 1;
 }
